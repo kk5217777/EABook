@@ -11,7 +11,7 @@
 
 @implementation EAAnimSprite
 @synthesize imageName, soundName, wordimageName, wordsoundName;
-@synthesize imgNum;
+@synthesize imgNum, repeatTime;
 @synthesize delayTime;
 
 + (id)spriteWithName:(NSString*)name
@@ -22,8 +22,9 @@
 - (id)initWithName:(NSString*)name
 {
     imageName = name;
-    NSString *fullImagName;
     animImageFrames = [NSMutableArray array];
+    repeatTime = 1;
+    NSString *fullImagName;
     
     fullImagName = [NSString stringWithFormat:@"%@_%d.png",name,0];
 
@@ -39,40 +40,9 @@
     return self;
 }
 
--(void) animation
-{
-    if (!animImageFrames)
-    {
-        for (int i = 0; i < imgNum; i++)
-        {
-            NSString *fullImagName;
-            fullImagName = [NSString stringWithFormat:@"%@%d.png", imageName, i];
-            [animImageFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
-        }
-    }
-    animate = [CCAnimation animationWithSpriteFrames:animImageFrames delay:delayTime];
-    CCAnimate *action = [CCAnimate actionWithAnimation:animate];
-    [self runAction:action];
-}
 -(void) startAnimation
 {
     NSLog(@"start animation");
-    
-
-    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-    //[cache addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist",fileName]];
-    
-    /*
-    NSMutableArray *frames =[[NSMutableArray array] retain];
-    CCAnimate *actLion = NULL;
-    for (int i=0; i<imgNum; i++) {
-        NSString *FrameName =[NSString stringWithFormat:@"%@_%d.png",imageName,i];
-        CCSpriteFrame *frame = [cache spriteFrameByName:FrameName];
-        [frames addObject:frame];
-    }
-    
-    CCAnimation *walkAnim =[CCAnimation animationWithSpriteFrames:frames delay:6];
-    */
     
     CCAnimation *pAnim = [CCAnimation animation];
     for(unsigned int i = 1; i < imgNum; i++)
@@ -80,20 +50,17 @@
         NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
         [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
     }
-    [pAnim setDelayPerUnit:1.0f];
+    [pAnim setDelayPerUnit:delayTime];
+    pAnim.restoreOriginalFrame = YES;
     
-    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0f],
-                        [CCAnimate actionWithAnimation:pAnim],
-                        NULL]];
+    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
+    CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
     
-    //CCTexture2D * texture =[[CCTextureCache sharedTextureCache] addImage: [NSString stringWithFormat:@"%@_%d.png",fileName,0]];//新建贴图
-    //UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d.png",fileName,0]];
-    
-    //NSLog(@"%@",texture.debugDescription);
-    //[self setTexture:texture];
-    
-    //[frames removeAllObjects];
-    //[frames release];
+    CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
+    [self runAction:[CCSequence actions:switchIneraction,
+                    [CCDelayTime actionWithDuration:delayTime],
+                    [CCRepeat actionWithAction:action times:repeatTime],
+                    stopSound , NULL]];
 }
     
 -(void) startLoopAnimation
@@ -114,5 +81,7 @@
     CCAnimate *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animate]];
     [self runAction:action];
 }
+
+
 
 @end

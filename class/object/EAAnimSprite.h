@@ -17,6 +17,7 @@
     NSString *wordsoundName;
     NSString *wordimageName;
     NSInteger imgNum;
+    NSInteger repeatTime;
     BOOL _isTouch;
     
     @protected
@@ -25,12 +26,11 @@
     float delayTime;
     NSMutableArray *animImageFrames;
     CCAnimation *animate;
-    
 }
 
 @property(nonatomic, retain)NSString *imageName,*soundName,*wordsoundName,*wordimageName;
 @property(nonatomic) BOOL isTouch;
-@property(nonatomic, readwrite)NSInteger imgNum;
+@property(nonatomic, readwrite)NSInteger imgNum, repeatTime;
 @property(nonatomic, readwrite)float delayTime;
 
 + (id)spriteWithName:(NSString*)name;

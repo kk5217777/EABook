@@ -20,12 +20,27 @@
     {
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];// new add
         
+        gamepoint = delegate.EAGamePoint;
+        
         touchEnable = YES;
         soundEnable = YES;
         
         NSLog(@"Layer");
 	}
 	return self;
+}
+
+-(void) switchInteraction
+{
+    NSLog(@"EALayer switchInteraction");
+    touchEnable = !touchEnable;
+    soundEnable = !soundEnable;
+}
+
+-(void) stopSpriteMove
+{
+    NSLog(@"EALayer stopSpriteMove");
+    [self switchInteraction];
 }
 
 -(void) addTapToLayer
@@ -124,6 +139,7 @@
 
 -(void) onExit{
     NSLog(@"EALayer exit");
+    delegate.EAGamePoint = gamepoint;
 }
 
 -(void) dealloc
