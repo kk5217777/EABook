@@ -10,6 +10,7 @@
 #import "EAPageMenu.h"
 
 @implementation EAPage2
+
 +(CCScene *) scene
 {
     // 'scene' is an autorelease object.
@@ -25,22 +26,36 @@
 	return scene;
 }
 
-+(CCScene*) sceneWithGamePoint:(GamePoint *)gp
-{
-	CCScene *scene = [CCScene node];
-	EAPage2 *layer = [[EAPage2 alloc] initWithGamePoint:gp];
-	[scene addChild: layer];
-	return scene;
-}
--(id) initWithGamePoint:(GamePoint *)gp
+-(id) init
 {
     if (self = [super init]) {
-        NSLog(@"game point: %@", gp.description);
-        gamepoint = gp;
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"P2.plist"];
+        
+        CCSprite* pSprite2 = [CCSprite spriteWithSpriteFrameName:@"P2_horse_0.png"];
+        [pSprite2 setPosition:ccp(500, 500)];
+        [self addChild:pSprite2];
+        
+        CCAnimation *pAnim2 = [CCAnimation animation];
+        for(unsigned int i = 1; i < 6; i++)
+        {
+            NSString *name = [NSString stringWithFormat:@"P2_horse_%d.png", i];
+            [pAnim2 addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+        }
+        [pAnim2 setDelayPerUnit:1.0f];
+        
+        [pSprite2 runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0f],
+                             [CCAnimate actionWithAnimation:pAnim2],
+                             NULL]];
+        
+        //delegate = (AppController*) [[UIApplication sharedApplication] delegate];
+        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+        tapgestureRecognizer.numberOfTapsRequired = 1; //new add
+        [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
+        
     }
     return self;
 }
-
+/*
 -(void) onEnter
 {
     tapObjectArray = [[NSMutableArray alloc] init];
@@ -48,58 +63,98 @@
     NSLog(@"game point: %@", gamepoint.description);
     CGSize size = [[CCDirector sharedDirector] winSize];
     
-	CCLabelTTF *tt = [CCLabelTTF labelWithString:@"hello page2" fontName:@"Marker Felt" fontSize:64];
+    CCLabelTTF *tt = [CCLabelTTF labelWithString:@"hello page2" fontName:@"Marker Felt" fontSize:64];
     tt.position = ccp(size.width/2, size.width/2);
     [self addChild:tt];
-
+    
+    [self addObjects];
     
     delegate = (AppController*) [[UIApplication sharedApplication] delegate];
     tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
     tapgestureRecognizer.numberOfTapsRequired = 1; //new add
     [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
     
+    gamepoint = delegate.EAGamePoint;
+    
     soundDetect = [[SoundSensor alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundMove) name:EVENT_SOUND object:soundDetect];
-    
-    [self addObjects];
 }
-
+*/
 -(void) addObjects
 {
     //加入物件
-    [self addBackGround:@"P2_Background.jpg"];
+    //[self addBackGround:@"P2_Background.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"p2.plist"];
+     @"P2.plist"];
     spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P2.png"];
     [self addChild:spriteSheet];
     
-    EAAnimSprite *animSprite;
+    //EAAnimSprite *animSprite;
     animSprite = [EAAnimSprite spriteWithName:@"P2_horse"];
     animSprite.tag = 1;
     animSprite.imgNum = 6;
     [animSprite setPosition:LOCATION(600, 200)];
-    [spriteSheet addChild:animSprite];
-    //[self addChild:animSprite];
+    //[spriteSheet addChild:animSprite];
+    [self addChild:animSprite];
     [tapObjectArray addObject:animSprite];
+    /*
+    NSMutableArray *animImageFrames = [[NSMutableArray array] retain];
+    int imgNum = 6;
+    NSString *imageName = @"P2_horse";
     
+    for (int i = 0; i < imgNum; i++)
+    {
+        NSString *fullImagName;
+        fullImagName = [NSString stringWithFormat:@"%@_%d.png", imageName, i];
+        [animImageFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
+    }
+    CCAnimation *animate = [CCAnimation animationWithSpriteFrames:animImageFrames delay:0.5f];
+    _danceAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animate]];
+    */
+    NSLog(@"tapObjectArrayCount %d", tapObjectArray.count);
     
-    CCSprite *btnback;
-    btnback= [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P2_horse_0.png"]];
-    [btnback setTag:0];
-    [btnback setPosition:LOCATION(200, 200)];
-    [spriteSheet addChild:btnback];
-    [tapObjectArray addObject:btnback];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"test_default.plist"];
     
+    CCSprite* pSprite = [CCSprite spriteWithSpriteFrameName:@"01.png"];
+    [pSprite setPosition:ccp(500, 500)];
+    [self addChild:pSprite];
     
-     
-    NSLog(@"Tap! %d", tapObjectArray.count);
+    CCAnimation *pAnim = [CCAnimation animation];
+    for(unsigned int i = 1; i < 101; i++)
+    {
+        NSString *name = [NSString stringWithFormat:@"%02i.png", i];
+        [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+    }
+    [pAnim setDelayPerUnit:1.0f];
+    
+    [pSprite runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0f],
+                        [CCAnimate actionWithAnimation:pAnim],
+                        NULL]];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p2.plist"];
+    
+    CCSprite* pSprite2 = [CCSprite spriteWithSpriteFrameName:@"P2_horse_0.png"];
+    [pSprite2 setPosition:ccp(700, 400)];
+    [self addChild:pSprite2];
+    
+    CCAnimation *pAnim2 = [CCAnimation animation];
+    for(unsigned int i = 1; i < 6; i++)
+    {
+        NSString *name = [NSString stringWithFormat:@"P2_horse_%d.png", i];
+        [pAnim2 addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+    }
+    [pAnim2 setDelayPerUnit:1.0f];
+    
+    [pSprite2 runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0f],
+                         [CCAnimate actionWithAnimation:pAnim2],
+                         NULL]];
 }
 
 -(void) draw
 {
-    [soundDetect update];
+    //[soundDetect update];
 }
 
 -(void) soundMove
@@ -120,40 +175,18 @@
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     NSLog(@"tap");
-    NSMutableArray *animImageFrames = [[NSMutableArray array] retain];
-    int imgNum = 6;
-    NSString *imageName = @"P2_horse";
-    
-    for (int i = 0; i < imgNum; i++)
-    {
-        NSString *fullImagName;
-        fullImagName = [NSString stringWithFormat:@"%@_%d.png", imageName, i];
-        [animImageFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
-    }
-    CCAnimation *animate = [CCAnimation animationWithSpriteFrames:animImageFrames delay:1];
-    CCAnimate *action = [CCAnimate actionWithAnimation:animate];
-    
     
     for (EAAnimSprite *tapObject in tapObjectArray) {
         if (CGRectContainsPoint(tapObject.boundingBox, touchLocation)) {
-            NSLog(@"show config panel");
             NSLog(@"btn tag:%d",tapObject.tag);
-            
             switch (tapObject.tag) {
                 case 0:
                     NSLog(@"tap 0");
-                    [tapObject runAction:action];
-                    //[tapObject startAnimation];
-                    /*for (int i = 0; i < tapObject.imgNum; i++)
-                    {
-                        NSString *fullImagName;
-                        fullImagName = [NSString stringWithFormat:@"%@%d.png", tapObject.imageName, i];
-                        NSMutableArray *animImageFrames = [NSMutableArray array];
-                        [animImageFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
-                    }
-                    */
+                    //[animSprite startAnimation];
                     break;
                 case 1:
+                    [animSprite startAnimation];
+                    break;
                 case 2:
                     break;
                 case 3:

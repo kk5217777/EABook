@@ -57,24 +57,46 @@
 -(void) startAnimation
 {
     NSLog(@"start animation");
+    
+
+    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+    //[cache addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist",fileName]];
+    
     /*
-    //if (!animImageFrames)
-    //{
-        for (int i = 0; i < imgNum; i++)
-        {
-            NSString *fullImagName;
-            fullImagName = [NSString stringWithFormat:@"%@%d.png", imageName, i];
-            [animImageFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
-        }
-    //}
-    //if (!animate)
-    //{
-        animate = [CCAnimation animationWithSpriteFrames:animImageFrames delay:delayTime];
-    //}
-    CCAnimate *action = [CCAnimate actionWithAnimation:animate];
-    [self runAction:action];
-     */
+    NSMutableArray *frames =[[NSMutableArray array] retain];
+    CCAnimate *actLion = NULL;
+    for (int i=0; i<imgNum; i++) {
+        NSString *FrameName =[NSString stringWithFormat:@"%@_%d.png",imageName,i];
+        CCSpriteFrame *frame = [cache spriteFrameByName:FrameName];
+        [frames addObject:frame];
+    }
+    
+    CCAnimation *walkAnim =[CCAnimation animationWithSpriteFrames:frames delay:6];
+    */
+    /*
+    CCAnimation *pAnim = [CCAnimation animation];
+    for(unsigned int i = 1; i < imgNum; i++)
+    {
+        NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+        [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+    }
+    [pAnim setDelayPerUnit:1.0f];
+    
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0f],
+                        [CCAnimate actionWithAnimation:pAnim],
+                        NULL]];
+    */
+    
+    //CCTexture2D * texture =[[CCTextureCache sharedTextureCache] addImage: [NSString stringWithFormat:@"%@_%d.png",fileName,0]];//新建贴图
+    //UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d.png",fileName,0]];
+    
+    //NSLog(@"%@",texture.debugDescription);
+    //[self setTexture:texture];
+    
+    //[frames removeAllObjects];
+    //[frames release];
 }
+    
 -(void) startLoopAnimation
 {
     if (!animImageFrames)

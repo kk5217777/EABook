@@ -17,6 +17,7 @@
     NSString *wordsoundName;
     NSString *wordimageName;
     NSInteger imgNum;
+    BOOL _isTouch;
     
     @protected
     unsigned int soundEffectID;
@@ -28,6 +29,7 @@
 }
 
 @property(nonatomic, retain)NSString *imageName,*soundName,*wordsoundName,*wordimageName;
+@property(nonatomic) BOOL isTouch;
 @property(nonatomic, readwrite)NSInteger imgNum;
 @property(nonatomic, readwrite)float delayTime;
 

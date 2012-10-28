@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "EALayer.h"
+#import "EAAnimSprite.h"
 
 @interface EAPage2 : EALayer {
-    
+    EAAnimSprite *animSprite;
 }
+
 +(CCScene *) scene;
-+(CCScene*) sceneWithGamePoint:(GamePoint *)gp;
--(id) initWithGamePoint:(GamePoint *)gp;
 @end

@@ -12,21 +12,6 @@
 @implementation EALayer
 @synthesize gamepoint;
 
-+(CCScene *) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	EALayer *layer = [EALayer node];
-    
-	// add layer as a child to scene
-	[scene addChild: layer];
-	
-	// return the scene
-	return scene;
-}
-
 -(id) init
 {
 	// always call "super" init
@@ -41,24 +26,6 @@
         NSLog(@"Layer");
 	}
 	return self;
-}
-
-+(CCScene*) sceneWithGamePoint:(GamePoint *)gp
-{
-    CCScene *scene = [CCScene node];
-    EALayer *layer = [[EALayer alloc] initWithGamePoint:gp];
-    // add layer as a child to scene
-	[scene addChild: layer];
-	
-	// return the scene
-	return scene;
-}
--(id) initWithGamePoint :(GamePoint *)gp
-{
-    if (self = [super init]) {
-        //gamepoint = gp;
-    }
-    return self;
 }
 
 -(void) addTapToLayer

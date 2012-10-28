@@ -37,11 +37,9 @@
     UIPanGestureRecognizer *pangestureRecognizer;
     
     CCSpriteBatchNode *spriteSheet;
+    
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
-+(CCScene *) scene;
-+(CCScene*) sceneWithGamePoint:(GamePoint *)gp;
--(id) initWithGamePoint :(GamePoint *)gp;
 
 -(void) addObjects;
 -(void) addImage;

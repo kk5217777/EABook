@@ -15,10 +15,12 @@
 	UINavigationController *navController_;
 
 	CCDirectorIOS	*director_;							// weak ref
+    GamePoint *EAGamePoint;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
+@property (nonatomic, retain) GamePoint *EAGamePoint;
 
 @end
