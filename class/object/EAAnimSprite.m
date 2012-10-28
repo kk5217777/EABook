@@ -73,7 +73,7 @@
     
     CCAnimation *walkAnim =[CCAnimation animationWithSpriteFrames:frames delay:6];
     */
-    /*
+    
     CCAnimation *pAnim = [CCAnimation animation];
     for(unsigned int i = 1; i < imgNum; i++)
     {
@@ -85,7 +85,6 @@
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0f],
                         [CCAnimate actionWithAnimation:pAnim],
                         NULL]];
-    */
     
     //CCTexture2D * texture =[[CCTextureCache sharedTextureCache] addImage: [NSString stringWithFormat:@"%@_%d.png",fileName,0]];//新建贴图
     //UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%d.png",fileName,0]];
