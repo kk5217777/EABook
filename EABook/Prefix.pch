@@ -11,4 +11,20 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "GamePoint.h"
 #endif
+
+#define EVENT_SOUND @"SoundEvent"
+#define EVENT_MOTION @"MotionEvent"
+#define WORD_STOP @"WordStop"
+#define ANIM_STOP @"AnimationStop"
+#define HORIZON_SWIPE_MIN  12
+#define VERTICAL_SWIPE_MAX 4
+#define LIMIT_DIFFER 0.1
+#define TURN_DELAY 0.8
+#define LOCATION(x,y) ccp(x,768-y)
+
+#define TAP 0
+#define SWIPE 1
+#define PAN 2
+#define MOVE 3

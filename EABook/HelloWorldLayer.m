@@ -53,8 +53,11 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
-		
-		
+		AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+        UIGestureRecognizer *tap = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandle:)];
+        [app.navController.view addGestureRecognizer:tap];
+        
+        /*
 		//
 		// Leaderboards and Achievements
 		//
@@ -70,7 +73,7 @@
 			achivementViewController.achievementDelegate = self;
 			
 			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
+            
 			[[app navController] presentModalViewController:achivementViewController animated:YES];
 			
 			[achivementViewController release];
@@ -99,9 +102,14 @@
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+         */
 
 	}
 	return self;
+}
+-(void) tapHandle:(UIGestureRecognizer*) recognizer
+{
+    NSLog(@"tap");
 }
 
 // on "dealloc" you need to release all your retained objects
