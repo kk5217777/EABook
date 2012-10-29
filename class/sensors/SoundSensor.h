@@ -17,8 +17,9 @@
     float soundLimit,lowPassResults;
     AVAudioRecorder *recorder;
     BOOL enable;
+    EAAnimSprite *sprite;
 }
-
+@property (nonatomic, retain) EAAnimSprite *sprite;
 -(id) init;
 -(void) update;
 -(void) updateSprite:(id)object;

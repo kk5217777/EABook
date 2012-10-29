@@ -31,6 +31,23 @@
 	}
 	return self;
 }
+//等待實作！！
+-(void) addWordImage:(NSString*)imageName
+{
+    
+}
+-(void) removeWordImage
+{
+    
+}
+-(void) addPre
+{
+    
+}
+-(void) addNext
+{
+    
+}
 
 -(void) switchInteraction
 {

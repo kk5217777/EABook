@@ -60,9 +60,8 @@
 -(void) switchInteraction;
 -(void) switchTouchInteraction;
 -(void) stopSpriteMove;
-
--(void) addSprite:(CCSprite*) obj spriteType:(int)type;
 /*
+-(void) addSprite:(CCSprite*) obj spriteType:(int)type;
 -(void) addTapToLayer;
 -(void) addPanToLayer;
 -(void) addSwipeToLayer;
@@ -72,5 +71,8 @@
 -(void) removeSwipeFromLayer;
 */
 -(void) addBackGround:(NSString*)imageName;
-
+-(void) addWordImage:(NSString*)imageName;
+-(void) removeWordImage;
+-(void) addPre;
+-(void) addNext;
 @end

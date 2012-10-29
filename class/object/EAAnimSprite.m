@@ -65,20 +65,21 @@
     
 -(void) startLoopAnimation
 {
-    if (!animImageFrames)
+    NSLog(@"start animation");
+    
+    CCAnimation *pAnim = [CCAnimation animation];
+    for(unsigned int i = 1; i < imgNum; i++)
     {
-        for (int i = 0; i < imgNum; i++)
-        {
-            NSString *fullImagName;
-            fullImagName = [NSString stringWithFormat:@"%@%d.png", imageName, i];
-            [animImageFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
-        }
+        NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+        [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
     }
-    if (!animate)
-    {
-        animate = [CCAnimation animationWithSpriteFrames:animImageFrames delay:delayTime];
-    }
-    CCAnimate *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animate]];
+    [pAnim setDelayPerUnit:delayTime];
+    pAnim.restoreOriginalFrame = NO;
+    
+    //CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
+    //CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
+    
+    CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
     [self runAction:action];
 }
 

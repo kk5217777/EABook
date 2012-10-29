@@ -34,7 +34,7 @@
         swipeObjectArray = [[NSMutableArray alloc] init];
         swipeDirection = UISwipeGestureRecognizerDirectionDown;
         gamepoint = delegate.EAGamePoint;
-        [gamepoint addTypeA];
+        //[gamepoint addTypeA];
         NSLog(@"game point: %@", gamepoint.description);
         
         //手勢
@@ -54,12 +54,11 @@
         
         //音量
         soundDetect = [[SoundSensor alloc] init];
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundMove) name:EVENT_SOUND object:soundDetect];
         
         //重力
-        motionDetect = [[MotionSensor alloc] init];
+        //motionDetect = [[MotionSensor alloc] init];
+        //[self addChild:motionDetect];
         
-        [self addChild:motionDetect];
         [self addChild:soundDetect];
         [self addChild:soundMgr];
         [self addObjects];
@@ -84,16 +83,18 @@
     windmil = [EAAnimSprite spriteWithName:@"P2_Windmill"];
     windmil.tag = 5;
     windmil.imgNum = 6;
-    windmil.repeatTime = 2;
+    windmil.delayTime = 0.1f;
+    //windmil.repeatTime = 2;
     [windmil setPosition:LOCATION(832, 190)];
     [self addChild:windmil];
     
     horse = [EAAnimSprite spriteWithName:@"P2_horse"];
-    sheep.wordsoundName = @"P2_horse_word.mp3";
-    sheep.soundName = @"P2_horse.mp3";
+    horse.wordsoundName = @"P2_horse_word.mp3";
+    horse.soundName = @"P2_horse.mp3";
     horse.tag = 2;
     horse.imgNum = 7;
-    horse.repeatTime = 2;
+    horse.delayTime = 0.1f;
+    //horse.repeatTime = 2;
     [horse setPosition:LOCATION(775, 380)];
     [self addChild:horse];
     
@@ -123,6 +124,7 @@
     [swipeObjectArray addObject:sheep];
     [swipeObjectArray addObject:horse];
     
+    soundDetect.sprite = windmil;
     //聲音測試
     //[soundMgr playWordSoundFile:@"P3-1_owl_word.mp3"];
 }
@@ -131,7 +133,6 @@
 {
     if (soundEnable) {
         [soundDetect update];
-        [motionDetect update];
     }
 }
 
@@ -162,20 +163,14 @@
             NSLog(@"btn tag:%d",tempObject.tag);
             switch (tempObject.tag) {
                 case 0:
-                    
+                    //上一頁
                     break;
                 case 1:
-                    
+                    //下一頁
                     break;
                 case 2:
-                    
-                    break;
                 case 3:
-
-                    break;
                 case 4:
-                    
-                    break;
                 case 5:
                     
                     break;
@@ -194,6 +189,9 @@
     //NSLog(@"swipe Direction %d",direction);
     for (tempObject in swipeObjectArray) {
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+            [tempObject startAnimation];
+            [soundMgr playSoundFile:tempObject.soundName];
+            /*swipe 來回兩次
             //當前一次與本次同一物件進入
             if (tempObject == touchedSprite) {
                 //當前一次與本次方向不同時進入
@@ -212,7 +210,7 @@
             {
                 touchedSprite = tempObject;
                 swipeDirection = direction;
-            }
+            }*/
         }
     }
 }
@@ -220,5 +218,7 @@
 -(void) dealloc {
     [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
+    [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
+    [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
 }
 @end
