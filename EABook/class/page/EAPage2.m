@@ -115,13 +115,18 @@
 
 -(void) draw
 {
-    [soundDetect update];
+    if (touchEnable) {
+        [soundDetect update];
+    }
 }
 
 -(void) soundMove
 {
-    printf("sound");
+    
     [soundDetect enableFlag];
+    
+        printf("sound");
+    
 }
 
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
@@ -160,10 +165,10 @@
                     
                     break;
                 case 2:
-                    [tempObject startAnimation];
+                    
                     break;
                 case 3:
-                    [tempObject startAnimation];
+
                     break;
                 case 4:
                     
@@ -192,6 +197,8 @@
                 if (swipeDirection != direction) {
                     NSLog(@"swipe twice");
                     touchedSprite = Nil;
+                    //動畫播放
+                    [tempObject startAnimation];
                 }
                 else
                 {
