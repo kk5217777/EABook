@@ -37,8 +37,6 @@
         [gamepoint addTypeA];
         NSLog(@"game point: %@", gamepoint.description);
         
-        [self addObjects];
-        
         //手勢
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
@@ -56,8 +54,15 @@
         
         //音量
         soundDetect = [[SoundSensor alloc] init];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundMove) name:EVENT_SOUND object:soundDetect];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(soundMove) name:EVENT_SOUND object:soundDetect];
         
+        //重力
+        motionDetect = [[MotionSensor alloc] init];
+        
+        [self addChild:motionDetect];
+        [self addChild:soundDetect];
+        [self addChild:soundMgr];
+        [self addObjects];
     }
     return self;
 }
@@ -84,6 +89,8 @@
     [self addChild:windmil];
     
     horse = [EAAnimSprite spriteWithName:@"P2_horse"];
+    sheep.wordsoundName = @"P2_horse_word.mp3";
+    sheep.soundName = @"P2_horse.mp3";
     horse.tag = 2;
     horse.imgNum = 7;
     horse.repeatTime = 2;
@@ -91,6 +98,8 @@
     [self addChild:horse];
     
     sheep = [EAAnimSprite spriteWithName:@"P2_sheep"];
+    sheep.wordsoundName = @"P2_goat_word.mp3";
+    sheep.soundName = @"P2_goat.mp3";
     sheep.tag = 3;
     sheep.imgNum = 2;
     sheep.repeatTime = 2;
@@ -99,6 +108,8 @@
     [self addChild:sheep];
     
     zibber = [EAAnimSprite spriteWithName:@"P2_zibber"];
+    zibber.wordsoundName = @"P2_Zebra_word.mp3";
+    zibber.soundName = @"P2_Zebra.mp3";
     zibber.tag = 4;
     zibber.imgNum = 5;
     zibber.repeatTime = 2;
@@ -111,22 +122,17 @@
     [swipeObjectArray addObject:zibber];
     [swipeObjectArray addObject:sheep];
     [swipeObjectArray addObject:horse];
+    
+    //聲音測試
+    //[soundMgr playWordSoundFile:@"P3-1_owl_word.mp3"];
 }
 
 -(void) draw
 {
-    if (touchEnable) {
+    if (soundEnable) {
         [soundDetect update];
+        [motionDetect update];
     }
-}
-
--(void) soundMove
-{
-    
-    [soundDetect enableFlag];
-    
-        printf("sound");
-    
 }
 
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
@@ -140,8 +146,6 @@
 
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
 {
-    
-    
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     if (touchEnable) {
@@ -158,7 +162,6 @@
             NSLog(@"btn tag:%d",tempObject.tag);
             switch (tempObject.tag) {
                 case 0:
-                    NSLog(@"tap 0");
                     
                     break;
                 case 1:

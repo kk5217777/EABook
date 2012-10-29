@@ -25,6 +25,8 @@
         touchEnable = YES;
         soundEnable = YES;
         
+        soundMgr = [[SoundManager alloc] init];
+        
         NSLog(@"Layer");
 	}
 	return self;
@@ -32,9 +34,26 @@
 
 -(void) switchInteraction
 {
-    NSLog(@"EALayer switchInteraction");
+    if (touchEnable) {
+        NSLog(@"witchInteraction OFF");
+    }
+    else{
+        NSLog(@"witchInteraction ON");
+    }
     touchEnable = !touchEnable;
     soundEnable = !soundEnable;
+}
+
+-(void) switchTouchInteraction
+{
+    if (touchEnable) {
+        NSLog(@"switchTouchInteraction OFF");
+    }
+    else{
+        NSLog(@"switchTouchInteraction ON");
+    }
+    touchEnable = !touchEnable;
+    //soundEnable = !soundEnable;
 }
 
 -(void) stopSpriteMove

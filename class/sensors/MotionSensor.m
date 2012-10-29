@@ -13,7 +13,7 @@
 -(id) init
 {
     if (self = [super init]) {
-        enable = YES;
+        animAble = YES;
         motionMgr = [[CMMotionManager alloc] init];
         if (motionMgr.isDeviceMotionAvailable) {
             motionMgr.accelerometerUpdateInterval = 1.0/10.0;
@@ -46,12 +46,23 @@
 
 -(void) updateSprite:(id)object
 {
-    CCSprite *sprite = object;
+    EAAnimSprite *sprite = object;
     if ([motionMgr isAccelerometerActive]) {
         _acData = motionMgr.accelerometerData;
         if (fabsf(_acData.acceleration.x) > LIMIT )
         {
+            if (animAble) {
+                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+                animAble = !animAble;
+            }
             [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.x*10), sprite.position.y)];
+        }
+        else
+        {
+            if (!animAble) {
+                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+                animAble = !animAble;
+            }
         }
         //NSLog(@"Accelerometer\n----------\nx:%+.2f\ny:%+.2f\nz:%+.2f",_acData.acceleration.x, _acData.acceleration.y, _acData.acceleration.z);
     }
@@ -61,10 +72,5 @@
 {
     [motionMgr dealloc];
     [super dealloc];
-}
-
--(void) enableFlag
-{
-    enable = YES;
 }
 @end

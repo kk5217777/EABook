@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface SoundManager : CCNode {
-    
+    //BOOL isPlay;
+    AVAudioPlayer *audioPlayer;
 }
+
+-(void) playSoundFile:(NSString*) soundName;
+-(void) playWordSoundFile:(NSString*) soundName;
+-(void) stopSound;
+-(void) PlayWordSound:(ccTime)dt;
 
 @end

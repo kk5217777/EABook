@@ -14,6 +14,7 @@
 #import "GamePoint.h"
 #import "SoundDetectOB.h"
 #import "EAAnimSprite.h"
+#import "SoundManager.h"
 
 @interface EALayer : CCLayer {
     @protected
@@ -41,6 +42,8 @@
     EAAnimSprite *touchedSprite;
 
     UISwipeGestureRecognizerDirection swipeDirection;
+    
+    SoundManager *soundMgr;
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
 
@@ -55,6 +58,7 @@
 -(void) panSpriteMovement:(CGPoint)touchLocation;
 
 -(void) switchInteraction;
+-(void) switchTouchInteraction;
 -(void) stopSpriteMove;
 
 -(void) addSprite:(CCSprite*) obj spriteType:(int)type;

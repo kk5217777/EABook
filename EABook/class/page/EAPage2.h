@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "EALayer.h"
 #import "EAAnimSprite.h"
+#import "MotionSensor.h"
 
 @interface EAPage2 : EALayer {
     EAAnimSprite *animSprite;

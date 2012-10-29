@@ -9,17 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import "cocos2d.h"
+#import "EAAnimSprite.h"
 
-@interface MotionSensor : NSObject
+@interface MotionSensor : CCNode
 {
-    BOOL enable;
     CMMotionManager *motionMgr;
     CMAccelerometerData *_acData;
+    
+    BOOL animAble;
 }
 
 @property (nonatomic, retain) CMAccelerometerData *acData;
 
 -(id) init;
 -(void) update;
--(void) enableFlag;
+-(void) updateSprite:(id)object;
 @end

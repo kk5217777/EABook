@@ -43,6 +43,28 @@
     return self;
 }
 
+-(void) updateSprite:(id)object
+{
+    double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
+    double avgPoserForChannel = pow(10, (0.05 * [recorder averagePowerForChannel:0]));
+    double differ = peakPowerForChannel - avgPoserForChannel;
+    
+    if (differ > LIMIT_DIFFER) {
+        //NSLog(@"soundEventSend");
+        if (enable) {
+            enable = !enable;
+            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+        }
+    }
+    else{
+        if (!enable)
+        {
+            enable = !enable;
+            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+        }
+    }
+}
+
 -(void) update
 {
     //NSLog(@"sound update");
@@ -52,7 +74,6 @@
 	double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
     double avgPoserForChannel = pow(10, (0.05 * [recorder averagePowerForChannel:0]));
     double differ = peakPowerForChannel - avgPoserForChannel;
-
     
     //NSLog(@"Sound power: %f", peakPowerForChannel);
     //NSLog(@"Sound avg: %f", avgPoserForChannel);
@@ -64,10 +85,28 @@
     //NSLog(@"Differ: %f", differ);
     //NSLog(@"Average input: %d Peak input: %d", avgPoserForChannel, peakPowerForChannel);
     //if ((lowPassResults > soundLimit) & enable){
+    /*
     if (differ > LIMIT_DIFFER) {
         //NSLog(@"soundEventSend");
         enable = NO;
         [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SOUND object:self];
+    }*/
+    
+    if (differ > LIMIT_DIFFER) {
+        //NSLog(@"soundEventSend");
+        if (enable) {
+            enable = !enable;
+            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+            NSLog(@"sound animation start");
+        }
+    }
+    else{
+        if (!enable)
+        {
+            enable = !enable;
+            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+            NSLog(@"sound animation end");
+        }
     }
 }
 

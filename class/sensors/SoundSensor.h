@@ -10,8 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import "cocos2d.h"
+#import "EAAnimSprite.h"
 
-@interface SoundSensor : NSObject
+@interface SoundSensor : CCNode
 {
     float soundLimit,lowPassResults;
     AVAudioRecorder *recorder;
@@ -20,6 +21,7 @@
 
 -(id) init;
 -(void) update;
--(void) enableFlag;
--(void) stopDetect;
+-(void) updateSprite:(id)object;
+//-(void) enableFlag;
+//-(void) stopDetect;
 @end
