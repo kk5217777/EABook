@@ -32,7 +32,7 @@
         
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
-        swipeCount = 0;
+        swipeDirection = UISwipeGestureRecognizerDirectionDown;
         gamepoint = delegate.EAGamePoint;
         [gamepoint addTypeA];
         NSLog(@"game point: %@", gamepoint.description);
@@ -136,20 +136,11 @@
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
 {
     
+    
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     if (touchEnable) {
-        NSLog(@"swipe");
-        if (swipeDirection && (swipeDirection != (UISwipeGestureRecognizerDirection*)recognizer.direction)) {
-            ++swipeCount;
-            if (swipeCount > 1) {
-                NSLog(@"swipe twice");
-                swipeCount = 0;
-                swipeDirection = Nil;
-                CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-                touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-                [self swipeSpriteMovement:touchLocation];
-            }
-        }
-        swipeDirection = (UISwipeGestureRecognizerDirection*)recognizer.direction;
+        [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
 
@@ -157,10 +148,10 @@
 {
     NSLog(@"tap");
     
-    for (tapObject in tapObjectArray) {
-        if (CGRectContainsPoint(tapObject.boundingBox, touchLocation)) {
-            NSLog(@"btn tag:%d",tapObject.tag);
-            switch (tapObject.tag) {
+    for (tempObject in tapObjectArray) {
+        if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+            NSLog(@"btn tag:%d",tempObject.tag);
+            switch (tempObject.tag) {
                 case 0:
                     NSLog(@"tap 0");
                     
@@ -169,10 +160,10 @@
                     
                     break;
                 case 2:
-                    [tapObject startAnimation];
+                    [tempObject startAnimation];
                     break;
                 case 3:
-                    [tapObject startAnimation];
+                    [tempObject startAnimation];
                     break;
                 case 4:
                     
@@ -189,9 +180,31 @@
     
 }
 
--(void) swipeSpriteMovement:(CGPoint)touchLocation
+-(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
 {
-    
+    //NSLog(@"list Direction %dl",swipeDirection);
+    //NSLog(@"swipe Direction %d",direction);
+    for (tempObject in swipeObjectArray) {
+        if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+            //當前一次與本次同一物件進入
+            if (tempObject == touchedSprite) {
+                //當前一次與本次方向不同時進入
+                if (swipeDirection != direction) {
+                    NSLog(@"swipe twice");
+                    touchedSprite = Nil;
+                }
+                else
+                {
+                    swipeDirection = direction;
+                }
+            }
+            else
+            {
+                touchedSprite = tempObject;
+                swipeDirection = direction;
+            }
+        }
+    }
 }
 
 -(void) dealloc {

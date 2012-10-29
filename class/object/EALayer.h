@@ -39,8 +39,8 @@
     CCSpriteBatchNode *spriteSheet;
     EAAnimSprite *tempObject;
     EAAnimSprite *touchedSprite;
-    int swipeCount;
-    UISwipeGestureRecognizerDirection *swipeDirection;
+
+    UISwipeGestureRecognizerDirection swipeDirection;
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
 
@@ -50,7 +50,7 @@
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer;
 -(void) handleTap:(UITapGestureRecognizer *)recognizer;
 -(void) handlePan:(UITapGestureRecognizer *)recognizer;
--(void) swipeSpriteMovement:(CGPoint)touchLocation;
+-(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection)dir;
 -(void) tapSpriteMovement:(CGPoint)touchLocation;
 -(void) panSpriteMovement:(CGPoint)touchLocation;
 

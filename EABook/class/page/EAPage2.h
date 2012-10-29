@@ -17,8 +17,6 @@
     EAAnimSprite *sheep;
     EAAnimSprite *zibber;
     EAAnimSprite *windmil;
-    
-    EAAnimSprite *tapObject;
 }
 
 +(CCScene *) scene;

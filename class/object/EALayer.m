@@ -87,6 +87,33 @@
     [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
     [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
 }
+//來回swipe動作
+-(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
+{
+    //NSLog(@"list Direction %dl",swipeDirection);
+    //NSLog(@"swipe Direction %d",direction);
+    for (tempObject in swipeObjectArray) {
+        if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+            //當前一次與本次同一物件進入
+            if (tempObject == touchedSprite) {
+                //當前一次與本次方向不同時進入
+                if (swipeDirection != direction) {
+                    NSLog(@"swipe twice");
+                    touchedSprite = Nil;
+                }
+                else
+                {
+                    swipeDirection = direction;
+                }
+            }
+            else
+            {
+                touchedSprite = tempObject;
+                swipeDirection = direction;
+            }
+        }
+    }
+}
 
 -(void) addBackGround:(NSString*)imageName
 {
