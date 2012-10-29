@@ -133,18 +133,17 @@
 		84604B62163AE2ED002A203B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B61163AE2ED002A203B /* AppDelegate.m */; };
 		84604B65163AE2ED002A203B /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B64163AE2ED002A203B /* HelloWorldLayer.m */; };
 		84604B68163AE2ED002A203B /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B67163AE2ED002A203B /* IntroLayer.m */; };
-		84604B70163AE3D5002A203B /* EAPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B6F163AE3D5002A203B /* EAPageMenu.m */; };
-		84604B81163AECA4002A203B /* EAAnimSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B75163AECA4002A203B /* EAAnimSprite.m */; };
-		84604B82163AECA4002A203B /* EALayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B77163AECA4002A203B /* EALayer.m */; };
-		84604B83163AECA4002A203B /* GamePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B79163AECA4002A203B /* GamePoint.m */; };
-		84604B84163AECA4002A203B /* SoundDetectOB.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B7B163AECA4002A203B /* SoundDetectOB.m */; };
-		84604B85163AECA4002A203B /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B7E163AECA4002A203B /* MotionSensor.m */; };
-		84604B86163AECA4002A203B /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B80163AECA4002A203B /* SoundSensor.m */; };
-		84604B89163AECDD002A203B /* EAPage2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B88163AECDD002A203B /* EAPage2.m */; };
 		84604B8B163AEE11002A203B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84604B8A163AEE11002A203B /* CoreMotion.framework */; };
-		84604C2F163AFC27002A203B /* EAPageConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604C2E163AFC27002A203B /* EAPageConfig.m */; };
-		84604C3A163B0631002A203B /* EAPage1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604C39163B0631002A203B /* EAPage1.m */; };
-		84F12DF1163DA2A9007B874F /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F12DF0163DA2A9007B874F /* SoundManager.m */; };
+		84967039163EEDD4001F1A8E /* EAAnimSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967022163EEDD4001F1A8E /* EAAnimSprite.m */; };
+		8496703A163EEDD4001F1A8E /* EALayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967024163EEDD4001F1A8E /* EALayer.m */; };
+		8496703B163EEDD4001F1A8E /* GamePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967026163EEDD4001F1A8E /* GamePoint.m */; };
+		8496703D163EEDD4001F1A8E /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496702A163EEDD4001F1A8E /* SoundManager.m */; };
+		8496703E163EEDD4001F1A8E /* EAPage1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496702D163EEDD4001F1A8E /* EAPage1.m */; };
+		8496703F163EEDD4001F1A8E /* EAPage2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496702F163EEDD4001F1A8E /* EAPage2.m */; };
+		84967040163EEDD4001F1A8E /* EAPageConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967031163EEDD4001F1A8E /* EAPageConfig.m */; };
+		84967041163EEDD4001F1A8E /* EAPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967033163EEDD4001F1A8E /* EAPageMenu.m */; };
+		84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967036163EEDD4001F1A8E /* MotionSensor.m */; };
+		84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967038163EEDD4001F1A8E /* SoundSensor.m */; };
 		B89D99A2163EBC26007AABFB /* P0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89D9902163EBC26007AABFB /* P0.plist */; };
 		B89D99A3163EBC26007AABFB /* P0.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9903163EBC26007AABFB /* P0.png */; };
 		B89D99A4163EBC26007AABFB /* P1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89D9904163EBC26007AABFB /* P1.plist */; };
@@ -548,29 +547,27 @@
 		84604B64163AE2ED002A203B /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		84604B66163AE2ED002A203B /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		84604B67163AE2ED002A203B /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
-		84604B6E163AE3D5002A203B /* EAPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EAPageMenu.h; path = class/page/EAPageMenu.h; sourceTree = "<group>"; };
-		84604B6F163AE3D5002A203B /* EAPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EAPageMenu.m; path = class/page/EAPageMenu.m; sourceTree = "<group>"; };
-		84604B74163AECA4002A203B /* EAAnimSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAnimSprite.h; sourceTree = "<group>"; };
-		84604B75163AECA4002A203B /* EAAnimSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAnimSprite.m; sourceTree = "<group>"; };
-		84604B76163AECA4002A203B /* EALayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayer.h; sourceTree = "<group>"; };
-		84604B77163AECA4002A203B /* EALayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayer.m; sourceTree = "<group>"; };
-		84604B78163AECA4002A203B /* GamePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePoint.h; sourceTree = "<group>"; };
-		84604B79163AECA4002A203B /* GamePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePoint.m; sourceTree = "<group>"; };
-		84604B7A163AECA4002A203B /* SoundDetectOB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundDetectOB.h; sourceTree = "<group>"; };
-		84604B7B163AECA4002A203B /* SoundDetectOB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundDetectOB.m; sourceTree = "<group>"; };
-		84604B7D163AECA4002A203B /* MotionSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensor.h; sourceTree = "<group>"; };
-		84604B7E163AECA4002A203B /* MotionSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensor.m; sourceTree = "<group>"; };
-		84604B7F163AECA4002A203B /* SoundSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSensor.h; sourceTree = "<group>"; };
-		84604B80163AECA4002A203B /* SoundSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSensor.m; sourceTree = "<group>"; };
-		84604B87163AECDD002A203B /* EAPage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EAPage2.h; path = class/page/EAPage2.h; sourceTree = "<group>"; };
-		84604B88163AECDD002A203B /* EAPage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EAPage2.m; path = class/page/EAPage2.m; sourceTree = "<group>"; };
 		84604B8A163AEE11002A203B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		84604C2D163AFC26002A203B /* EAPageConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EAPageConfig.h; path = class/page/EAPageConfig.h; sourceTree = "<group>"; };
-		84604C2E163AFC27002A203B /* EAPageConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EAPageConfig.m; path = class/page/EAPageConfig.m; sourceTree = "<group>"; };
-		84604C38163B0631002A203B /* EAPage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage1.h; sourceTree = "<group>"; };
-		84604C39163B0631002A203B /* EAPage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage1.m; sourceTree = "<group>"; };
-		84F12DEF163DA2A9007B874F /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
-		84F12DF0163DA2A9007B874F /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		84967021163EEDD4001F1A8E /* EAAnimSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAnimSprite.h; sourceTree = "<group>"; };
+		84967022163EEDD4001F1A8E /* EAAnimSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAnimSprite.m; sourceTree = "<group>"; };
+		84967023163EEDD4001F1A8E /* EALayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayer.h; sourceTree = "<group>"; };
+		84967024163EEDD4001F1A8E /* EALayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayer.m; sourceTree = "<group>"; };
+		84967025163EEDD4001F1A8E /* GamePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePoint.h; sourceTree = "<group>"; };
+		84967026163EEDD4001F1A8E /* GamePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePoint.m; sourceTree = "<group>"; };
+		84967029163EEDD4001F1A8E /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		8496702A163EEDD4001F1A8E /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		8496702C163EEDD4001F1A8E /* EAPage1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage1.h; sourceTree = "<group>"; };
+		8496702D163EEDD4001F1A8E /* EAPage1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage1.m; sourceTree = "<group>"; };
+		8496702E163EEDD4001F1A8E /* EAPage2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage2.h; sourceTree = "<group>"; };
+		8496702F163EEDD4001F1A8E /* EAPage2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage2.m; sourceTree = "<group>"; };
+		84967030163EEDD4001F1A8E /* EAPageConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageConfig.h; sourceTree = "<group>"; };
+		84967031163EEDD4001F1A8E /* EAPageConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageConfig.m; sourceTree = "<group>"; };
+		84967032163EEDD4001F1A8E /* EAPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMenu.h; sourceTree = "<group>"; };
+		84967033163EEDD4001F1A8E /* EAPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageMenu.m; sourceTree = "<group>"; };
+		84967035163EEDD4001F1A8E /* MotionSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensor.h; sourceTree = "<group>"; };
+		84967036163EEDD4001F1A8E /* MotionSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensor.m; sourceTree = "<group>"; };
+		84967037163EEDD4001F1A8E /* SoundSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSensor.h; sourceTree = "<group>"; };
+		84967038163EEDD4001F1A8E /* SoundSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSensor.m; sourceTree = "<group>"; };
 		B816ADD1163BC1120018AC35 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		B89D9902163EBC26007AABFB /* P0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = P0.plist; sourceTree = "<group>"; };
 		B89D9903163EBC26007AABFB /* P0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P0.png; sourceTree = "<group>"; };
@@ -771,8 +768,7 @@
 		846049E8163AE2EA002A203B /* EABook */ = {
 			isa = PBXGroup;
 			children = (
-				84604B72163AECA4002A203B /* class */,
-				84604B71163AE3E1002A203B /* page */,
+				8496701F163EEDD4001F1A8E /* class */,
 				84604B60163AE2ED002A203B /* AppDelegate.h */,
 				84604B61163AE2ED002A203B /* AppDelegate.m */,
 				84604B63163AE2ED002A203B /* HelloWorldLayer.h */,
@@ -1150,55 +1146,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		84604B71163AE3E1002A203B /* page */ = {
+		8496701F163EEDD4001F1A8E /* class */ = {
 			isa = PBXGroup;
 			children = (
-				84604B6E163AE3D5002A203B /* EAPageMenu.h */,
-				84604B6F163AE3D5002A203B /* EAPageMenu.m */,
-				84604B87163AECDD002A203B /* EAPage2.h */,
-				84604B88163AECDD002A203B /* EAPage2.m */,
-				84604C2D163AFC26002A203B /* EAPageConfig.h */,
-				84604C2E163AFC27002A203B /* EAPageConfig.m */,
-				84604C38163B0631002A203B /* EAPage1.h */,
-				84604C39163B0631002A203B /* EAPage1.m */,
+				84967020163EEDD4001F1A8E /* object */,
+				8496702B163EEDD4001F1A8E /* page */,
+				84967034163EEDD4001F1A8E /* sensors */,
 			);
-			name = page;
+			path = class;
 			sourceTree = "<group>";
 		};
-		84604B72163AECA4002A203B /* class */ = {
+		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
-				84604B73163AECA4002A203B /* object */,
-				84604B7C163AECA4002A203B /* sensors */,
-			);
-			name = class;
-			path = ../class;
-			sourceTree = "<group>";
-		};
-		84604B73163AECA4002A203B /* object */ = {
-			isa = PBXGroup;
-			children = (
-				84604B74163AECA4002A203B /* EAAnimSprite.h */,
-				84604B75163AECA4002A203B /* EAAnimSprite.m */,
-				84604B76163AECA4002A203B /* EALayer.h */,
-				84604B77163AECA4002A203B /* EALayer.m */,
-				84604B78163AECA4002A203B /* GamePoint.h */,
-				84604B79163AECA4002A203B /* GamePoint.m */,
-				84604B7A163AECA4002A203B /* SoundDetectOB.h */,
-				84604B7B163AECA4002A203B /* SoundDetectOB.m */,
-				84F12DEF163DA2A9007B874F /* SoundManager.h */,
-				84F12DF0163DA2A9007B874F /* SoundManager.m */,
+				84967021163EEDD4001F1A8E /* EAAnimSprite.h */,
+				84967022163EEDD4001F1A8E /* EAAnimSprite.m */,
+				84967023163EEDD4001F1A8E /* EALayer.h */,
+				84967024163EEDD4001F1A8E /* EALayer.m */,
+				84967025163EEDD4001F1A8E /* GamePoint.h */,
+				84967026163EEDD4001F1A8E /* GamePoint.m */,
+				84967029163EEDD4001F1A8E /* SoundManager.h */,
+				8496702A163EEDD4001F1A8E /* SoundManager.m */,
 			);
 			path = object;
 			sourceTree = "<group>";
 		};
-		84604B7C163AECA4002A203B /* sensors */ = {
+		8496702B163EEDD4001F1A8E /* page */ = {
 			isa = PBXGroup;
 			children = (
-				84604B7D163AECA4002A203B /* MotionSensor.h */,
-				84604B7E163AECA4002A203B /* MotionSensor.m */,
-				84604B7F163AECA4002A203B /* SoundSensor.h */,
-				84604B80163AECA4002A203B /* SoundSensor.m */,
+				8496702C163EEDD4001F1A8E /* EAPage1.h */,
+				8496702D163EEDD4001F1A8E /* EAPage1.m */,
+				8496702E163EEDD4001F1A8E /* EAPage2.h */,
+				8496702F163EEDD4001F1A8E /* EAPage2.m */,
+				84967030163EEDD4001F1A8E /* EAPageConfig.h */,
+				84967031163EEDD4001F1A8E /* EAPageConfig.m */,
+				84967032163EEDD4001F1A8E /* EAPageMenu.h */,
+				84967033163EEDD4001F1A8E /* EAPageMenu.m */,
+			);
+			path = page;
+			sourceTree = "<group>";
+		};
+		84967034163EEDD4001F1A8E /* sensors */ = {
+			isa = PBXGroup;
+			children = (
+				84967035163EEDD4001F1A8E /* MotionSensor.h */,
+				84967036163EEDD4001F1A8E /* MotionSensor.m */,
+				84967037163EEDD4001F1A8E /* SoundSensor.h */,
+				84967038163EEDD4001F1A8E /* SoundSensor.m */,
 			);
 			path = sensors;
 			sourceTree = "<group>";
@@ -1848,17 +1842,16 @@
 				84604B62163AE2ED002A203B /* AppDelegate.m in Sources */,
 				84604B65163AE2ED002A203B /* HelloWorldLayer.m in Sources */,
 				84604B68163AE2ED002A203B /* IntroLayer.m in Sources */,
-				84604B70163AE3D5002A203B /* EAPageMenu.m in Sources */,
-				84604B81163AECA4002A203B /* EAAnimSprite.m in Sources */,
-				84604B82163AECA4002A203B /* EALayer.m in Sources */,
-				84604B83163AECA4002A203B /* GamePoint.m in Sources */,
-				84604B84163AECA4002A203B /* SoundDetectOB.m in Sources */,
-				84604B85163AECA4002A203B /* MotionSensor.m in Sources */,
-				84604B86163AECA4002A203B /* SoundSensor.m in Sources */,
-				84604B89163AECDD002A203B /* EAPage2.m in Sources */,
-				84604C2F163AFC27002A203B /* EAPageConfig.m in Sources */,
-				84604C3A163B0631002A203B /* EAPage1.m in Sources */,
-				84F12DF1163DA2A9007B874F /* SoundManager.m in Sources */,
+				84967039163EEDD4001F1A8E /* EAAnimSprite.m in Sources */,
+				8496703A163EEDD4001F1A8E /* EALayer.m in Sources */,
+				8496703B163EEDD4001F1A8E /* GamePoint.m in Sources */,
+				8496703D163EEDD4001F1A8E /* SoundManager.m in Sources */,
+				8496703E163EEDD4001F1A8E /* EAPage1.m in Sources */,
+				8496703F163EEDD4001F1A8E /* EAPage2.m in Sources */,
+				84967040163EEDD4001F1A8E /* EAPageConfig.m in Sources */,
+				84967041163EEDD4001F1A8E /* EAPageMenu.m in Sources */,
+				84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */,
+				84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

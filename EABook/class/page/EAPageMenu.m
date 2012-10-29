@@ -28,36 +28,39 @@
 }
 
 //
--(void) onEnter
+-(id) init
 {
-    tapObjectArray = [[NSMutableArray alloc] init];
-    gamepoint = [[GamePoint alloc] init];
-    
-    if (gamepoint) {
-        NSLog(@"%@", gamepoint.description);
+    if (self = [super init]) {
+        tapObjectArray = [[NSMutableArray alloc] init];
+        gamepoint = [[GamePoint alloc] init];
+        
+        if (gamepoint) {
+            NSLog(@"%@", gamepoint.description);
+        }
+        /*
+        AVAudioPlayer *audioPlayer;
+        NSString *soundfileName = @"P3-1_owl_word.mp3";
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundfileName]];
+        NSLog(@"play");
+        //wordsoundflag = FALSE;
+        
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        audioPlayer.numberOfLoops = 0;
+        [audioPlayer play];
+        //[self schedule:@selector(PlayWordSound:) interval:1];
+        //[self addWordImage];
+        [url release];
+        */
+        // ask director for the window size
+        
+        delegate = (AppController*) [[UIApplication sharedApplication] delegate];
+        tapgestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        tapgestureRecognizer.numberOfTapsRequired = 1; //new add
+        [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
+        
+        [self addObjects];
     }
-    /*
-    AVAudioPlayer *audioPlayer;
-    NSString *soundfileName = @"P3-1_owl_word.mp3";
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundfileName]];
-    NSLog(@"play");
-    //wordsoundflag = FALSE;
-    
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-    //[self schedule:@selector(PlayWordSound:) interval:1];
-    //[self addWordImage];
-    [url release];
-    */
-	// ask director for the window size
-    
-    delegate = (AppController*) [[UIApplication sharedApplication] delegate];
-    tapgestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    tapgestureRecognizer.numberOfTapsRequired = 1; //new add
-    [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
-    
-    [self addObjects];
+    return self;
 }
 
 -(void) addObjects
@@ -67,7 +70,7 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
      @"P0.plist"];
     
-    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode
+    spriteSheet = [CCSpriteBatchNode
                                       batchNodeWithFile:@"P0.png"];
     [self addChild:spriteSheet];
     
@@ -117,7 +120,8 @@
             switch (obj.tag) {
                 case 0:
                     NSLog(@"開始");
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 sceneWithGamePoint:gamepoint] backwards:NO]];
+                    delegate.EAGamePoint = gamepoint;
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] backwards:NO]];
                     break;
                 case 1:
                     NSLog(@"地圖");

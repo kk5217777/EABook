@@ -79,7 +79,7 @@
     //CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
     //CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
     
-    CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
+    CCAnimate *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:pAnim]];
     [self runAction:action];
 }
 
