@@ -12,7 +12,6 @@
 #import "MotionSensor.h"
 #import "AppDelegate.h"
 #import "GamePoint.h"
-#import "SoundDetectOB.h"
 #import "EAAnimSprite.h"
 #import "SoundManager.h"
 
@@ -49,8 +48,6 @@
 //@property (nonatomic, retain) NSMutableArray *tapObjectArray, *swipeObjectArray;
 
 -(void) addObjects;
--(void) addImage;
--(void) addGamePoint:(SoundDetectOB*) object;
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer;
 -(void) handleTap:(UITapGestureRecognizer *)recognizer;
 -(void) handlePan:(UIPanGestureRecognizer *)recognizer;

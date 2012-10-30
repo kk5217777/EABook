@@ -145,6 +145,8 @@
 		84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967036163EEDD4001F1A8E /* MotionSensor.m */; };
 		84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967038163EEDD4001F1A8E /* SoundSensor.m */; };
 		B88D0145163FD754004106BC /* EAPage4.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0144163FD753004106BC /* EAPage4.m */; };
+		B88D0148163FFCB7004106BC /* EAPage3-2.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0147163FFCB6004106BC /* EAPage3-2.m */; };
+		B88D014B163FFCC4004106BC /* EAPage3-3.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D014A163FFCC3004106BC /* EAPage3-3.m */; };
 		B89D99A2163EBC26007AABFB /* P0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89D9902163EBC26007AABFB /* P0.plist */; };
 		B89D99A3163EBC26007AABFB /* P0.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9903163EBC26007AABFB /* P0.png */; };
 		B89D99A4163EBC26007AABFB /* P1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89D9904163EBC26007AABFB /* P1.plist */; };
@@ -573,6 +575,10 @@
 		B816ADD1163BC1120018AC35 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		B88D0143163FD753004106BC /* EAPage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage4.h; sourceTree = "<group>"; };
 		B88D0144163FD753004106BC /* EAPage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage4.m; sourceTree = "<group>"; };
+		B88D0146163FFCB6004106BC /* EAPage3-2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-2.h"; sourceTree = "<group>"; };
+		B88D0147163FFCB6004106BC /* EAPage3-2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EAPage3-2.m"; sourceTree = "<group>"; };
+		B88D0149163FFCC2004106BC /* EAPage3-3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-3.h"; sourceTree = "<group>"; };
+		B88D014A163FFCC3004106BC /* EAPage3-3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EAPage3-3.m"; sourceTree = "<group>"; };
 		B89D9902163EBC26007AABFB /* P0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = P0.plist; sourceTree = "<group>"; };
 		B89D9903163EBC26007AABFB /* P0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P0.png; sourceTree = "<group>"; };
 		B89D9904163EBC26007AABFB /* P1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = P1.plist; sourceTree = "<group>"; };
@@ -1192,6 +1198,10 @@
 				84967033163EEDD4001F1A8E /* EAPageMenu.m */,
 				B8ADB9B0163FA1A900B4B9AC /* EAPage3-1.h */,
 				B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */,
+				B88D0146163FFCB6004106BC /* EAPage3-2.h */,
+				B88D0147163FFCB6004106BC /* EAPage3-2.m */,
+				B88D0149163FFCC2004106BC /* EAPage3-3.h */,
+				B88D014A163FFCC3004106BC /* EAPage3-3.m */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -1864,6 +1874,8 @@
 				84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */,
 				B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */,
 				B88D0145163FD754004106BC /* EAPage4.m in Sources */,
+				B88D0148163FFCB7004106BC /* EAPage3-2.m in Sources */,
+				B88D014B163FFCC4004106BC /* EAPage3-3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 
 @implementation SoundSensor
 @synthesize sprite;
+@synthesize sManage;
 
 -(id) init
 {
@@ -52,11 +53,15 @@
     double differ = peakPowerForChannel - avgPoserForChannel;
     
     if (differ > LIMIT_DIFFER) {
-        NSLog(@"soundEventSend");
+        //NSLog(@"soundEventSend");
         if (enable) {
+            NSLog(@"sound file Name:%@", sprite.soundName);
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             [sprite startLoopAnimation];
+            if (sprite.soundName) {
+                [sManage playLoopSound:sprite.soundName];
+            }
         }
     }
     else{
@@ -65,6 +70,9 @@
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             [sprite stopAllActions];
+            if (sprite.soundName) {
+                [sManage stopSound];
+            }
         }
     }
 }
@@ -102,7 +110,10 @@
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
-            [sprite startLoopAnimation];
+            [sprite startSpacailAnim:Nil];
+            if (sprite.soundName) {
+                [sManage playLoopSound:sprite.soundName];
+            }
         }
     }
     else{
@@ -112,6 +123,9 @@
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation end");
             [sprite stopAllActions];
+            if (sprite.soundName) {
+                [sManage stopSound];
+            }
         }
     }
 }

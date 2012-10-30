@@ -136,6 +136,7 @@ CCSpriteBatchNode *spriteSheet;
         if (CGRectContainsPoint(tapObject.boundingBox, touchLocation)) {
             NSLog(@"show config panel");
             NSLog(@"btn tag:%d",tapObject.tag);
+            [soundMgr playSoundFile:@"push.mp3"];
             switch (tapObject.tag) {
                 case 0:
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];

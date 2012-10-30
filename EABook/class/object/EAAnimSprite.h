@@ -23,7 +23,7 @@
     @protected
     float delayTime;
     NSMutableArray *animImageFrames;
-    CCAnimation *animate;
+    CCAnimation *spAnimate;
 }
 
 @property(nonatomic, retain) NSString *imageName, *soundName, *wordsoundName, *wordimageName;
@@ -36,5 +36,8 @@
 
 -(void) startAnimation;
 -(void) startLoopAnimation;
+
+-(CCAnimation*) getSimpleAnim;
+-(void) startSpacailAnim:(CCAnimate*)sAnim;
 
 @end

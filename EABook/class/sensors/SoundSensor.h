@@ -11,6 +11,7 @@
 #import <CoreAudio/CoreAudioTypes.h>
 #import "cocos2d.h"
 #import "EAAnimSprite.h"
+#import "SoundManager.h"
 
 @interface SoundSensor : CCNode
 {
@@ -18,8 +19,10 @@
     AVAudioRecorder *recorder;
     BOOL enable;
     EAAnimSprite *sprite;
+    SoundManager *sManage;
 }
 @property (nonatomic, retain) EAAnimSprite *sprite;
+@property (nonatomic, retain) SoundManager *sManage;
 -(id) init;
 -(void) update;
 -(void) updateSprite:(id)object;

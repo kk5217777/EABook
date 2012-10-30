@@ -15,6 +15,7 @@
     AVAudioPlayer *audioPlayer;
 }
 
+-(void) playLoopSound:(NSString*) soundName;
 -(void) playSoundFile:(NSString*) soundName;
 -(void) playWordSoundFile:(NSString*) soundName;
 -(void) stopSound;

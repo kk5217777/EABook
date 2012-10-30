@@ -1,23 +1,22 @@
 //
-//  EAPage3-1.m
+//  EAPage3-2.m
 //  EABook
 //
 //  Created by Mac06 on 12/10/30.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "EAPage3-1.h"
+#import "EAPage3-2.h"
 
 
-@implementation EAPage3_1
-
+@implementation EAPage3_2
 +(CCScene *) scene
 {
     // 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	EAPage3_1 *layer = [EAPage3_1 node];
+	EAPage3_2 *layer = [EAPage3_2 node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -32,6 +31,8 @@
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
+        myTrees = [[NSMutableArray alloc] init];
+        myGrasses = [[NSMutableArray alloc] init];
         
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
@@ -70,18 +71,54 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P3-1_tree.jpg"];
+    [self addBackGround:@"P3-2_greenplace.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P3-1.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3-1.png"];
+     @"P3-2.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3-2.png"];
     [self addChild:spriteSheet];
     
     //加入互動物件
     NSString *tempName;
     
-    tempName = @"P3-1_eagle";
+    tempName = @"P3-2_grass";
+    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject.tag = 5;
+    tempObject.imgNum = 2;
+    tempObject.delayTime = 0.2f;
+    tempObject.repeatTime = 3;
+    [tempObject setPosition:LOCATION(375, 600)];
+    [self addChild:tempObject];
+    
+    tempName = @"P3-2_tree";
+    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject.imgNum = 4;
+    tempObject.delayTime = 0.2f;
+    //tempObject.repeatTime = 2;
+    [tempObject setPosition:LOCATION(260, 180)];
+    [self addChild:tempObject];
+    [myTrees addObject:tempObject];
+    
+    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject.imgNum = 4;
+    tempObject.delayTime = 0.2f;
+    //tempObject.repeatTime = 2;
+    [tempObject setFlipX:YES];
+    [tempObject setPosition:LOCATION(640, 220)];
+    [myTrees addObject:tempObject];
+    [self addChild:tempObject];
+    
+    tempName = @"P3-2_water";
+    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject.tag = 7;
+    tempObject.imgNum = 4;
+    tempObject.delayTime = 0.2f;
+    tempObject.repeatTime = 6;
+    [tempObject setPosition:LOCATION(530, 670)];
+    [self addChild:tempObject];
+    
+    tempName = @"P3-2_elephant";
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
@@ -90,43 +127,19 @@
     tempObject.imgNum = 3;
     tempObject.delayTime = 0.2f;
     tempObject.repeatTime = 6;
-    [tempObject setPosition:LOCATION(220, 240)];
+    [tempObject setPosition:LOCATION(640, 560)];
     [self addChild:tempObject];
     
-    tempName = @"P3-1_owl";
+    tempName = @"P3-2_giraffe";
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     tempObject.tag = 4;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.5f;
-    tempObject.repeatTime = 2;
-    [tempObject setPosition:LOCATION(800, 437)];
-    [self addChild:tempObject];
-    
-    tempName = @"P3-1_peacock";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 5;
     tempObject.imgNum = 4;
-    tempObject.delayTime = 0.4f;
-    tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(375, 600)];
-    [self addChild:tempObject];
-    
-    tempName = @"P3-1_swallow";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 6;
-    tempObject.imgNum = 3;
-    tempObject.delayTime = 0.5f;
-    tempObject.repeatTime = 2;
-    [tempObject setPosition:LOCATION(650, 150)];
+    tempObject.delayTime = 0.2f;
+    tempObject.repeatTime = 6;
+    [tempObject setPosition:LOCATION(445, 260)];
     [self addChild:tempObject];
     
     //加入上下頁按鈕
@@ -136,17 +149,13 @@
     //加入array
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
-    [tapObjectArray addObject:[self getChildByTag:6]];
-    [tapObjectArray addObject:[self getChildByTag:5]];
     [tapObjectArray addObject:[self getChildByTag:4]];
     [tapObjectArray addObject:[self getChildByTag:3]];
     
-    [swipeObjectArray addObject:[self getChildByTag:6]];
-    [swipeObjectArray addObject:[self getChildByTag:5]];
     [swipeObjectArray addObject:[self getChildByTag:4]];
     [swipeObjectArray addObject:[self getChildByTag:3]];
-
-    soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
+    
+    //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }
 
 -(void) draw
@@ -190,12 +199,11 @@
                 case 1:
                     //下一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     break;
                 case 3:
                 case 4:
                 case 5:
-                case 6:
                     [self addWordImage:tempObject.wordimageName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
@@ -214,6 +222,10 @@
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [tempObject startAnimation];
             [soundMgr playSoundFile:tempObject.soundName];
+            if (tempObject.tag == 3) {
+                tempObject = (EAAnimSprite*)[self getChildByTag:7];
+                [tempObject startAnimation];
+            }
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {
@@ -246,5 +258,4 @@
     
     [super dealloc];
 }
-
 @end

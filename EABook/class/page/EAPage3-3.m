@@ -1,23 +1,22 @@
 //
-//  EAPage3-1.m
+//  EAPage3-3.m
 //  EABook
 //
 //  Created by Mac06 on 12/10/30.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "EAPage3-1.h"
+#import "EAPage3-3.h"
 
 
-@implementation EAPage3_1
-
+@implementation EAPage3_3
 +(CCScene *) scene
 {
     // 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	EAPage3_1 *layer = [EAPage3_1 node];
+	EAPage3_3 *layer = [EAPage3_3 node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -52,14 +51,14 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
         //音量
-        soundDetect = [[SoundSensor alloc] init];
-        soundDetect.sManage = soundMgr;
-        [self addChild:soundDetect];
+        //soundDetect = [[SoundSensor alloc] init];
+        //soundDetect.sManage = soundMgr;
+        //[self addChild:soundDetect];
         
         //重力
-        //motionDetect = [[MotionSensor alloc] init];
-        //motionDetect.sManage = soundMgr;
-        //[self addChild:motionDetect];
+        motionDetect = [[MotionSensor alloc] init];
+        motionDetect.sManage = soundMgr;
+        [self addChild:motionDetect];
         
         [self addChild:soundMgr];
         [self addObjects];
@@ -145,14 +144,14 @@
     [swipeObjectArray addObject:[self getChildByTag:5]];
     [swipeObjectArray addObject:[self getChildByTag:4]];
     [swipeObjectArray addObject:[self getChildByTag:3]];
-
+    
     soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }
 
 -(void) draw
 {
     if (soundEnable) {
-        [soundDetect update];
+        [motionDetect update];
     }
 }
 
@@ -246,5 +245,4 @@
     
     [super dealloc];
 }
-
 @end

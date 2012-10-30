@@ -78,6 +78,7 @@
     tempObject.tag = 3;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.2f;
+    tempObject.repeatTime = 4;
     [tempObject setPosition:LOCATION(725, 400)];
     [self addChild:tempObject];
     
@@ -89,7 +90,7 @@
     tempObject.tag = 4;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.1f;
-    //horse.repeatTime = 2;
+    tempObject.repeatTime = 4;
     [tempObject setPosition:LOCATION(125, 200)];
     [self addChild:tempObject];
     
@@ -101,6 +102,7 @@
     tempObject.tag = 5;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.1f;
+    tempObject.repeatTime = 4;
     [tempObject setPosition:LOCATION(125, 575)];
     [self addChild:tempObject];
     
@@ -132,10 +134,12 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
                 case 3:

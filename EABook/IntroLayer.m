@@ -14,6 +14,8 @@
 #import "EAPage2.h"
 #import "EAPage1.h"
 #import "EAPage3-1.h"
+#import "EAPage3-2.h"
+#import "EAPage3-3.h"
 #import "EAPage4.h"
 
 #pragma mark - IntroLayer
@@ -68,6 +70,7 @@
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageMenu scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage2 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage4 scene] withColor:ccWHITE]];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_1 scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_1 scene] withColor:ccWHITE]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_2 scene] withColor:ccWHITE]];
 }
 @end

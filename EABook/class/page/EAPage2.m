@@ -180,11 +180,13 @@
                 case 0:
                     //上一頁
                     //delegate.EAGamePoint = gamepoint;
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
                     break;
                 case 1:
                     //下一頁
                     //delegate.EAGamePoint = gamepoint;
+                    [soundMgr playSoundFile:@"push.mp3"];
                     break;
                 case 3:
                 case 4:

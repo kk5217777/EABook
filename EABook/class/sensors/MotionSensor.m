@@ -10,6 +10,9 @@
 #define LIMIT 0.1
 
 @implementation MotionSensor
+@synthesize sprite;
+@synthesize sManage;
+
 -(id) init
 {
     if (self = [super init]) {
@@ -35,10 +38,20 @@
 {
     if ([motionMgr isAccelerometerActive]) {
         _acData = motionMgr.accelerometerData;
-        if (fabsf(_acData.acceleration.x) > LIMIT || fabsf(_acData.acceleration.y) > LIMIT )
+        if (fabsf(_acData.acceleration.x) > LIMIT )
         {
-            //printf("\nshake!!!!!!");
-            [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_MOTION object:self];
+            if (animAble) {
+                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                animAble = !animAble;
+            }
+            [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.x*10), sprite.position.y)];
+        }
+        else
+        {
+            if (!animAble) {
+                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                animAble = !animAble;
+            }
         }
         //NSLog(@"Accelerometer\n----------\nx:%+.2f\ny:%+.2f\nz:%+.2f",_acData.acceleration.x, _acData.acceleration.y, _acData.acceleration.z);
     }

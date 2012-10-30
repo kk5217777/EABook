@@ -1,5 +1,5 @@
 //
-//  EAPage3-1.h
+//  EAPage3-3.h
 //  EABook
 //
 //  Created by Mac06 on 12/10/30.
@@ -12,7 +12,7 @@
 #import "EAPage2.h"
 #import "EAPage4.h"
 
-@interface EAPage3_1 : EALayer {
+@interface EAPage3_3 : EALayer {
     
 }
 +(CCScene *) scene;

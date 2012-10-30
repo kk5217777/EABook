@@ -38,15 +38,53 @@
     return self;
 }
 
--(void) startAnimation
+-(CCAnimation*) getSimpleAnim
 {
-    NSLog(@"start animation");
-    
     CCAnimation *pAnim = [CCAnimation animation];
     for(unsigned int i = 1; i < imgNum; i++)
     {
         NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
         [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+    }
+    [pAnim setDelayPerUnit:delayTime];
+    return pAnim;
+}
+
+-(void) startSpacailAnim:(CCAnimate*)sAnim
+{
+    if (sAnim) {
+        NSLog(@"Merge Anim");
+        CCAnimate *action = [CCRepeatForever actionWithAction:sAnim];
+        [self runAction:action];
+    }
+    else
+    {
+        NSLog(@"Loop Anim");
+        [self startLoopAnimation];
+    }
+}
+
+-(void) startAnimation
+{
+    NSLog(@"start animation");
+    
+    CCAnimation *pAnim = [CCAnimation animation];
+    if (imgNum < 3) {
+        for(unsigned int i = 1; i < imgNum; i++)
+        {
+            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+            [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+        }
+        NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,0];
+        [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+    }
+    else
+    {
+        for(unsigned int i = 1; i < imgNum; i++)
+        {
+            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+            [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+        }
     }
     [pAnim setDelayPerUnit:delayTime];
     pAnim.restoreOriginalFrame = YES;

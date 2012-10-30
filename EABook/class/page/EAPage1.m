@@ -49,6 +49,16 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
+        //音量
+        //soundDetect = [[SoundSensor alloc] init];
+        //soundDetect.sManage = soundMgr;
+        //[self addChild:soundDetect];
+        
+        //重力
+        motionDetect = [[MotionSensor alloc] init];
+        motionDetect.sManage = soundMgr;
+        [self addChild:motionDetect];
+        
         [self addChild:soundMgr];
         [self addObjects];
     }
@@ -104,6 +114,7 @@
     chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     chicken.tag = 6;
+    chicken.visible = NO;
     [chicken setPosition:LOCATION(450, 640)];
     [self addChild:chicken];
     
@@ -112,6 +123,7 @@
     egg.tag = 3;
     egg.imgNum = 6;
     egg.delayTime = 0.1f;
+    egg.visible = YES;
     [egg setPosition:LOCATION(920, 320)];
     [self addChild:egg];
     
@@ -125,7 +137,7 @@
     [swipeObjectArray addObject: cow];
     [swipeObjectArray addObject: pig];
     
-    //soundDetect.sprite = windmil;
+    motionDetect.sprite = egg;
     
 }
 

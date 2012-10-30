@@ -10,7 +10,20 @@
 
 @implementation SoundManager
 
--(void) playSoundFile:(NSString*) soundName;
+-(void) playLoopSound:(NSString*) soundName
+{
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
+    
+    NSLog(@"play");
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    if (audioPlayer) {
+        audioPlayer.numberOfLoops = -1;
+        [audioPlayer play];
+    }
+    [url release];
+}
+
+-(void) playSoundFile:(NSString*) soundName
 {
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
     
@@ -23,7 +36,7 @@
     //[self schedule:@selector(PlayWordSound:) interval:1];
     [url release];
 }
-
+//會switch ON and OFF
 -(void) playWordSoundFile:(NSString*) soundName
 {
     //切換互動狀態
