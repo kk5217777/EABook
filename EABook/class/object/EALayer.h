@@ -47,6 +47,7 @@
 @property (nonatomic,retain) GamePoint *gamepoint;
 //@property (nonatomic, retain) NSMutableArray *tapObjectArray, *swipeObjectArray;
 
+-(void) newStart:(ccTime)dt;
 -(void) addObjects;
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer;
 -(void) handleTap:(UITapGestureRecognizer *)recognizer;

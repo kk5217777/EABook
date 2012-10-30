@@ -26,11 +26,19 @@
         touchEnable = YES;
         soundEnable = YES;
         
+        //[self schedule:@selector(newStrart:) interval:1];
+        
         soundMgr = [[SoundManager alloc] init];
         
         NSLog(@"Layer");
 	}
 	return self;
+}
+
+-(void) newStart:(ccTime)dt
+{
+    [self unschedule:@selector(newStrart:)];
+    [self switchInteraction];
 }
 
 -(void) switchInteraction

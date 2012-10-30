@@ -114,6 +114,7 @@
     chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     chicken.tag = 6;
+    chicken.delayTime = 3.0f;
     chicken.visible = NO;
     [chicken setPosition:LOCATION(450, 640)];
     [self addChild:chicken];
@@ -138,7 +139,6 @@
     [swipeObjectArray addObject: pig];
     
     motionDetect.sprite = egg;
-    
 }
 
 #pragma 手勢區
@@ -196,6 +196,11 @@
 {
     NSLog(@"swipe");
     for (tempObject in swipeObjectArray) {
+        
+        CGRect temp = tempObject.boundingBox;
+        temp.origin.x = tempObject.boundingBox.origin.x - 50;
+        temp.size.width = tempObject.boundingBox.size.width + 100;
+        
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [tempObject startAnimation];
             [soundMgr playSoundFile:tempObject.soundName];
