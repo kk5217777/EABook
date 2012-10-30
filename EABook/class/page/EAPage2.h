@@ -11,6 +11,8 @@
 #import "EALayer.h"
 #import "EAAnimSprite.h"
 #import "MotionSensor.h"
+#import "EAPageMenu.h"
+#import "EAPage1.h"
 
 @interface EAPage2 : EALayer {
     EAAnimSprite *animSprite;

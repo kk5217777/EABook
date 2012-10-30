@@ -16,8 +16,10 @@
     
     NSLog(@"play");
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
+    if (audioPlayer) {
+        audioPlayer.numberOfLoops = 0;
+        [audioPlayer play];
+    }
     //[self schedule:@selector(PlayWordSound:) interval:1];
     [url release];
 }
@@ -31,9 +33,11 @@
     
     NSLog(@"play");
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    audioPlayer.numberOfLoops = 0;
-    [audioPlayer play];
-    [self schedule:@selector(PlayWordSound:) interval:1];
+    if (audioPlayer) {
+        audioPlayer.numberOfLoops = 0;
+        [audioPlayer play];
+        [self schedule:@selector(PlayWordSound:) interval:1];
+    }
     [url release];
 }
 

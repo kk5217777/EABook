@@ -31,23 +31,6 @@
 	}
 	return self;
 }
-//等待實作！！
--(void) addWordImage:(NSString*)imageName
-{
-    
-}
--(void) removeWordImage
-{
-    
-}
--(void) addPre
-{
-    
-}
--(void) addNext
-{
-    
-}
 
 -(void) switchInteraction
 {
@@ -56,6 +39,7 @@
     }
     else{
         NSLog(@"witchInteraction ON");
+        [self removeWordImage];
     }
     touchEnable = !touchEnable;
     soundEnable = !soundEnable;
@@ -123,6 +107,25 @@
     [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
     [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
 }
+
+-(void) handleTap:(UITapGestureRecognizer*) recognizer
+{
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    if (touchEnable) {
+        [self tapSpriteMovement:touchLocation];
+    }
+}
+
+-(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
+{
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    if (touchEnable) {
+        [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
+    }
+}
+
 //來回swipe動作
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
 {
@@ -149,6 +152,45 @@
             }
         }
     }
+}
+
+//等待實作！！
+-(void) addWordImage:(NSString*)imageName
+{
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    CCSprite *tt = [CCSprite spriteWithFile:imageName];
+    if (tt) {
+        tt.tag = 2;
+        tt.position = ccp(size.width/2, size.height/2);
+        [self addChild:tt];
+    }
+    else
+    {
+        NSLog(@"Word Image 創建不成功");
+    }
+}
+-(void) removeWordImage
+{
+    CCNode *temp = [self getChildByTag:2];
+    if (temp) {
+        [self removeChildByTag:2 cleanup:YES];
+    }
+}
+-(void) addPre
+{
+    tempObject = [EAAnimSprite spriteWithFile:@"pushbutton_left.png"];
+    tempObject.soundName = @"push.mp3";
+    tempObject.tag = 0;
+    tempObject.position = LOCATION(60, 60);
+    [self addChild:tempObject];
+}
+-(void) addNext
+{
+    tempObject = [EAAnimSprite spriteWithFile:@"pushbutton_right.png"];
+    tempObject.soundName = @"push.mp3";
+    tempObject.tag = 1;
+    tempObject.position = LOCATION(964, 60);
+    [self addChild:tempObject];
 }
 
 -(void) addBackGround:(NSString*)imageName

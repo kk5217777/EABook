@@ -282,6 +282,7 @@
 		B89D9A29163EBC26007AABFB /* P4_butterfly_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D999F163EBC26007AABFB /* P4_butterfly_word.mp3 */; };
 		B89D9A2A163EBC26007AABFB /* P4_ladybug_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D99A0163EBC26007AABFB /* P4_ladybug_word.mp3 */; };
 		B89D9A2B163EBC26007AABFB /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D99A1163EBC26007AABFB /* push.mp3 */; };
+		B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -707,6 +708,8 @@
 		B89D999F163EBC26007AABFB /* P4_butterfly_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = P4_butterfly_word.mp3; sourceTree = "<group>"; };
 		B89D99A0163EBC26007AABFB /* P4_ladybug_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = P4_ladybug_word.mp3; sourceTree = "<group>"; };
 		B89D99A1163EBC26007AABFB /* push.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = push.mp3; sourceTree = "<group>"; };
+		B8ADB9B0163FA1A900B4B9AC /* EAPage3-1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-1.h"; sourceTree = "<group>"; };
+		B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EAPage3-1.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1182,6 +1185,8 @@
 				84967031163EEDD4001F1A8E /* EAPageConfig.m */,
 				84967032163EEDD4001F1A8E /* EAPageMenu.h */,
 				84967033163EEDD4001F1A8E /* EAPageMenu.m */,
+				B8ADB9B0163FA1A900B4B9AC /* EAPage3-1.h */,
+				B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -1852,6 +1857,7 @@
 				84967041163EEDD4001F1A8E /* EAPageMenu.m in Sources */,
 				84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */,
 				84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */,
+				B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1902,6 +1908,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1914,6 +1922,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1922,6 +1932,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EABook/Prefix.pch;
@@ -1933,6 +1945,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

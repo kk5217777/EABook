@@ -38,6 +38,9 @@
         NSLog(@"game point: %@", gamepoint.description);
         
         //手勢
+        //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
+        //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
+        
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
@@ -51,6 +54,8 @@
         
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
+        
+        //[self handlePanAndSwipe];
         
         //音量
         soundDetect = [[SoundSensor alloc] init];
@@ -78,6 +83,8 @@
     [self addChild:spriteSheet];
     
     //加入上下頁按鈕
+    [self addPre];
+    [self addNext];
     
     //加入互動物件
     windmil = [EAAnimSprite spriteWithName:@"P2_Windmill"];
@@ -90,8 +97,9 @@
     
     horse = [EAAnimSprite spriteWithName:@"P2_horse"];
     horse.wordsoundName = @"P2_horse_word.mp3";
+    horse.wordimageName = @"P2_horse_EN&CH.jpg";
     horse.soundName = @"P2_horse.mp3";
-    horse.tag = 2;
+    horse.tag = 6;
     horse.imgNum = 7;
     horse.delayTime = 0.1f;
     //horse.repeatTime = 2;
@@ -100,6 +108,7 @@
     
     sheep = [EAAnimSprite spriteWithName:@"P2_sheep"];
     sheep.wordsoundName = @"P2_goat_word.mp3";
+    sheep.wordimageName = @"P2_goat_EN&CH.jpg";
     sheep.soundName = @"P2_goat.mp3";
     sheep.tag = 3;
     sheep.imgNum = 2;
@@ -110,6 +119,7 @@
     
     zibber = [EAAnimSprite spriteWithName:@"P2_zibber"];
     zibber.wordsoundName = @"P2_Zebra_word.mp3";
+    zibber.wordimageName = @"P2_zerba_EN&CH.jpg";
     zibber.soundName = @"P2_Zebra.mp3";
     zibber.tag = 4;
     zibber.imgNum = 5;
@@ -117,6 +127,8 @@
     [zibber setPosition:LOCATION(150, 450)];
     [self addChild:zibber];
     
+    [tapObjectArray addObject:[self getChildByTag:0]];
+    [tapObjectArray addObject:[self getChildByTag:1]];
     [tapObjectArray addObject:zibber];
     [tapObjectArray addObject:sheep];
     [tapObjectArray addObject:horse];
@@ -154,6 +166,11 @@
     }
 }
 
+-(void) handlePan:(UIPanGestureRecognizer *)recognizer
+{
+    NSLog(@"Pan");
+}
+
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     NSLog(@"tap");
@@ -164,15 +181,19 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
+                    delegate.EAGamePoint = gamepoint;
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
                     break;
                 case 1:
                     //下一頁
+                    delegate.EAGamePoint = gamepoint;
                     break;
-                case 2:
                 case 3:
                 case 4:
                 case 5:
-                    
+                case 6:
+                    [self addWordImage:tempObject.wordimageName];
+                    [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
                 default:
                     break;

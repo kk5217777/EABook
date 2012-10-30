@@ -52,7 +52,8 @@
 -(void) addGamePoint:(SoundDetectOB*) object;
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer;
 -(void) handleTap:(UITapGestureRecognizer *)recognizer;
--(void) handlePan:(UITapGestureRecognizer *)recognizer;
+-(void) handlePan:(UIPanGestureRecognizer *)recognizer;
+-(void) handlePanAndSwipe;
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection)dir;
 -(void) tapSpriteMovement:(CGPoint)touchLocation;
 -(void) panSpriteMovement:(CGPoint)touchLocation;

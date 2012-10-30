@@ -74,7 +74,6 @@
         [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
     }
     [pAnim setDelayPerUnit:delayTime];
-    pAnim.restoreOriginalFrame = NO;
     
     //CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
     //CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
