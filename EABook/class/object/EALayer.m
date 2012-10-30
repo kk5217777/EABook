@@ -23,9 +23,10 @@
         
         gamepoint = delegate.EAGamePoint;
         
-        touchEnable = YES;
-        soundEnable = YES;
+        touchEnable = NO;
+        soundEnable = NO;
         
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
         //[self schedule:@selector(newStrart:) interval:1];
         
         soundMgr = [[SoundManager alloc] init];
@@ -33,12 +34,6 @@
         NSLog(@"Layer");
 	}
 	return self;
-}
-
--(void) newStart:(ccTime)dt
-{
-    [self unschedule:@selector(newStrart:)];
-    [self switchInteraction];
 }
 
 -(void) switchInteraction

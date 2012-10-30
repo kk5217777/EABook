@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845491F8164021AE0036B09F /* P3-1_speacock_word.png in Resources */ = {isa = PBXBuildFile; fileRef = 845491F7164021AE0036B09F /* P3-1_speacock_word.png */; };
 		846049D7163AE2EA002A203B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846049D6163AE2EA002A203B /* QuartzCore.framework */; };
 		846049D9163AE2EA002A203B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846049D8163AE2EA002A203B /* OpenGLES.framework */; };
 		846049DB163AE2EA002A203B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846049DA163AE2EA002A203B /* OpenAL.framework */; };
@@ -233,7 +234,6 @@
 		B89D99F5163EBC26007AABFB /* P2_zerba_EN&CH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9960163EBC26007AABFB /* P2_zerba_EN&CH.jpg */; };
 		B89D99F6163EBC26007AABFB /* P3-1_eagle_word.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9962163EBC26007AABFB /* P3-1_eagle_word.png */; };
 		B89D99F7163EBC26007AABFB /* P3-1_owl_word.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9963163EBC26007AABFB /* P3-1_owl_word.png */; };
-		B89D99F8163EBC26007AABFB /* P3-1_speacook_word.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9964163EBC26007AABFB /* P3-1_speacook_word.png */; };
 		B89D99F9163EBC26007AABFB /* P3-1_swallow_word.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9965163EBC26007AABFB /* P3-1_swallow_word.png */; };
 		B89D99FA163EBC26007AABFB /* P3-1_tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9966163EBC26007AABFB /* P3-1_tree.jpg */; };
 		B89D99FB163EBC26007AABFB /* P3-2_elephant_word.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9968163EBC26007AABFB /* P3-2_elephant_word.png */; };
@@ -289,6 +289,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845491F7164021AE0036B09F /* P3-1_speacock_word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-1_speacock_word.png"; sourceTree = "<group>"; };
 		846049D2163AE2EA002A203B /* EABook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EABook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846049D6163AE2EA002A203B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		846049D8163AE2EA002A203B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -665,7 +666,6 @@
 		B89D9960163EBC26007AABFB /* P2_zerba_EN&CH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P2_zerba_EN&CH.jpg"; sourceTree = "<group>"; };
 		B89D9962163EBC26007AABFB /* P3-1_eagle_word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-1_eagle_word.png"; sourceTree = "<group>"; };
 		B89D9963163EBC26007AABFB /* P3-1_owl_word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-1_owl_word.png"; sourceTree = "<group>"; };
-		B89D9964163EBC26007AABFB /* P3-1_speacook_word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-1_speacook_word.png"; sourceTree = "<group>"; };
 		B89D9965163EBC26007AABFB /* P3-1_swallow_word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-1_swallow_word.png"; sourceTree = "<group>"; };
 		B89D9966163EBC26007AABFB /* P3-1_tree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P3-1_tree.jpg"; sourceTree = "<group>"; };
 		B89D9968163EBC26007AABFB /* P3-2_elephant_word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-2_elephant_word.png"; sourceTree = "<group>"; };
@@ -1415,9 +1415,9 @@
 		B89D9961163EBC26007AABFB /* P3-1 */ = {
 			isa = PBXGroup;
 			children = (
+				845491F7164021AE0036B09F /* P3-1_speacock_word.png */,
 				B89D9962163EBC26007AABFB /* P3-1_eagle_word.png */,
 				B89D9963163EBC26007AABFB /* P3-1_owl_word.png */,
-				B89D9964163EBC26007AABFB /* P3-1_speacook_word.png */,
 				B89D9965163EBC26007AABFB /* P3-1_swallow_word.png */,
 				B89D9966163EBC26007AABFB /* P3-1_tree.jpg */,
 			);
@@ -1696,7 +1696,6 @@
 				B89D99F5163EBC26007AABFB /* P2_zerba_EN&CH.jpg in Resources */,
 				B89D99F6163EBC26007AABFB /* P3-1_eagle_word.png in Resources */,
 				B89D99F7163EBC26007AABFB /* P3-1_owl_word.png in Resources */,
-				B89D99F8163EBC26007AABFB /* P3-1_speacook_word.png in Resources */,
 				B89D99F9163EBC26007AABFB /* P3-1_swallow_word.png in Resources */,
 				B89D99FA163EBC26007AABFB /* P3-1_tree.jpg in Resources */,
 				B89D99FB163EBC26007AABFB /* P3-2_elephant_word.png in Resources */,
@@ -1748,6 +1747,7 @@
 				B89D9A29163EBC26007AABFB /* P4_butterfly_word.mp3 in Resources */,
 				B89D9A2A163EBC26007AABFB /* P4_ladybug_word.mp3 in Resources */,
 				B89D9A2B163EBC26007AABFB /* push.mp3 in Resources */,
+				845491F8164021AE0036B09F /* P3-1_speacock_word.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
