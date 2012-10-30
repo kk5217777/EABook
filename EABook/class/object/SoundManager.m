@@ -20,21 +20,18 @@
         audioPlayer.numberOfLoops = -1;
         [audioPlayer play];
     }
-    [url release];
 }
 
 -(void) playSoundFile:(NSString*) soundName
 {
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
     
-    NSLog(@"play");
+    NSLog(@"sound play");
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    if (audioPlayer) {
+    if (audioPlayer && !audioPlayer.isPlaying) {
         audioPlayer.numberOfLoops = 0;
         [audioPlayer play];
     }
-    //[self schedule:@selector(PlayWordSound:) interval:1];
-    [url release];
 }
 //會switch ON and OFF
 -(void) playWordSoundFile:(NSString*) soundName
@@ -51,12 +48,18 @@
         [audioPlayer play];
         [self schedule:@selector(PlayWordSound:) interval:1];
     }
-    [url release];
+}
+
+-(void) playSound
+{
+    if (audioPlayer && !audioPlayer.isPlaying) {
+        [audioPlayer play];
+    }
 }
 
 -(void) stopSound
 {
-    if (audioPlayer) {
+    if (audioPlayer && audioPlayer.isPlaying) {
         [audioPlayer stop];
     }
 }

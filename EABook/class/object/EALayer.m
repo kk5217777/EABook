@@ -20,7 +20,7 @@
 	if (self=[super init])
     {
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];// new add
-        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] removeUnusedSpriteFrames];
         gamepoint = delegate.EAGamePoint;
         
         touchEnable = NO;
@@ -247,15 +247,20 @@
     }
 }
 
--(void) onExit{
-    NSLog(@"EALayer onExit");
+-(void) onExitTransitionDidStart
+{
     delegate.EAGamePoint = gamepoint;
+    [self stopAllActions];
+    [self stopSpriteMove];
 }
 
 -(void) dealloc
 {
     NSLog(@"EALayer dealloc");
     [super dealloc];
+    gamepoint = Nil;
+    tempObject = Nil;
+    tapObjectArray = Nil;
 }
 
 @end

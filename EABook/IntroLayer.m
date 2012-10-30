@@ -17,6 +17,9 @@
 #import "EAPage3-2.h"
 #import "EAPage3-3.h"
 #import "EAPage4.h"
+#import "EAPageEnd.h"
+#import "EAPageGame1.h"
+#import "EAPageGame2.h"
 
 #pragma mark - IntroLayer
 
@@ -67,10 +70,12 @@
 -(void) makeTransition:(ccTime)dt
 {
 	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] withColor:ccWHITE]];
-    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageMenu scene] withColor:ccWHITE]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageMenu scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage2 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage4 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_1 scene] withColor:ccWHITE]];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_2 scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_2 scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_3 scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageEnd scene] withColor:ccWHITE]];
 }
 @end

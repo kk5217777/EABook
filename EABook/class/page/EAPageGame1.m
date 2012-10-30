@@ -1,24 +1,22 @@
 //
-//  EAPageMenu.m
+//  EAPageGame1.m
 //  EABook
 //
-//  Created by gdlab on 12/10/26.
+//  Created by gdlab on 12/10/31.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "EAPageMenu.h"
-#import "AppDelegate.h"
-#import "EAPage1.h"
-#import "EAPageConfig.h"
+#import "EAPageGame1.h"
 
-@implementation EAPageMenu
+
+@implementation EAPageGame1
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
+    // 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	EAPageMenu *layer = [EAPageMenu node];
+	EAPageGame1 *layer = [EAPageGame1 node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -27,37 +25,42 @@
 	return scene;
 }
 
-//
 -(id) init
 {
     if (self = [super init]) {
+        gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
-        gamepoint = [[GamePoint alloc] init];
+        //swipeObjectArray = [[NSMutableArray alloc] init];
         
-        if (gamepoint) {
-            NSLog(@"%@", gamepoint.description);
-        }
-        /*
-        AVAudioPlayer *audioPlayer;
-        NSString *soundfileName = @"P3-1_owl_word.mp3";
-        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundfileName]];
-        NSLog(@"play");
-        //wordsoundflag = FALSE;
-        
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-        audioPlayer.numberOfLoops = 0;
-        [audioPlayer play];
-        //[self schedule:@selector(PlayWordSound:) interval:1];
-        //[self addWordImage];
-        [url release];
-        */
-        // ask director for the window size
+        //手勢
+        //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
+        //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
-        tapgestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
+        /*
+        swipegestureRecognizerRight = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
+        [swipegestureRecognizerRight setDirection:UISwipeGestureRecognizerDirectionRight];
         
+        swipegestureRecognizerLeft = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
+        [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+        
+        [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
+        [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
+        */
+        //音量
+        //soundDetect = [[SoundSensor alloc] init];
+        //soundDetect.sManage = soundMgr;
+        //[self addChild:soundDetect];
+        
+        //重力
+        //motionDetect = [[MotionSensor alloc] init];
+        //motionDetect.sManage = soundMgr;
+        //[self addChild:motionDetect];
+        
+        [self addChild:soundMgr];
         [self addObjects];
     }
     return self;
@@ -65,13 +68,22 @@
 
 -(void) addObjects
 {
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game Page 1" fontName:@"Marker Felt" fontSize:64];
+    
+    // ask director for the window size
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    // position the label on the center of the screen
+    label.position =  ccp( size.width /2 , size.height/2 );
+    [self addChild:label];
+    /*
     [self addBackGround:@"P0_Cover.jpg"];
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
      @"P0.plist"];
     
     spriteSheet = [CCSpriteBatchNode
-                                      batchNodeWithFile:@"P0.png"];
+                   batchNodeWithFile:@"P0.png"];
     [self addChild:spriteSheet];
     
     NSLog(@"Tap! %d", tapObjectArray.count);
@@ -101,13 +113,22 @@
     [btnback setPosition:LOCATION(870 , 670)];
     [spriteSheet addChild:btnback];
     [tapObjectArray addObject:btnback];
+     */
+    
+    //加入上下頁按鈕
+    [self addPre];
+    [self addNext];
+    
+    //加入array
+    [tapObjectArray addObject:[self getChildByTag:0]];
+    [tapObjectArray addObject:[self getChildByTag:1]];
 }
 
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (touchEnable && tapObjectArray) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -119,14 +140,13 @@
         if (CGRectContainsPoint(obj.boundingBox, touchLocation)) {
             switch (obj.tag) {
                 case 0:
-                    NSLog(@"開始");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] backwards:NO]];
+                    //delegate.EAGamePoint = gamepoint;
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] backwards:YES]];
                     break;
                 case 1:
-                    NSLog(@"地圖");
                     [soundMgr playSoundFile:@"push.mp3"];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     break;
                 case 2:
                     NSLog(@"遊戲");
@@ -135,7 +155,6 @@
                 case 3:
                     NSLog(@"設定");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene] backwards:NO]];
                     break;
                 default:
                     break;
@@ -146,10 +165,11 @@
 }
 
 -(void) dealloc {
-    [super dealloc];
+    
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    [tapgestureRecognizer dealloc];
-    [swipegestureRecognizerLeft dealloc];
-    [swipegestureRecognizerRight dealloc];
+    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
+    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
+    
+    [super dealloc];
 }
 @end

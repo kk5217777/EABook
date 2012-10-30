@@ -67,6 +67,10 @@
 -(void) startAnimation
 {
     NSLog(@"start animation");
+    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
+    CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
+    
+    [self runAction:switchIneraction];
     
     CCAnimation *pAnim = [CCAnimation animation];
     if (imgNum < 3) {
@@ -89,11 +93,8 @@
     [pAnim setDelayPerUnit:delayTime];
     pAnim.restoreOriginalFrame = YES;
     
-    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
-    CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
-    
     CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
-    [self runAction:[CCSequence actions:switchIneraction,
+    [self runAction:[CCSequence actions:
                     [CCDelayTime actionWithDuration:0.1f],
                     [CCRepeat actionWithAction:action times:repeatTime],
                     stopSound , NULL]];
@@ -117,7 +118,5 @@
     CCAnimate *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:pAnim]];
     [self runAction:action];
 }
-
-
 
 @end

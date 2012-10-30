@@ -14,9 +14,10 @@
 
 #import "EAPageMenu.h"
 #import "EAPage1.h"
-//#import "EAPage3-1.h"
-//#import "EAPage3-2.h"
-//#import "EAPage3-3.h"
+#import "EAPage3-1.h"
+#import "EAPage3-2.h"
+#import "EAPage3-3.h"
+#import "EAPage4.h"
 
 @interface EAPage2 : EALayer {
     EAAnimSprite *horse;

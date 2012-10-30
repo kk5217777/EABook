@@ -91,7 +91,7 @@
     cow.tag = 4;
     cow.imgNum = 7;
     cow.delayTime = 0.1f;
-    //horse.repeatTime = 2;
+    cow.repeatTime = 3;
     [cow setPosition:LOCATION(250, 350)];
     [self addChild:cow];
     
@@ -102,8 +102,8 @@
     pig.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     pig.tag = 5;
     pig.imgNum = 4;
-    pig.repeatTime = 2;
-    pig.delayTime = 0.1f;
+    pig.repeatTime = 3;
+    pig.delayTime = 0.2f;
     [pig setPosition:LOCATION(830, 250)];
     [self addChild:pig];
     
@@ -114,7 +114,8 @@
     chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     chicken.tag = 6;
-    chicken.delayTime = 3.0f;
+    chicken.delayTime = 1.0f;
+    chicken.repeatTime = 2;
     chicken.visible = NO;
     [chicken setPosition:LOCATION(450, 640)];
     [self addChild:chicken];
@@ -229,11 +230,12 @@
 }
 
 -(void) dealloc {
+    [super dealloc];
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-     
-    [super dealloc];
+    
+    tempObject = nil;
 }
 @end

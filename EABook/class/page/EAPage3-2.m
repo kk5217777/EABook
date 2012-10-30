@@ -199,7 +199,8 @@
                 case 1:
                     //下一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
                     break;
                 case 3:
                 case 4:

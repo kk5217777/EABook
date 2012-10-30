@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "EALayer.h"
-#import "EAPage2.h"
-#import "EAPageMenu.h"
+#import "EAPageGame2.h"
+#import "EAPage3-1.h"
+#import "EAPage3-2.h"
+#import "EAPage3-3.h"
 
 @interface EAPage4 : EALayer {
     

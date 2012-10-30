@@ -45,20 +45,26 @@ CCSpriteBatchNode *spriteSheet;
 	return scene;
 }
 
--(void) onEnter
+-(id) init
 {
-    tapObjectArray = [[NSMutableArray alloc] init];
-    configContent = [self readConfig];//讀取原本的設定
-    if (configContent) {
-        NSLog(@"有設定檔");
+    if (self = [super init])
+    {
+        touchEnable = NO;
+        
+        tapObjectArray = [[NSMutableArray alloc] init];
+        configContent = [self readConfig];//讀取原本的設定
+        if (configContent) {
+            NSLog(@"有設定檔");
+        }
+        
+        delegate = (AppController*) [[UIApplication sharedApplication] delegate];
+        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+        tapgestureRecognizer.numberOfTapsRequired = 1; //new add
+        [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
+        
+        [self addObjects];
     }
-    
-    delegate = (AppController*) [[UIApplication sharedApplication] delegate];
-    tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
-    tapgestureRecognizer.numberOfTapsRequired = 1; //new add
-    [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
-    
-    [self addObjects];
+    return self;
 }
 
 -(void) addObjects
@@ -126,6 +132,7 @@ CCSpriteBatchNode *spriteSheet;
     if (touchEnable) {
         [self tapSpriteMovement:touchLocation];
     }
+    NSLog(@"tap");
 }
 
 -(void) tapSpriteMovement:(CGPoint)touchLocation

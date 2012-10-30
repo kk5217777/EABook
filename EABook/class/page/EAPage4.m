@@ -125,6 +125,25 @@
     
 }
 
+#pragma mark 手勢
+-(void) handleTap:(UITapGestureRecognizer*) recognizer
+{
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    if (touchEnable && tapObjectArray) {
+        [self tapSpriteMovement:touchLocation];
+    }
+}
+
+-(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
+{
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    if (touchEnable && swipeObjectArray) {
+        [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
+    }
+}
+
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     NSLog(@"tap");
@@ -135,12 +154,12 @@
                 case 0:
                     //上一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGame2 scene]]];
                     break;
                 case 3:
                 case 4:
@@ -154,25 +173,6 @@
             }
             break;
         }
-    }
-}
-
-#pragma mark 手勢
--(void) handleTap:(UITapGestureRecognizer*) recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
-        [self tapSpriteMovement:touchLocation];
-    }
-}
-
--(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
-        [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
 
