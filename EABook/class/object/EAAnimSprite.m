@@ -27,15 +27,13 @@
     NSString *fullImagName;
     
     fullImagName = [NSString stringWithFormat:@"%@_%d.png",name,0];
-
-    if (self = [super initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]]) {
-        NSLog(@"fileName-------%@",fullImagName);
+    NSLog(@"fileName-------%@",fullImagName);
+    if (self = [self initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]]) {
         imgNum = 0;
         delayTime = 0.3f;
         soundName = nil;
-        wordimageName = nil;
-        soundEffectID = 0;
-        wordsoundEffectID = 0;
+        wordimageName = Nil;
+        wordsoundName = Nil;
     }
     return self;
 }
@@ -58,7 +56,7 @@
     
     CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
     [self runAction:[CCSequence actions:switchIneraction,
-                    [CCDelayTime actionWithDuration:delayTime],
+                    [CCDelayTime actionWithDuration:0.1f],
                     [CCRepeat actionWithAction:action times:repeatTime],
                     stopSound , NULL]];
 }

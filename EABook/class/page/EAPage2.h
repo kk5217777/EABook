@@ -11,11 +11,14 @@
 #import "EALayer.h"
 #import "EAAnimSprite.h"
 #import "MotionSensor.h"
+
 #import "EAPageMenu.h"
 #import "EAPage1.h"
+//#import "EAPage3-1.h"
+//#import "EAPage3-2.h"
+//#import "EAPage3-3.h"
 
 @interface EAPage2 : EALayer {
-    EAAnimSprite *animSprite;
     EAAnimSprite *horse;
     EAAnimSprite *sheep;
     EAAnimSprite *zibber;

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "EALayer.h"
+#import "EAPage2.h"
+#import "EAPageMenu.h"
 
-@interface EAPage4 : CCLayer {
+@interface EAPage4 : EALayer {
     
 }
-
++(CCScene *) scene;
 @end

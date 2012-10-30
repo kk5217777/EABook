@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "EALayer.h"
 
-@interface EAPage3_1 : CCLayer {
+@interface EAPage3_1 : EALayer {
     
 }
 +(CCScene *) scene;

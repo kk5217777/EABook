@@ -144,6 +144,7 @@
 		84967041163EEDD4001F1A8E /* EAPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967033163EEDD4001F1A8E /* EAPageMenu.m */; };
 		84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967036163EEDD4001F1A8E /* MotionSensor.m */; };
 		84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967038163EEDD4001F1A8E /* SoundSensor.m */; };
+		B88D0145163FD754004106BC /* EAPage4.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0144163FD753004106BC /* EAPage4.m */; };
 		B89D99A2163EBC26007AABFB /* P0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89D9902163EBC26007AABFB /* P0.plist */; };
 		B89D99A3163EBC26007AABFB /* P0.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9903163EBC26007AABFB /* P0.png */; };
 		B89D99A4163EBC26007AABFB /* P1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B89D9904163EBC26007AABFB /* P1.plist */; };
@@ -570,6 +571,8 @@
 		84967037163EEDD4001F1A8E /* SoundSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSensor.h; sourceTree = "<group>"; };
 		84967038163EEDD4001F1A8E /* SoundSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSensor.m; sourceTree = "<group>"; };
 		B816ADD1163BC1120018AC35 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B88D0143163FD753004106BC /* EAPage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage4.h; sourceTree = "<group>"; };
+		B88D0144163FD753004106BC /* EAPage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage4.m; sourceTree = "<group>"; };
 		B89D9902163EBC26007AABFB /* P0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = P0.plist; sourceTree = "<group>"; };
 		B89D9903163EBC26007AABFB /* P0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P0.png; sourceTree = "<group>"; };
 		B89D9904163EBC26007AABFB /* P1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = P1.plist; sourceTree = "<group>"; };
@@ -1179,6 +1182,8 @@
 			children = (
 				8496702C163EEDD4001F1A8E /* EAPage1.h */,
 				8496702D163EEDD4001F1A8E /* EAPage1.m */,
+				B88D0143163FD753004106BC /* EAPage4.h */,
+				B88D0144163FD753004106BC /* EAPage4.m */,
 				8496702E163EEDD4001F1A8E /* EAPage2.h */,
 				8496702F163EEDD4001F1A8E /* EAPage2.m */,
 				84967030163EEDD4001F1A8E /* EAPageConfig.h */,
@@ -1858,6 +1863,7 @@
 				84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */,
 				84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */,
 				B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */,
+				B88D0145163FD754004106BC /* EAPage4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1908,8 +1914,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yating lo (T3GD3KLT45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1922,8 +1928,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1932,8 +1938,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yating lo (T3GD3KLT45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EABook/Prefix.pch;
@@ -1945,8 +1951,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

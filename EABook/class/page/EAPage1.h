@@ -10,10 +10,14 @@
 #import "cocos2d.h"
 #import "EALayer.h"
 
+#import "EAPageMenu.h"
+#import "EAPage2.h"
+
 @interface EAPage1 : EALayer {
-    
+    EAAnimSprite *egg;
+    EAAnimSprite *chicken;
+    EAAnimSprite *pig;
+    EAAnimSprite *cow;
 }
 +(CCScene *) scene;
-+(CCScene*) sceneWithGamePoint:(GamePoint *)gp;
--(id) initWithGamePoint:(GamePoint *)gp;
 @end

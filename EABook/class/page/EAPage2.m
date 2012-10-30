@@ -7,7 +7,6 @@
 //
 
 #import "EAPage2.h"
-#import "EAPageMenu.h"
 
 @implementation EAPage2
 
@@ -29,7 +28,6 @@
 -(id) init
 {
     if (self = [super init]) {
-        
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
         swipeDirection = UISwipeGestureRecognizerDirectionDown;
@@ -94,7 +92,7 @@
     //windmil.repeatTime = 2;
     [windmil setPosition:LOCATION(832, 190)];
     [self addChild:windmil];
-    
+
     horse = [EAAnimSprite spriteWithName:@"P2_horse"];
     horse.wordsoundName = @"P2_horse_word.mp3";
     horse.wordimageName = @"P2_horse_EN&CH.jpg";
@@ -181,12 +179,12 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
-                    delegate.EAGamePoint = gamepoint;
+                    //delegate.EAGamePoint = gamepoint;
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
                     break;
                 case 1:
                     //下一頁
-                    delegate.EAGamePoint = gamepoint;
+                    //delegate.EAGamePoint = gamepoint;
                     break;
                 case 3:
                 case 4:
@@ -237,9 +235,9 @@
 }
 
 -(void) dealloc {
-    [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
+    [super dealloc];
 }
 @end

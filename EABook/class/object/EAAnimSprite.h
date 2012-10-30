@@ -21,14 +21,12 @@
     BOOL _isTouch;
     
     @protected
-    unsigned int soundEffectID;
-    unsigned int wordsoundEffectID;
     float delayTime;
     NSMutableArray *animImageFrames;
     CCAnimation *animate;
 }
 
-@property(nonatomic, retain)NSString *imageName,*soundName,*wordsoundName,*wordimageName;
+@property(nonatomic, retain) NSString *imageName, *soundName, *wordsoundName, *wordimageName;
 @property(nonatomic) BOOL isTouch;
 @property(nonatomic, readwrite)NSInteger imgNum, repeatTime;
 @property(nonatomic, readwrite)float delayTime;

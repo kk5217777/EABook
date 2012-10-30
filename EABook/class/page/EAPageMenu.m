@@ -8,7 +8,7 @@
 
 #import "EAPageMenu.h"
 #import "AppDelegate.h"
-#import "EAPage2.h"
+#import "EAPage1.h"
 #import "EAPageConfig.h"
 
 @implementation EAPageMenu
@@ -120,17 +120,21 @@
             switch (obj.tag) {
                 case 0:
                     NSLog(@"開始");
+                    [soundMgr playSoundFile:@"push.mp3"];
                     delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] backwards:NO]];
                     break;
                 case 1:
                     NSLog(@"地圖");
+                    [soundMgr playSoundFile:@"push.mp3"];
                     break;
                 case 2:
                     NSLog(@"遊戲");
+                    [soundMgr playSoundFile:@"push.mp3"];
                     break;
                 case 3:
                     NSLog(@"設定");
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene] backwards:NO]];
                     break;
                 default:
@@ -141,7 +145,8 @@
     }
 }
 
--(void) onExit {
+-(void) dealloc {
+    [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
 }
 @end

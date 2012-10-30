@@ -11,6 +11,7 @@
 
 @implementation EALayer
 @synthesize gamepoint;
+//@synthesize tapObjectArray, swipeObjectArray;
 
 -(id) init
 {
@@ -61,6 +62,7 @@
 {
     NSLog(@"EALayer stopSpriteMove");
     [self switchInteraction];
+    [soundMgr stopSound];
 }
 
 -(void) addTapToLayer
@@ -107,7 +109,7 @@
     [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
     [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
 }
-
+/*
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
@@ -125,7 +127,7 @@
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
-
+*/
 //來回swipe動作
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
 {
@@ -243,7 +245,7 @@
 }
 
 -(void) onExit{
-    NSLog(@"EALayer exit");
+    NSLog(@"EALayer onExit");
     delegate.EAGamePoint = gamepoint;
 }
 

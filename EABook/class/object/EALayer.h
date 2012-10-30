@@ -46,6 +46,7 @@
     SoundManager *soundMgr;
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
+//@property (nonatomic, retain) NSMutableArray *tapObjectArray, *swipeObjectArray;
 
 -(void) addObjects;
 -(void) addImage;
