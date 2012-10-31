@@ -18,6 +18,8 @@
     EAAnimSprite *chicken;
     EAAnimSprite *pig;
     EAAnimSprite *cow;
+    
+    BOOL eggEnable;
 }
 +(CCScene *) scene;
 @end

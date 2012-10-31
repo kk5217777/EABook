@@ -31,6 +31,8 @@
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
         
+        eggEnable = YES;
+        
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
         //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
@@ -113,7 +115,7 @@
     chicken.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    chicken.tag = 6;
+    chicken.tag = 3;
     chicken.delayTime = 1.0f;
     chicken.repeatTime = 2;
     chicken.visible = NO;
@@ -122,11 +124,11 @@
     
     tempName = @"P1_egg";
     egg = [EAAnimSprite spriteWithName:tempName];
-    egg.tag = 3;
+    egg.tag = 6;
     egg.imgNum = 6;
     egg.delayTime = 0.1f;
     egg.visible = YES;
-    [egg setPosition:LOCATION(920, 320)];
+    [egg setPosition:LOCATION(920, 400)];
     [self addChild:egg];
     
     [tapObjectArray addObject:[self getChildByTag:0]];
@@ -138,8 +140,13 @@
     [swipeObjectArray addObject: chicken];
     [swipeObjectArray addObject: cow];
     [swipeObjectArray addObject: pig];
-    
-    motionDetect.sprite = egg;
+}
+
+-(void) draw
+{
+    if (soundEnable) {
+        [motionDetect update];
+    }
 }
 
 #pragma 手勢區
@@ -178,10 +185,17 @@
                     [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
+                case 6:
+                    if (!eggEnable) {
+                        //[tapObjectArray removeObject:tempObject];
+                        motionDetect.sprite = Nil;
+                        [egg setPosition:LOCATION(920, 320)];
+                        eggEnable = !eggEnable;
+                    }
+                    break;
                 case 3:
                 case 4:
                 case 5:
-                case 6:
                     [self addWordImage:tempObject.wordimageName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
@@ -205,6 +219,14 @@
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [tempObject startAnimation];
             [soundMgr playSoundFile:tempObject.soundName];
+            if (tempObject.tag == 3) {
+                if (eggEnable) {
+                    NSLog(@"eggEnable Add TO motionDectect!!");
+                    [tapObjectArray addObject:egg];
+                    motionDetect.sprite = egg;
+                    eggEnable = !eggEnable;
+                }
+            }
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {

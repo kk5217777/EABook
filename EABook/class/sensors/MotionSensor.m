@@ -7,7 +7,8 @@
 //
 
 #import "MotionSensor.h"
-#define LIMIT 0.1
+#define LIMIT 0.5
+
 
 @implementation MotionSensor
 @synthesize sprite;
@@ -38,19 +39,33 @@
 {
     if ([motionMgr isAccelerometerActive]) {
         _acData = motionMgr.accelerometerData;
-        if (fabsf(_acData.acceleration.x) > LIMIT )
+        if (fabsf(_acData.acceleration.y) > LIMIT )
         {
-            if (animAble) {
-                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-                animAble = !animAble;
+            if (sprite) {
+                if (animAble) {
+                    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                    animAble = !animAble;
+                }
+                if (sprite.position.x > 30 && sprite.position.x < 1000) {
+                    [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*10), sprite.position.y)];
+                    if (sprite.position.x <= 30) {
+                        
+                    }
+                    else if (sprite.position.x >= 1000)
+                    {
+                        
+                    }
+                    NSLog(@"MOVE");
+                }
             }
-            [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.x*10), sprite.position.y)];
         }
         else
         {
-            if (!animAble) {
-                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-                animAble = !animAble;
+            if (sprite) {
+                if (!animAble) {
+                    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                    animAble = !animAble;
+                }
             }
         }
         //NSLog(@"Accelerometer\n----------\nx:%+.2f\ny:%+.2f\nz:%+.2f",_acData.acceleration.x, _acData.acceleration.y, _acData.acceleration.z);
@@ -59,7 +74,7 @@
 
 -(void) updateSprite:(id)object
 {
-    EAAnimSprite *sprite = object;
+    sprite = object;
     if ([motionMgr isAccelerometerActive]) {
         _acData = motionMgr.accelerometerData;
         if (fabsf(_acData.acceleration.x) > LIMIT )

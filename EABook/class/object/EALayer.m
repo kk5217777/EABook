@@ -20,14 +20,16 @@
 	if (self=[super init])
     {
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];// new add
-        [[CCSpriteFrameCache sharedSpriteFrameCache] removeUnusedSpriteFrames];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] removeUnusedSpriteFrames];//清掉沒有用到的frames
         gamepoint = delegate.EAGamePoint;
+        
+        //[gamepoint addTypeB];
+        NSLog(@"gamePoint %@", [gamepoint goToPage]);
         
         touchEnable = NO;
         soundEnable = NO;
         
-        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
-        //[self schedule:@selector(newStrart:) interval:1];
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
         
         soundMgr = [[SoundManager alloc] init];
         
@@ -251,16 +253,22 @@
 {
     delegate.EAGamePoint = gamepoint;
     [self stopAllActions];
+}
+
+-(void) onExit//
+{
     [self stopSpriteMove];
 }
 
 -(void) dealloc
 {
     NSLog(@"EALayer dealloc");
+    [self stopSpriteMove];
     [super dealloc];
     gamepoint = Nil;
     tempObject = Nil;
     tapObjectArray = Nil;
+    swipeObjectArray = Nil;
 }
 
 @end

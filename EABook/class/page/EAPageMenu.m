@@ -37,21 +37,6 @@
         if (gamepoint) {
             NSLog(@"%@", gamepoint.description);
         }
-        /*
-        AVAudioPlayer *audioPlayer;
-        NSString *soundfileName = @"P3-1_owl_word.mp3";
-        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundfileName]];
-        NSLog(@"play");
-        //wordsoundflag = FALSE;
-        
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-        audioPlayer.numberOfLoops = 0;
-        [audioPlayer play];
-        //[self schedule:@selector(PlayWordSound:) interval:1];
-        //[self addWordImage];
-        [url release];
-        */
-        // ask director for the window size
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
@@ -82,7 +67,6 @@
     [btnback setPosition:LOCATION(155 , 670)];
     [spriteSheet addChild:btnback];
     [tapObjectArray addObject:btnback];
-    NSLog(@"Tap! %d", tapObjectArray.count);
     
     btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_map.png"]] autorelease];
     [btnback setTag:1];
