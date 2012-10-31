@@ -45,38 +45,6 @@
     return self;
 }
 
--(void) updateSprite:(id)object
-{
-    sprite = object;
-    double peakPowerForChannel = pow(10, (0.05 * [recorder peakPowerForChannel:0]));
-    double avgPoserForChannel = pow(10, (0.05 * [recorder averagePowerForChannel:0]));
-    double differ = peakPowerForChannel - avgPoserForChannel;
-    
-    if (differ > LIMIT_DIFFER) {
-        //NSLog(@"soundEventSend");
-        if (enable) {
-            NSLog(@"sound file Name:%@", sprite.soundName);
-            enable = !enable;
-            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-            [sprite startLoopAnimation];
-            if (sprite.soundName) {
-                [sManage playLoopSound:sprite.soundName];
-            }
-        }
-    }
-    else{
-        if (!enable)
-        {
-            enable = !enable;
-            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-            [sprite stopAllActions];
-            if (sprite.soundName) {
-                [sManage stopSound];
-            }
-        }
-    }
-}
-
 -(void) update
 {
     //NSLog(@"sound update");
@@ -110,7 +78,7 @@
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
-            [sprite startSpacailAnim:Nil];
+            [sprite startLoopAnimation];
             if (sprite.soundName) {
                 [sManage playLoopSound:sprite.soundName];
             }

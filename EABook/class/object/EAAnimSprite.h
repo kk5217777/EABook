@@ -23,22 +23,18 @@
     @protected
     float delayTime;
     NSMutableArray *animImageFrames;
-    CCAnimation *spAnimate;
 }
 
 @property(nonatomic, retain) NSString *imageName, *soundName, *wordsoundName, *wordimageName;
 @property(nonatomic) BOOL isTouch;
-@property(nonatomic, readwrite)NSInteger imgNum, repeatTime;
-@property(nonatomic, readwrite)float delayTime;
+@property(nonatomic, readwrite) NSInteger imgNum, repeatTime;
+@property(nonatomic, readwrite) float delayTime;
+@property(nonatomic, retain) CCAnimation *spAnimate;
 
 + (id)spriteWithName:(NSString*)name;
 - (id)initWithName:(NSString*)name;
 
 -(void) startAnimation;
 -(void) startLoopAnimation;
-
--(CCAnimation*) getSimpleAnim;
--(void) startSpacailAnim:(CCAnimate*)sAnim;
--(CCAnimation*) getSimpleAnim;
 
 @end

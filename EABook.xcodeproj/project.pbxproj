@@ -148,6 +148,7 @@
 		84967041163EEDD4001F1A8E /* EAPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967033163EEDD4001F1A8E /* EAPageMenu.m */; };
 		84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967036163EEDD4001F1A8E /* MotionSensor.m */; };
 		84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967038163EEDD4001F1A8E /* SoundSensor.m */; };
+		B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B850B6EA16414CB100092CEB /* EAUpDownSprite.m */; };
 		B88D0145163FD754004106BC /* EAPage4.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0144163FD753004106BC /* EAPage4.m */; };
 		B88D0148163FFCB7004106BC /* EAPage3-2.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0147163FFCB6004106BC /* EAPage3-2.m */; };
 		B88D014B163FFCC4004106BC /* EAPage3-3.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D014A163FFCC3004106BC /* EAPage3-3.m */; };
@@ -582,6 +583,8 @@
 		84967037163EEDD4001F1A8E /* SoundSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSensor.h; sourceTree = "<group>"; };
 		84967038163EEDD4001F1A8E /* SoundSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSensor.m; sourceTree = "<group>"; };
 		B816ADD1163BC1120018AC35 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B850B6E916414CB100092CEB /* EAUpDownSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUpDownSprite.h; sourceTree = "<group>"; };
+		B850B6EA16414CB100092CEB /* EAUpDownSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUpDownSprite.m; sourceTree = "<group>"; };
 		B88D0143163FD753004106BC /* EAPage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage4.h; sourceTree = "<group>"; };
 		B88D0144163FD753004106BC /* EAPage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage4.m; sourceTree = "<group>"; };
 		B88D0146163FFCB6004106BC /* EAPage3-2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-2.h"; sourceTree = "<group>"; };
@@ -1186,6 +1189,8 @@
 				84967026163EEDD4001F1A8E /* GamePoint.m */,
 				84967029163EEDD4001F1A8E /* SoundManager.h */,
 				8496702A163EEDD4001F1A8E /* SoundManager.m */,
+				B850B6E916414CB100092CEB /* EAUpDownSprite.h */,
+				B850B6EA16414CB100092CEB /* EAUpDownSprite.m */,
 			);
 			path = object;
 			sourceTree = "<group>";
@@ -1890,6 +1895,7 @@
 				845491FB164031260036B09F /* EAPageGame1.m in Sources */,
 				845491FE164031380036B09F /* EAPageGame2.m in Sources */,
 				84549201164034EA0036B09F /* EAPageEnd.m in Sources */,
+				B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

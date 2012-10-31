@@ -82,7 +82,7 @@
     NSString *tempName;
     
     tempName = @"P3-1_eagle";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject = [EAUpDownSprite spriteWithName:tempName];
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];

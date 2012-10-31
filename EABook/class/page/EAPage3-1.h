@@ -12,6 +12,7 @@
 #import "EAPage2.h"
 #import "EAPage4.h"
 #import "EAPageGame1.h"
+#import "EAUpDownSprite.h"
 
 @interface EAPage3_1 : EALayer {
     

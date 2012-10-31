@@ -228,7 +228,6 @@
                     NSLog(@"eggEnable Add TO motionDectect!!");
                     [tapObjectArray addObject:egg];
                     egg.visible = YES;
-                    //CCAnimation *pAnim = [egg getSimpleAnim];
                     CCRotateTo *rotate = [CCRotateTo actionWithDuration:0.1 angle:300];
                     CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(700, 200)];
                     [egg runAction:[CCSpawn actions:rotate, move, nil]];
