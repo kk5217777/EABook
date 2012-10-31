@@ -39,5 +39,6 @@
 
 -(CCAnimation*) getSimpleAnim;
 -(void) startSpacailAnim:(CCAnimate*)sAnim;
+-(CCAnimation*) getSimpleAnim;
 
 @end

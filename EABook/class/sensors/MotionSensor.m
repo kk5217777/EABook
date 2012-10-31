@@ -44,18 +44,23 @@
             if (sprite) {
                 if (animAble) {
                     [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                    [sprite startLoopAnimation];
                     animAble = !animAble;
                 }
                 if (sprite.position.x > 30 && sprite.position.x < 1000) {
                     [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*10), sprite.position.y)];
-                    if (sprite.position.x <= 30) {
-                        
-                    }
-                    else if (sprite.position.x >= 1000)
-                    {
-                        
-                    }
+                    sprite.rotation += _acData.acceleration.y*10;
                     NSLog(@"MOVE");
+                }
+                else
+                {
+                    if (sprite.position.x < 30) {
+                        [sprite setPosition:CGPointMake((sprite.position.x+1), sprite.position.y)];
+                    }
+                    else if (sprite.position.x > 1000)
+                    {
+                        [sprite setPosition:CGPointMake((sprite.position.x-1), sprite.position.y)];
+                    }
                 }
             }
         }
@@ -65,6 +70,7 @@
                 if (!animAble) {
                     [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
                     animAble = !animAble;
+                    [sprite stopAllActions];
                 }
             }
         }

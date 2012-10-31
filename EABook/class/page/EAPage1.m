@@ -123,12 +123,15 @@
     [self addChild:chicken];
     
     tempName = @"P1_egg";
+    
     egg = [EAAnimSprite spriteWithName:tempName];
     egg.tag = 6;
     egg.imgNum = 6;
-    egg.delayTime = 0.1f;
+    egg.delayTime = 0.5f;
     egg.visible = YES;
-    [egg setPosition:LOCATION(920, 400)];
+    [egg setPosition:LOCATION(750, 570)];
+    [egg setRotation:-15];
+    egg.visible = NO;
     [self addChild:egg];
     
     [tapObjectArray addObject:[self getChildByTag:0]];
@@ -187,9 +190,10 @@
                     break;
                 case 6:
                     if (!eggEnable) {
-                        //[tapObjectArray removeObject:tempObject];
+                        [tapObjectArray removeObject:tempObject];
                         motionDetect.sprite = Nil;
-                        [egg setPosition:LOCATION(920, 320)];
+                        [egg setPosition:LOCATION(750, 570)];
+                        egg.visible = NO;
                         eggEnable = !eggEnable;
                     }
                     break;
@@ -223,6 +227,12 @@
                 if (eggEnable) {
                     NSLog(@"eggEnable Add TO motionDectect!!");
                     [tapObjectArray addObject:egg];
+                    egg.visible = YES;
+                    //CCAnimation *pAnim = [egg getSimpleAnim];
+                    CCRotateTo *rotate = [CCRotateTo actionWithDuration:0.1 angle:300];
+                    CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(700, 200)];
+                    [egg runAction:[CCSpawn actions:rotate, move, nil]];
+                    
                     motionDetect.sprite = egg;
                     eggEnable = !eggEnable;
                 }
