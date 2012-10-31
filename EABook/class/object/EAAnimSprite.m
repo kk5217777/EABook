@@ -38,6 +38,12 @@
     return self;
 }
 
+-(void) firstFram
+{
+    NSString *fullImagName = [NSString stringWithFormat:@"%@_%d.png",imageName,0];
+    [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:fullImagName]];
+}
+
 -(void) startAnimation
 {
     NSLog(@"start animation");

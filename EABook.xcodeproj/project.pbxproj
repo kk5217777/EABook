@@ -149,6 +149,8 @@
 		84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967036163EEDD4001F1A8E /* MotionSensor.m */; };
 		84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967038163EEDD4001F1A8E /* SoundSensor.m */; };
 		B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B850B6EA16414CB100092CEB /* EAUpDownSprite.m */; };
+		B850B6EF1641528E00092CEB /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B850B6EE1641528E00092CEB /* MotionSensorIce.m */; };
+		B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */; };
 		B88D0145163FD754004106BC /* EAPage4.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0144163FD753004106BC /* EAPage4.m */; };
 		B88D0148163FFCB7004106BC /* EAPage3-2.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0147163FFCB6004106BC /* EAPage3-2.m */; };
 		B88D014B163FFCC4004106BC /* EAPage3-3.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D014A163FFCC3004106BC /* EAPage3-3.m */; };
@@ -281,7 +283,6 @@
 		B89D9A21163EBC26007AABFB /* p3-2_lion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9995163EBC26007AABFB /* p3-2_lion.mp3 */; };
 		B89D9A22163EBC26007AABFB /* P3-2_lion_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9996163EBC26007AABFB /* P3-2_lion_word.mp3 */; };
 		B89D9A23163EBC26007AABFB /* P3-3_Crab_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9998163EBC26007AABFB /* P3-3_Crab_word.mp3 */; };
-		B89D9A24163EBC26007AABFB /* p3-3_penguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9999163EBC26007AABFB /* p3-3_penguin.mp3 */; };
 		B89D9A26163EBC26007AABFB /* P3-3_penguin_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D999B163EBC26007AABFB /* P3-3_penguin_word.mp3 */; };
 		B89D9A27163EBC26007AABFB /* P3-3_turtle_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D999C163EBC26007AABFB /* P3-3_turtle_word.mp3 */; };
 		B89D9A28163EBC26007AABFB /* P4_beetle_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D999E163EBC26007AABFB /* P4_beetle_word.mp3 */; };
@@ -585,6 +586,9 @@
 		B816ADD1163BC1120018AC35 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		B850B6E916414CB100092CEB /* EAUpDownSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUpDownSprite.h; sourceTree = "<group>"; };
 		B850B6EA16414CB100092CEB /* EAUpDownSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUpDownSprite.m; sourceTree = "<group>"; };
+		B850B6ED1641528E00092CEB /* MotionSensorIce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensorIce.h; sourceTree = "<group>"; };
+		B850B6EE1641528E00092CEB /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
+		B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_penguin.mp3"; sourceTree = "<group>"; };
 		B88D0143163FD753004106BC /* EAPage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage4.h; sourceTree = "<group>"; };
 		B88D0144163FD753004106BC /* EAPage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage4.m; sourceTree = "<group>"; };
 		B88D0146163FFCB6004106BC /* EAPage3-2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-2.h"; sourceTree = "<group>"; };
@@ -720,7 +724,6 @@
 		B89D9995163EBC26007AABFB /* p3-2_lion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "p3-2_lion.mp3"; sourceTree = "<group>"; };
 		B89D9996163EBC26007AABFB /* P3-2_lion_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_lion_word.mp3"; sourceTree = "<group>"; };
 		B89D9998163EBC26007AABFB /* P3-3_Crab_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_Crab_word.mp3"; sourceTree = "<group>"; };
-		B89D9999163EBC26007AABFB /* p3-3_penguin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "p3-3_penguin.mp3"; sourceTree = "<group>"; };
 		B89D999B163EBC26007AABFB /* P3-3_penguin_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_penguin_word.mp3"; sourceTree = "<group>"; };
 		B89D999C163EBC26007AABFB /* P3-3_turtle_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_turtle_word.mp3"; sourceTree = "<group>"; };
 		B89D999E163EBC26007AABFB /* P4_beetle_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = P4_beetle_word.mp3; sourceTree = "<group>"; };
@@ -1181,6 +1184,8 @@
 		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
+				B850B6ED1641528E00092CEB /* MotionSensorIce.h */,
+				B850B6EE1641528E00092CEB /* MotionSensorIce.m */,
 				84967021163EEDD4001F1A8E /* EAAnimSprite.h */,
 				84967022163EEDD4001F1A8E /* EAAnimSprite.m */,
 				84967023163EEDD4001F1A8E /* EALayer.h */,
@@ -1546,9 +1551,9 @@
 		B89D9997163EBC26007AABFB /* P3-3 */ = {
 			isa = PBXGroup;
 			children = (
-				B89D9998163EBC26007AABFB /* P3-3_Crab_word.mp3 */,
-				B89D9999163EBC26007AABFB /* p3-3_penguin.mp3 */,
+				B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */,
 				B89D999B163EBC26007AABFB /* P3-3_penguin_word.mp3 */,
+				B89D9998163EBC26007AABFB /* P3-3_Crab_word.mp3 */,
 				B89D999C163EBC26007AABFB /* P3-3_turtle_word.mp3 */,
 			);
 			path = "P3-3";
@@ -1756,7 +1761,6 @@
 				B89D9A21163EBC26007AABFB /* p3-2_lion.mp3 in Resources */,
 				B89D9A22163EBC26007AABFB /* P3-2_lion_word.mp3 in Resources */,
 				B89D9A23163EBC26007AABFB /* P3-3_Crab_word.mp3 in Resources */,
-				B89D9A24163EBC26007AABFB /* p3-3_penguin.mp3 in Resources */,
 				B89D9A26163EBC26007AABFB /* P3-3_penguin_word.mp3 in Resources */,
 				B89D9A27163EBC26007AABFB /* P3-3_turtle_word.mp3 in Resources */,
 				B89D9A28163EBC26007AABFB /* P4_beetle_word.mp3 in Resources */,
@@ -1764,6 +1768,7 @@
 				B89D9A2A163EBC26007AABFB /* P4_ladybug_word.mp3 in Resources */,
 				B89D9A2B163EBC26007AABFB /* push.mp3 in Resources */,
 				845491F8164021AE0036B09F /* P3-1_peacock_word.png in Resources */,
+				B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1896,6 +1901,7 @@
 				845491FE164031380036B09F /* EAPageGame2.m in Sources */,
 				84549201164034EA0036B09F /* EAPageEnd.m in Sources */,
 				B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */,
+				B850B6EF1641528E00092CEB /* MotionSensorIce.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -79,7 +79,7 @@
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
             [sprite startLoopAnimation];
-            if (sprite.soundName) {
+            if (sprite.soundName && sManage) {
                 [sManage playLoopSound:sprite.soundName];
             }
         }
@@ -91,7 +91,7 @@
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation end");
             [sprite stopAllActions];
-            if (sprite.soundName) {
+            if (sprite.soundName && sManage) {
                 [sManage stopSound];
             }
         }

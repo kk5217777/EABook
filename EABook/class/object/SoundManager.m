@@ -14,7 +14,7 @@
 {
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
     
-    NSLog(@"play");
+    NSLog(@"play loop");
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     if (audioPlayer) {
         audioPlayer.numberOfLoops = -1;
@@ -41,7 +41,6 @@
     
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
     
-    NSLog(@"play");
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     if (audioPlayer) {
         audioPlayer.numberOfLoops = 0;

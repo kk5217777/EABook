@@ -37,4 +37,6 @@
 -(void) startAnimation;
 -(void) startLoopAnimation;
 
+-(void) firstFram;
+
 @end

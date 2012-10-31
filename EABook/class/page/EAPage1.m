@@ -30,6 +30,7 @@
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
+        moveObjectArray = [[[NSMutableArray alloc] init] retain];
         
         eggEnable = YES;
         
@@ -116,8 +117,6 @@
     chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     chicken.tag = 3;
-    chicken.delayTime = 1.0f;
-    chicken.repeatTime = 2;
     chicken.visible = NO;
     [chicken setPosition:LOCATION(450, 640)];
     [self addChild:chicken];
@@ -131,8 +130,6 @@
     egg.visible = YES;
     [egg setPosition:LOCATION(750, 570)];
     [egg setRotation:-15];
-    egg.visible = NO;
-    [self addChild:egg];
     
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
@@ -143,6 +140,7 @@
     [swipeObjectArray addObject: chicken];
     [swipeObjectArray addObject: cow];
     [swipeObjectArray addObject: pig];
+    
 }
 
 -(void) draw
@@ -189,17 +187,23 @@
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
                 case 6:
-                    if (!eggEnable) {
-                        [tapObjectArray removeObject:tempObject];
-                        motionDetect.sprite = Nil;
-                        [egg setPosition:LOCATION(750, 570)];
-                        egg.visible = NO;
-                        eggEnable = !eggEnable;
-                    }
+                    [tapObjectArray removeObject:tempObject];
+                    [moveObjectArray removeObject:tempObject];
+                    [self removeChild:tempObject cleanup:NO];
+                    motionDetect.moveObjects = moveObjectArray;
                     break;
                 case 3:
+                    [gamepoint addTypeA];
+                    [self addWordImage:tempObject.wordimageName];
+                    [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    break;
                 case 4:
+                    [gamepoint addTypeB];
+                    [self addWordImage:tempObject.wordimageName];
+                    [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    break;
                 case 5:
+                    [gamepoint addTypeC];
                     [self addWordImage:tempObject.wordimageName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
@@ -221,10 +225,28 @@
         temp.size.width = tempObject.boundingBox.size.width + 100;
         
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
-            [tempObject startAnimation];
             [soundMgr playSoundFile:tempObject.soundName];
             if (tempObject.tag == 3) {
-                if (eggEnable) {
+                if (moveObjectArray.count < 5) {
+                    NSString *tempName = @"P1_egg";
+                    egg = [EAAnimSprite spriteWithName:tempName];
+                    egg.tag = 6;
+                    egg.imgNum = 6;
+                    egg.delayTime = 0.5f;
+                    egg.visible = YES;
+                    [egg setPosition:LOCATION(750, 570)];
+                    [egg setRotation:-15];
+                    [moveObjectArray addObject:egg];
+                    [tapObjectArray addObject:egg];
+                    [self addChild:egg];
+                    
+                    motionDetect.moveObjects = moveObjectArray;
+                    CCRotateTo *rotate = [CCRotateTo actionWithDuration:0.1 angle:480 + 100 * moveObjectArray.count];
+                    CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(600+50 * motionDetect.moveObjects.count, 200)];
+                    //[egg runAction:rotate];
+                    [egg runAction:[CCSpawn actions:rotate, move, nil]];
+                }
+               /* if (eggEnable) {
                     NSLog(@"eggEnable Add TO motionDectect!!");
                     [tapObjectArray addObject:egg];
                     egg.visible = YES;
@@ -234,7 +256,11 @@
                     
                     motionDetect.sprite = egg;
                     eggEnable = !eggEnable;
-                }
+                }*/
+            }
+            else
+            {
+                [tempObject startAnimation];
             }
             /*swipe 來回兩次
              //當前一次與本次同一物件進入

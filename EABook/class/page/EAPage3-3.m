@@ -56,7 +56,7 @@
         //[self addChild:soundDetect];
         
         //重力
-        motionDetect = [[MotionSensor alloc] init];
+        motionDetect = [[MotionSensorIce alloc] init];
         motionDetect.sManage = soundMgr;
         [self addChild:motionDetect];
         
@@ -91,9 +91,9 @@
     [self addChild:tempObject];
     
     tempName = @"P3-3_ice";
-    tempObject = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_%d.png",tempName,0]];
-    [tempObject setPosition:LOCATION(620, 220)];
-    [self addChild:tempObject];
+    CCSprite *ice = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_%d.png",tempName,0]];
+    [ice setPosition:LOCATION(620, 220)];
+    [self addChild:ice];
     
     //互動物件
     tempName = @"P3-3_Crab";
@@ -147,7 +147,9 @@
     [swipeObjectArray addObject:[self getChildByTag:4]];
     [swipeObjectArray addObject:[self getChildByTag:3]];
     
-    soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
+    motionDetect.sprite = (EAAnimSprite*)[self getChildByTag:4];
+    motionDetect.sprite2 = (EAAnimSprite*)ice;
+    motionDetect.sManage = soundMgr;
 }
 
 -(void) draw
