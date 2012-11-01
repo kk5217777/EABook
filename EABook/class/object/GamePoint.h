@@ -21,4 +21,5 @@
 -(void) addTypeC;
 
 -(NSString*) goToPage;
+-(int) goToPageNum;
 @end

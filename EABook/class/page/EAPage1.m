@@ -185,24 +185,15 @@
                     [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
-                case 6:
+                case 6: //蛋tap消失
                     [tapObjectArray removeObject:tempObject];
                     [moveObjectArray removeObject:tempObject];
                     [self removeChild:tempObject cleanup:NO];
                     motionDetect.moveObjects = moveObjectArray;
                     break;
                 case 3:
-                    [gamepoint addTypeA];
-                    [self addWordImage:tempObject.wordimageName];
-                    [soundMgr playWordSoundFile:tempObject.wordsoundName];
-                    break;
                 case 4:
-                    [gamepoint addTypeB];
-                    [self addWordImage:tempObject.wordimageName];
-                    [soundMgr playWordSoundFile:tempObject.wordsoundName];
-                    break;
                 case 5:
-                    [gamepoint addTypeC];
                     [self addWordImage:tempObject.wordimageName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
@@ -227,6 +218,8 @@
             [soundMgr playSoundFile:tempObject.soundName];
             if (tempObject.tag == 3) {
                 if (moveObjectArray.count < 5) {
+                    [gamepoint addTypeA];
+                    
                     NSString *tempName = @"P1_egg";
                     egg = [EAAnimSprite spriteWithName:tempName];
                     egg.tag = 6;
@@ -244,20 +237,19 @@
                     CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(600+50 * motionDetect.moveObjects.count, 200)];
                     [egg runAction:[CCSpawn actions:rotate, move, nil]];
                 }
-               /* if (eggEnable) {
-                    NSLog(@"eggEnable Add TO motionDectect!!");
-                    [tapObjectArray addObject:egg];
-                    egg.visible = YES;
-                    CCRotateTo *rotate = [CCRotateTo actionWithDuration:0.1 angle:300];
-                    CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(700, 200)];
-                    [egg runAction:[CCSpawn actions:rotate, move, nil]];
-                    
-                    motionDetect.sprite = egg;
-                    eggEnable = !eggEnable;
-                }*/
             }
             else
             {
+                switch (tempObject.tag) {
+                    case 4:
+                        [gamepoint addTypeB];
+                        break;
+                    case 5:
+                        [gamepoint addTypeC];
+                        break;
+                    default:
+                        break;
+                }
                 [tempObject startAnimation];
             }
             /*swipe 來回兩次

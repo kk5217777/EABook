@@ -148,18 +148,18 @@
 
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
 {
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     if (touchEnable) {
+        CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
         [self tapSpriteMovement:touchLocation];
     }
 }
 
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
 {
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     if (touchEnable) {
+        CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -187,7 +187,20 @@
                     //下一頁
                     //delegate.EAGamePoint = gamepoint;
                     [soundMgr playWordSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
+                    switch ([gamepoint goToPageNum]) {
+                        case 1:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
+                            break;
+                        case 2:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
+                            break;
+                        case 3:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
+                            break;
+                        default:
+                            break;
+                    }
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
                     //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     break;
                 case 3:
@@ -214,6 +227,20 @@
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [tempObject startAnimation];
             [soundMgr playSoundFile:tempObject.soundName];
+            
+            switch (tempObject.tag) {
+                case 6:
+                    [gamepoint addTypeA];
+                    break;
+                case 3:
+                    [gamepoint addTypeB];
+                    break;
+                case 4:
+                    [gamepoint addTypeC];
+                    break;
+                default:
+                    break;
+            }
             /*swipe 來回兩次
             //當前一次與本次同一物件進入
             if (tempObject == touchedSprite) {

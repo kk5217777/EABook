@@ -48,4 +48,26 @@
     }
     return name;
 }
+
+-(int) goToPageNum
+{
+    int num;
+    int result = 1;
+    NSString *name;
+    
+    num = typeA;
+    name = @"publicCar";
+    
+    if (num < typeB) {
+        num = typeB;
+        result = 2;
+        name = @"jobCar";
+    }
+    if (num < typeC) {
+        num = typeC;
+        result = 3;
+        name = @"homeCar";
+    }
+    return result;
+}
 @end

@@ -142,7 +142,20 @@
                 case 0:
                     [soundMgr playSoundFile:@"push.mp3"];
                     //delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] backwards:YES]];
+                    switch ([gamepoint goToPageNum]) {
+                        case 1:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
+                            break;
+                        case 2:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
+                            break;
+                        case 3:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
+                            break;
+                        default:
+                            break;
+                    }
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] backwards:YES]];
                     break;
                 case 1:
                     [soundMgr playSoundFile:@"push.mp3"];
