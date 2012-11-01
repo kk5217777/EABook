@@ -8,8 +8,7 @@
 
 #import "EAPageMenu.h"
 #import "AppDelegate.h"
-#import "EAPage1.h"
-#import "EAPageConfig.h"
+
 
 @implementation EAPageMenu
 +(CCScene *) scene
@@ -111,6 +110,8 @@
                 case 1:
                     NSLog(@"地圖");
                     [soundMgr playSoundFile:@"push.mp3"];
+                    delegate.EAGamePoint = gamepoint;
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene] backwards:NO]];
                     break;
                 case 2:
                     NSLog(@"遊戲");
@@ -132,8 +133,5 @@
 -(void) dealloc {
     [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    [tapgestureRecognizer dealloc];
-    [swipegestureRecognizerLeft dealloc];
-    [swipegestureRecognizerRight dealloc];
 }
 @end

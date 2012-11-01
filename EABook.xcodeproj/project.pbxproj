@@ -196,7 +196,6 @@
 		B89D99CA163EBC26007AABFB /* P0-2_game_win.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9930163EBC26007AABFB /* P0-2_game_win.png */; };
 		B89D99CB163EBC26007AABFB /* P0-2_Game.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9931163EBC26007AABFB /* P0-2_Game.jpg */; };
 		B89D99CC163EBC26007AABFB /* P0-2_game_different.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9932163EBC26007AABFB /* P0-2_game_different.jpg */; };
-		B89D99CD163EBC26007AABFB /* P0-2_game_return-buttun.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9933163EBC26007AABFB /* P0-2_game_return-buttun.png */; };
 		B89D99CE163EBC26007AABFB /* P0-2_game_who.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9934163EBC26007AABFB /* P0-2_game_who.jpg */; };
 		B89D99CF163EBC26007AABFB /* GAME_who_beetle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9937163EBC26007AABFB /* GAME_who_beetle.jpg */; };
 		B89D99D0163EBC26007AABFB /* GAME_who_bug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9938163EBC26007AABFB /* GAME_who_bug.jpg */; };
@@ -291,6 +290,7 @@
 		B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
+		B8F8518C164288AA00C15A6E /* pushbutton_return.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F8518B164288AA00C15A6E /* pushbutton_return.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -637,7 +637,6 @@
 		B89D9930163EBC26007AABFB /* P0-2_game_win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game_win.png"; sourceTree = "<group>"; };
 		B89D9931163EBC26007AABFB /* P0-2_Game.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-2_Game.jpg"; sourceTree = "<group>"; };
 		B89D9932163EBC26007AABFB /* P0-2_game_different.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-2_game_different.jpg"; sourceTree = "<group>"; };
-		B89D9933163EBC26007AABFB /* P0-2_game_return-buttun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game_return-buttun.png"; sourceTree = "<group>"; };
 		B89D9934163EBC26007AABFB /* P0-2_game_who.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-2_game_who.jpg"; sourceTree = "<group>"; };
 		B89D9937163EBC26007AABFB /* GAME_who_beetle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_who_beetle.jpg; sourceTree = "<group>"; };
 		B89D9938163EBC26007AABFB /* GAME_who_bug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_who_bug.jpg; sourceTree = "<group>"; };
@@ -735,6 +734,7 @@
 		B8F8518416423A6400C15A6E /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
 		B8F851861642833200C15A6E /* EAPageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMap.h; sourceTree = "<group>"; };
 		B8F851871642833300C15A6E /* EAPageMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageMap.m; sourceTree = "<group>"; };
+		B8F8518B164288AA00C15A6E /* pushbutton_return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pushbutton_return.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1291,6 +1291,7 @@
 				B89D996C163EBC26007AABFB /* P3-3 */,
 				B89D9971163EBC26007AABFB /* P4 */,
 				B89D9976163EBC26007AABFB /* pushbutton_left.png */,
+				B8F8518B164288AA00C15A6E /* pushbutton_return.png */,
 				B89D9977163EBC26007AABFB /* pushbutton_right.png */,
 			);
 			path = image;
@@ -1323,7 +1324,6 @@
 				B89D991B163EBC26007AABFB /* different */,
 				B89D9931163EBC26007AABFB /* P0-2_Game.jpg */,
 				B89D9932163EBC26007AABFB /* P0-2_game_different.jpg */,
-				B89D9933163EBC26007AABFB /* P0-2_game_return-buttun.png */,
 				B89D9934163EBC26007AABFB /* P0-2_game_who.jpg */,
 				B89D9935163EBC26007AABFB /* who */,
 			);
@@ -1680,7 +1680,6 @@
 				B89D99CA163EBC26007AABFB /* P0-2_game_win.png in Resources */,
 				B89D99CB163EBC26007AABFB /* P0-2_Game.jpg in Resources */,
 				B89D99CC163EBC26007AABFB /* P0-2_game_different.jpg in Resources */,
-				B89D99CD163EBC26007AABFB /* P0-2_game_return-buttun.png in Resources */,
 				B89D99CE163EBC26007AABFB /* P0-2_game_who.jpg in Resources */,
 				B89D99CF163EBC26007AABFB /* GAME_who_beetle.jpg in Resources */,
 				B89D99D0163EBC26007AABFB /* GAME_who_bug.jpg in Resources */,
@@ -1774,6 +1773,7 @@
 				B89D9A2B163EBC26007AABFB /* push.mp3 in Resources */,
 				845491F8164021AE0036B09F /* P3-1_peacock_word.png in Resources */,
 				B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */,
+				B8F8518C164288AA00C15A6E /* pushbutton_return.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

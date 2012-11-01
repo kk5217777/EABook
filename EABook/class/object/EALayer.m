@@ -199,6 +199,14 @@
     tempObject.position = LOCATION(964, 60);
     [self addChild:tempObject];
 }
+-(void) addReturn
+{
+    tempObject = [EAAnimSprite spriteWithFile:@"pushbutton_return.png"];
+    tempObject.soundName = @"push.mp3";
+    tempObject.tag = 20;
+    tempObject.position = ccp(55, 65);
+    [self addChild:tempObject];
+}
 
 -(void) addBackGround:(NSString*)imageName
 {
@@ -269,6 +277,7 @@
     tempObject = Nil;
     tapObjectArray = Nil;
     swipeObjectArray = Nil;
+    moveObjectArray = Nil;
 }
 
 @end

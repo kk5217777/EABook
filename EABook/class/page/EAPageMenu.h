@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "EALayer.h"
+#import "EAPageMap.h"
+#import "EAPage1.h"
+#import "EAPageConfig.h"
 
 @interface EAPageMenu : EALayer {
     

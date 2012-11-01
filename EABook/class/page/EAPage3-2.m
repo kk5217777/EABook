@@ -93,7 +93,7 @@
     
     tempObject = [EAAnimSprite spriteWithName:tempName];//4
     //tempObject.tag = 5;
-    tempObject.scale = 1.2f;
+    //tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.25f;
     tempObject.repeatTime = 3;
@@ -103,7 +103,7 @@
     
     tempObject = [EAAnimSprite spriteWithName:tempName];//3
     //tempObject.tag = 5;
-    tempObject.scale = 1.2f;
+    //tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.3f;
     tempObject.repeatTime = 3;
@@ -113,7 +113,7 @@
     
     tempObject = [EAAnimSprite spriteWithName:tempName];//2
     //tempObject.tag = 5;
-    tempObject.scale = 1.8f;
+    tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.2f;
     tempObject.repeatTime = 3;
@@ -123,7 +123,7 @@
     
     tempObject = [EAAnimSprite spriteWithName:tempName];//1
     //tempObject.tag = 5;
-    tempObject.scale = 2.0f;
+    tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.3f;
     tempObject.repeatTime = 3;

@@ -18,7 +18,8 @@
 #import "EAPageMenu.h"
 
 @interface EAPageMap : EALayer {
-    
+    int goToPage;
 }
 +(CCScene *) scene;
+-(void) goToPage;
 @end

@@ -75,4 +75,5 @@
 -(void) removeWordImage;
 -(void) addPre;
 -(void) addNext;
+-(void) addReturn;
 @end
