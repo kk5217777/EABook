@@ -44,25 +44,23 @@
         if (fabsf(_acData.acceleration.y) > LIMIT )
         {
             for (sprite in moveObjects) {
-                if (sprite) {
-                    if (animAble) {
-                        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-                        [sprite startLoopAnimation];
-                        animAble = !animAble;
+                if (animAble) {
+                    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                    [sprite startLoopAnimation];
+                    animAble = !animAble;
+                }
+                if (sprite.position.x > 30 && sprite.position.x < 1000) {
+                    [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*2*moveObjects.count), (sprite.position.y - _acData.acceleration.x*2*moveObjects.count))];
+                    sprite.rotation += _acData.acceleration.y*10;
+                }
+                else
+                {
+                    if (sprite.position.x < 30) {
+                        [sprite setPosition:CGPointMake((sprite.position.x+1), sprite.position.y)];
                     }
-                    if (sprite.position.x > 30 && sprite.position.x < 1000) {
-                        [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*2*moveObjects.count), (sprite.position.y - _acData.acceleration.x*2*moveObjects.count))];
-                        sprite.rotation += _acData.acceleration.y*10;
-                    }
-                    else
+                    else if (sprite.position.x > 1000)
                     {
-                        if (sprite.position.x < 30) {
-                            [sprite setPosition:CGPointMake((sprite.position.x+1), sprite.position.y)];
-                        }
-                        else if (sprite.position.x > 1000)
-                        {
-                            [sprite setPosition:CGPointMake((sprite.position.x-1), sprite.position.y)];
-                        }
+                        [sprite setPosition:CGPointMake((sprite.position.x-1), sprite.position.y)];
                     }
                 }
             }

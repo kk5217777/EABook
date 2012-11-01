@@ -237,7 +237,7 @@
                     [egg setPosition:LOCATION(750, 570)];
                     [egg setRotation:-15];
                     [moveObjectArray addObject:egg];
-                    [tapObjectArray addObject:egg];
+                    [tapObjectArray insertObject:egg atIndex:0];
                     [self addChild:egg];
                     
                     motionDetect.moveObjects = moveObjectArray;
