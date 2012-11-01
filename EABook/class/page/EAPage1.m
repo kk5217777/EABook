@@ -140,12 +140,11 @@
     [swipeObjectArray addObject: chicken];
     [swipeObjectArray addObject: cow];
     [swipeObjectArray addObject: pig];
-    
 }
 
 -(void) draw
 {
-    if (soundEnable) {
+    if (soundEnable && moveObjectArray.count > 1) {
         [motionDetect update];
     }
 }
@@ -243,7 +242,6 @@
                     motionDetect.moveObjects = moveObjectArray;
                     CCRotateTo *rotate = [CCRotateTo actionWithDuration:0.1 angle:480 + 100 * moveObjectArray.count];
                     CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(600+50 * motionDetect.moveObjects.count, 200)];
-                    //[egg runAction:rotate];
                     [egg runAction:[CCSpawn actions:rotate, move, nil]];
                 }
                /* if (eggEnable) {

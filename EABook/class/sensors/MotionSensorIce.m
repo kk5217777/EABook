@@ -15,7 +15,7 @@
 {
     if ([motionMgr isAccelerometerActive]) {
         _acData = motionMgr.accelerometerData;
-        if (fabsf(_acData.acceleration.y) > LIMIT )
+        if (fabsf(_acData.acceleration.y) > LIMIT || fabs(_acData.acceleration.x) > LIMIT )
         {
             if (sprite) {
                 if (animAble) {
@@ -26,7 +26,7 @@
                         [sManage playLoopSound:sprite.soundName];
                     }
                 }
-                if (sprite.position.x > 30 && sprite.position.x < 1000) {
+                if (sprite.position.x > 30 && sprite.position.x < 1000 && sprite.position.y > 30 && sprite.position.y < 730) {
                     [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*10), sprite.position.y)];
                     if (sprite2) {
                         [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*10), sprite2.position.y)];
