@@ -17,6 +17,7 @@
     if (self = [super init]) {
         soundLimit = 0.06f;
         enable = YES;
+        _moveObjects = [[NSMutableArray alloc] init];
         NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
         
         
@@ -74,13 +75,16 @@
     
     if (differ > LIMIT_DIFFER) {
         //NSLog(@"soundEventSend");
+        
         if (enable) {
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
-            [sprite startLoopAnimation];
-            if (sprite.soundName && sManage) {
-                [sManage playLoopSound:sprite.soundName];
+            for (sprite in _moveObjects) {
+                [sprite startLoopAnimation];
+                if (sprite.soundName && sManage) {
+                    [sManage playLoopSound:sprite.soundName];
+                }
             }
         }
     }
@@ -90,9 +94,11 @@
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation end");
-            [sprite stopAllActions];
-            if (sprite.soundName && sManage) {
-                [sManage stopSound];
+            for (sprite in _moveObjects) {
+                [sprite stopAllActions];
+                if (sprite.soundName && sManage) {
+                    [sManage stopSound];
+                }
             }
         }
     }

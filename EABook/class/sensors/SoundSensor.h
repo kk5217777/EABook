@@ -20,9 +20,12 @@
     BOOL enable;
     EAAnimSprite *sprite;
     SoundManager *sManage;
+    
+    NSMutableArray *_moveObjects;
 }
 @property (nonatomic, retain) EAAnimSprite *sprite;
 @property (nonatomic, retain) SoundManager *sManage;
+@property (nonatomic, retain) NSMutableArray *moveObjects;
 -(id) init;
 -(void) update;
 -(void) updateSprite:(id)object;

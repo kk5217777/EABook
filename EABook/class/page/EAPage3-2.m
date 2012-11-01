@@ -31,8 +31,7 @@
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
-        myTrees = [[NSMutableArray alloc] init];
-        myGrasses = [[NSMutableArray alloc] init];
+        moveObjectArray = [[NSMutableArray alloc] init];
         
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
@@ -82,23 +81,64 @@
     //加入互動物件
     NSString *tempName;
     
-    tempName = @"P3-2_grass";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.tag = 5;
+    tempName = @"P3-2_grass";//草五株
+    tempObject = [EAAnimSprite spriteWithName:tempName];//5
+    //tempObject.tag = 5;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.2f;
     tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(375, 600)];
+    [tempObject setPosition:LOCATION(300, 240)];
     [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
     
-    tempName = @"P3-2_tree";
+    tempObject = [EAAnimSprite spriteWithName:tempName];//4
+    //tempObject.tag = 5;
+    tempObject.scale = 1.2f;
+    tempObject.imgNum = 2;
+    tempObject.delayTime = 0.25f;
+    tempObject.repeatTime = 3;
+    [tempObject setPosition:LOCATION(590, 280)];
+    [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
+    
+    tempObject = [EAAnimSprite spriteWithName:tempName];//3
+    //tempObject.tag = 5;
+    tempObject.scale = 1.2f;
+    tempObject.imgNum = 2;
+    tempObject.delayTime = 0.3f;
+    tempObject.repeatTime = 3;
+    [tempObject setPosition:LOCATION(100, 350)];
+    [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
+    
+    tempObject = [EAAnimSprite spriteWithName:tempName];//2
+    //tempObject.tag = 5;
+    tempObject.scale = 1.8f;
+    tempObject.imgNum = 2;
+    tempObject.delayTime = 0.2f;
+    tempObject.repeatTime = 3;
+    [tempObject setPosition:LOCATION(250, 600)];
+    [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
+    
+    tempObject = [EAAnimSprite spriteWithName:tempName];//1
+    //tempObject.tag = 5;
+    tempObject.scale = 2.0f;
+    tempObject.imgNum = 2;
+    tempObject.delayTime = 0.3f;
+    tempObject.repeatTime = 3;
+    [tempObject setPosition:LOCATION(150, 650)];
+    [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
+    
+    tempName = @"P3-2_tree";//樹兩棵
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
+    tempObject.delayTime = 0.25f;
     //tempObject.repeatTime = 2;
     [tempObject setPosition:LOCATION(260, 180)];
     [self addChild:tempObject];
-    [myTrees addObject:tempObject];
+    [moveObjectArray addObject:tempObject];
     
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
@@ -106,8 +146,9 @@
     //tempObject.repeatTime = 2;
     [tempObject setFlipX:YES];
     [tempObject setPosition:LOCATION(640, 220)];
-    [myTrees addObject:tempObject];
     [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
+    soundDetect.moveObjects = moveObjectArray;
     
     tempName = @"P3-2_water";
     tempObject = [EAAnimSprite spriteWithName:tempName];
@@ -118,6 +159,7 @@
     [tempObject setPosition:LOCATION(530, 670)];
     [self addChild:tempObject];
     
+    //動物們～～
     tempName = @"P3-2_elephant";
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
@@ -138,7 +180,7 @@
     tempObject.tag = 4;
     tempObject.imgNum = 4;
     tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 6;
+    tempObject.repeatTime = 4;
     [tempObject setPosition:LOCATION(445, 260)];
     [self addChild:tempObject];
     

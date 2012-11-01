@@ -1,8 +1,8 @@
 //
-//  EAPage3-2.h
+//  EAPageMap.h
 //  EABook
 //
-//  Created by Mac06 on 12/10/30.
+//  Created by Mac06 on 12/11/1.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,12 +10,15 @@
 #import "cocos2d.h"
 #import "EALayer.h"
 #import "EAPage2.h"
+#import "EAPage1.h"
+#import "EAPage3-1.h"
+#import "EAPage3-2.h"
+#import "EAPage3-3.h"
 #import "EAPage4.h"
-#import "EAPageGame1.h"
+#import "EAPageMenu.h"
 
-@interface EAPage3_2 : EALayer {
-    //NSMutableArray *myTrees;
-    //NSMutableArray *myGrasses;
+@interface EAPageMap : EALayer {
+    
 }
 +(CCScene *) scene;
 @end

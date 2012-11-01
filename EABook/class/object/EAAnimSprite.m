@@ -82,11 +82,24 @@
     
 -(void) startLoopAnimation
 {
+    NSLog(@"Loop Animation Start");
     CCAnimation *pAnim = [CCAnimation animation];
-    for(unsigned int i = 1; i < imgNum; i++)
-    {
-        NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+    if (imgNum < 3) {
+        for(unsigned int i = 1; i < imgNum; i++)
+        {
+            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+            [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+        }
+        NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,0];
         [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+    }
+    else
+    {
+        for(unsigned int i = 1; i < imgNum; i++)
+        {
+            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+            [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+        }
     }
     [pAnim setDelayPerUnit:delayTime];
     

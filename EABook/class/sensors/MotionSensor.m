@@ -44,12 +44,16 @@
         if (fabsf(_acData.acceleration.y) > LIMIT || fabs(_acData.acceleration.x) > LIMIT )
         {
             int i = 1;
-            for (sprite in moveObjects) {
-                if (animAble) {
-                    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+            
+            if (animAble) {
+                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                animAble = !animAble;
+                for (sprite in moveObjects) {
                     [sprite startLoopAnimation];
-                    animAble = !animAble;
                 }
+            }
+            for (sprite in moveObjects)
+            {
                 if (sprite.position.x > 30 && sprite.position.x < 1000 && sprite.position.y > 30 && sprite.position.y < 730) {
                     [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*2*i), (sprite.position.y - _acData.acceleration.x*3*i))];
                     sprite.rotation += _acData.acceleration.y*10;
@@ -77,13 +81,12 @@
         }
         else
         {
-            for (sprite in moveObjects) {
-                if (sprite) {
-                    if (!animAble) {
-                        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-                        animAble = !animAble;
-                        [sprite stopAllActions];
-                    }
+            
+            if (!animAble) {
+                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                animAble = !animAble;
+                for (sprite in moveObjects) {
+                    [sprite stopAllActions];
                 }
             }
         }

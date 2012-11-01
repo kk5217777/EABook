@@ -32,6 +32,7 @@
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
+        moveObjectArray = [[NSMutableArray alloc] init];
         
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
@@ -92,6 +93,8 @@
     tempObject.repeatTime = 6;
     [tempObject setPosition:LOCATION(220, 240)];
     [self addChild:tempObject];
+    [moveObjectArray addObject:tempObject];
+    soundDetect.moveObjects = moveObjectArray;
     
     tempName = @"P3-1_owl";
     tempObject = [EAAnimSprite spriteWithName:tempName];

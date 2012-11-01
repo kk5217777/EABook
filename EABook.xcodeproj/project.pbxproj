@@ -290,6 +290,7 @@
 		B89D9A2B163EBC26007AABFB /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D99A1163EBC26007AABFB /* push.mp3 */; };
 		B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
+		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -732,6 +733,8 @@
 		B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EAPage3-1.m"; sourceTree = "<group>"; };
 		B8F8518316423A6400C15A6E /* MotionSensorIce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensorIce.h; sourceTree = "<group>"; };
 		B8F8518416423A6400C15A6E /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
+		B8F851861642833200C15A6E /* EAPageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMap.h; sourceTree = "<group>"; };
+		B8F851871642833300C15A6E /* EAPageMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageMap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1205,6 +1208,8 @@
 				84967031163EEDD4001F1A8E /* EAPageConfig.m */,
 				84967032163EEDD4001F1A8E /* EAPageMenu.h */,
 				84967033163EEDD4001F1A8E /* EAPageMenu.m */,
+				B8F851861642833200C15A6E /* EAPageMap.h */,
+				B8F851871642833300C15A6E /* EAPageMap.m */,
 				8496702C163EEDD4001F1A8E /* EAPage1.h */,
 				8496702D163EEDD4001F1A8E /* EAPage1.m */,
 				8496702E163EEDD4001F1A8E /* EAPage2.h */,
@@ -1902,6 +1907,7 @@
 				84549201164034EA0036B09F /* EAPageEnd.m in Sources */,
 				B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */,
 				B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */,
+				B8F851881642833300C15A6E /* EAPageMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

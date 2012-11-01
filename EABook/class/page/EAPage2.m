@@ -30,6 +30,7 @@
     if (self = [super init]) {
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
+        moveObjectArray = [[NSMutableArray alloc] init];
         swipeDirection = UISwipeGestureRecognizerDirectionDown;
         gamepoint = delegate.EAGamePoint;
         //[gamepoint addTypeA];
@@ -92,6 +93,8 @@
     //windmil.repeatTime = 2;
     [windmil setPosition:LOCATION(832, 190)];
     [self addChild:windmil];
+    [moveObjectArray addObject:windmil];
+    soundDetect.moveObjects = moveObjectArray;
 
     horse = [EAAnimSprite spriteWithName:@"P2_horse"];
     horse.wordsoundName = @"P2_horse_word.mp3";
