@@ -53,40 +53,44 @@
     [tempObject setTextureRect: CGRectMake(0, 0, 250, 130)];
     [tempObject setPosition:ccp(500, 60)];
     [tempObject setTag:3];
+    [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"birdcage"]];
     [tempObject setPosition:LOCATION(716+tempObject.boundingBox.size.width/2, 353-tempObject.boundingBox.size.height/2)];
     [tempObject setTag:5];
+    [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"Jungle"]];
     [tempObject setPosition:LOCATION(380+tempObject.boundingBox.size.width/2, 341-tempObject.boundingBox.size.height/2+15)];
     [tempObject setTag:6];
+    [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"grassland"]];
-    [tempObject setPosition:LOCATION(366+tempObject.boundingBox.size.width/2-30, 482-tempObject.boundingBox.size.height/2+25)];
+    [tempObject setPosition:LOCATION(366+tempObject.boundingBox.size.width/2-30, 482-tempObject.boundingBox.size.height/2-1)];
     [tempObject setTag:4];
+    [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"sea"]];
-    [tempObject setPosition:LOCATION(122+tempObject.boundingBox.size.width/2, 373-tempObject.boundingBox.size.height/2+20)];
+    [tempObject setPosition:LOCATION(122+tempObject.boundingBox.size.width/2, 373-tempObject.boundingBox.size.height/2+25)];
     [tempObject setTag:7];
+    [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"garden"]];
     [tempObject setPosition:LOCATION(382+tempObject.boundingBox.size.width/2, 237-tempObject.boundingBox.size.height/2)];
     [tempObject setTag:8];
+    [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
-    
-    
     
     //加入array
     [tapObjectArray addObject:[self getChildByTag:20]];
@@ -96,22 +100,28 @@
 {
     switch (goToPage) {
         case 3:
-            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] withColor:ccWHITE]];
             break;
         case 4:
-            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] withColor:ccWHITE]];
             break;
         case 5:
-            
+            [gamepoint addTypeA];
+            delegate.EAGamePoint = gamepoint;
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] withColor:ccWHITE]];
             break;
         case 6:
-            
+            [gamepoint addTypeB];
+            delegate.EAGamePoint = gamepoint;
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene] withColor:ccWHITE]];
             break;
         case 7:
-            
+            [gamepoint addTypeC];
+            delegate.EAGamePoint = gamepoint;
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene] withColor:ccWHITE]];
             break;
         case 8:
-            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage4 scene] withColor:ccWHITE]];
             break;
         default:
             break;
@@ -130,46 +140,31 @@
 
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
+    //tap後的執行動作
+    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+    CCAction *turnPage = [CCCallFunc actionWithTarget:self selector:@selector(goToPage)];
+    CCAction *turnWithShining = [CCSequence actions:switchIneraction,
+                                 [CCFadeIn actionWithDuration:0.3],
+                                 [CCFadeOut actionWithDuration:0.3],
+                                 [CCFadeIn actionWithDuration:0.3],
+                                 turnPage, nil];
+    //各個按鈕的分別動作
     for (tempObject in tapObjectArray) {
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             NSLog(@"Tap! %2d", tempObject.tag);
             switch (tempObject.tag) {
                 case 3:
                     goToPage = tempObject.tag;
-                    [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(goToPage)]];
-                    //[soundMgr playSoundFile:tempObject.soundName];
-                    //delegate.EAGamePoint = gamepoint;
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene] backwards:YES]];
+                    [tempObject runAction:turnPage];
                     break;
                 case 4:
-                    goToPage = tempObject.tag;
-                    [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(goToPage)]];
-                    //[soundMgr playSoundFile:tempObject.soundName];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
-                    break;
                 case 5:
-                    goToPage = tempObject.tag;
-                    [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(goToPage)]];
-                    //[soundMgr playSoundFile:tempObject.soundName];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
-                    break;
                 case 6:
-                    goToPage = tempObject.tag;
-                    [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(goToPage)]];
-                    //[soundMgr playSoundFile:tempObject.soundName];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
-                    break;
                 case 7:
-                    goToPage = tempObject.tag;
-                    [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(goToPage)]];
-                    //[soundMgr playSoundFile:tempObject.soundName];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
-                    break;
                 case 8:
                     goToPage = tempObject.tag;
-                    [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(goToPage)]];
-                    //[soundMgr playSoundFile:tempObject.soundName];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    [tempObject runAction:turnWithShining];
                     break;
                 case 20:
                     [soundMgr playSoundFile:tempObject.soundName];
