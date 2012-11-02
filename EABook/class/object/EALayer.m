@@ -28,6 +28,7 @@
         
         touchEnable = NO;
         soundEnable = NO;
+        panEnable = NO;
         
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
         
@@ -49,6 +50,7 @@
     }
     touchEnable = !touchEnable;
     soundEnable = !soundEnable;
+    panEnable = !panEnable;
 }
 
 -(void) switchTouchInteraction
@@ -60,7 +62,20 @@
         NSLog(@"switchTouchInteraction ON");
     }
     touchEnable = !touchEnable;
+    panEnable = !panEnable;
     //soundEnable = !soundEnable;
+}
+
+-(void) switchPanInteraction
+{
+    if (touchEnable) {
+        NSLog(@"switchTouchInteraction OFF");
+    }
+    else{
+        NSLog(@"switchTouchInteraction ON");
+    }
+    touchEnable = !touchEnable;
+    soundEnable = !soundEnable;
 }
 
 -(void) stopSpriteMove

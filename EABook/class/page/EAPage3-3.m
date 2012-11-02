@@ -61,7 +61,7 @@
         [self addChild:motionDetect];
         
         [self addChild:soundMgr];
-        [self addObjects];
+        //[self addObjects];
     }
     return self;
 }
@@ -69,67 +69,83 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P3-3_sea.jpg"];
+    [self addBackGround:@"P4-3_sea.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P3-3.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3-3.png"];
+     @"P4-3_cruises.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-3_cruises.png"];
     [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P4-3_sailboat.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-3_sailboat.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P4-3_speedboat.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-3_speedboat.png"];
+    [self addChild:spriteSheet];
+
     
     //加入互動物件
     NSString *tempName;
     
     //背景物件
-    tempName = @"P3-3_seagrass";
+    tempName = @"P4-3_cruises";
     tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    tempObject.wordimageName = [NSString stringWithFormat:@"P4-3_steamship_word.png"];
+    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     tempObject.tag = 5;
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(425, 600)];
+    tempObject.imgNum = 7;
+    tempObject.delayTime = 0.3f;
+    //tempObject.repeatTime = 3;
+    [tempObject setPosition:ccp( 730 , 160 )];
     [self addChild:tempObject];
     
-    tempName = @"P3-3_ice";
-    CCSprite *ice = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_%d.png",tempName,0]];
-    [ice setPosition:LOCATION(620, 220)];
-    [self addChild:ice];
+    //tempName = @"P3-3_ice";
+    //CCSprite *ice = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_%d.png",tempName,0]];
+    //[ice setPosition:LOCATION(620, 220)];
+    //[self addChild:ice];
     
     //互動物件
-    tempName = @"P3-3_Crab";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 3;
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 4;
-    [tempObject setPosition:LOCATION(750, 650)];
-    [self addChild:tempObject];
-    
-    tempName = @"P3-3_penguin";
+    tempName = @"P4-3_sailboat";
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 4;
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 2;
-    [tempObject setPosition:LOCATION(620, 115)];
+    tempObject.tag = 3;
+    tempObject.imgNum = 7;
+    tempObject.delayTime = 0.3f;
+    //tempObject.repeatTime = 4;
+    [tempObject setPosition:ccp(224,342)];
     [self addChild:tempObject];
     
-    tempName = @"P3-3_turtle";
+    tempName = @"P4-3_speedboat";
     tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    tempObject.wordimageName = [NSString stringWithFormat:@"P4-3_yacht_word.png"];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 6;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.5f;
-    tempObject.repeatTime = 2;
-    [tempObject setPosition:LOCATION(250, 450)];
+    tempObject.tag = 4;
+    tempObject.imgNum = 6;
+    tempObject.delayTime = 0.3f;
+    //tempObject.repeatTime = 2;
+    [tempObject setPosition:ccp(650,560)];
     [self addChild:tempObject];
     
+    tempName = @"P4-3_island";
+    tempObject = [EAAnimSprite spriteWithName:tempName];
+    //tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    //tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    tempObject.tag = 6;
+    //tempObject.imgNum = 2;
+    //tempObject.delayTime = 0.5f;
+    //tempObject.repeatTime = 2;
+    [tempObject setPosition:ccp(324, 556)];
+    [self addChild:tempObject];
+
+
     //加入上下頁按鈕
     [self addPre];
     [self addNext];
@@ -137,19 +153,19 @@
     //加入array
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
-    [tapObjectArray addObject:[self getChildByTag:6]];
-    //[tapObjectArray addObject:[self getChildByTag:5]];
+    //[tapObjectArray addObject:[self getChildByTag:6]];
+    [tapObjectArray addObject:[self getChildByTag:5]];
     [tapObjectArray addObject:[self getChildByTag:4]];
     [tapObjectArray addObject:[self getChildByTag:3]];
     
-    [swipeObjectArray addObject:[self getChildByTag:6]];
+    //[swipeObjectArray addObject:[self getChildByTag:6]];
     [swipeObjectArray addObject:[self getChildByTag:5]];
     [swipeObjectArray addObject:[self getChildByTag:4]];
     [swipeObjectArray addObject:[self getChildByTag:3]];
     
-    motionDetect.sprite = (EAAnimSprite*)[self getChildByTag:4];
-    motionDetect.sprite2 = (EAAnimSprite*)ice;
-    motionDetect.sManage = soundMgr;
+    motionDetect.sprite = (EAAnimSprite*)[self getChildByTag:6];
+    //motionDetect.sprite2 = (EAAnimSprite*)ice;
+    //motionDetect.sManage = soundMgr;
 }
 
 -(void) draw

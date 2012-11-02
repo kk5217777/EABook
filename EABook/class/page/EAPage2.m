@@ -57,13 +57,13 @@
         //[self handlePanAndSwipe];
         
         //音量
-        soundDetect = [[SoundSensor alloc] init];
+        //soundDetect = [[SoundSensor alloc] init];
         
         //重力
         //motionDetect = [[MotionSensor alloc] init];
         //[self addChild:motionDetect];
         
-        [self addChild:soundDetect];
+        //[self addChild:soundDetect];
         [self addChild:soundMgr];
         [self addObjects];
     }
@@ -73,12 +73,22 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P2_Background.jpg"];
+    [self addBackGround:@"P3_background.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P2.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P2.png"];
+     @"P3_119Car.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3_119Car.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P3_Bulldozer.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3_Bulldozer.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P3_WaterCar.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3_WaterCar.png"];
     [self addChild:spriteSheet];
     
     //加入上下頁按鈕
@@ -86,6 +96,7 @@
     [self addNext];
     
     //加入互動物件
+    /*
     windmil = [EAAnimSprite spriteWithName:@"P2_Windmill"];
     windmil.tag = 5;
     windmil.imgNum = 6;
@@ -94,38 +105,39 @@
     [windmil setPosition:LOCATION(832, 190)];
     [self addChild:windmil];
     [moveObjectArray addObject:windmil];
-    soundDetect.moveObjects = moveObjectArray;
+    soundDetect.moveObjects = moveObjectArray;*/
 
-    horse = [EAAnimSprite spriteWithName:@"P2_horse"];
-    horse.wordsoundName = @"P2_horse_word.mp3";
-    horse.wordimageName = @"P2_horse_EN&CH.jpg";
-    horse.soundName = @"P2_horse.mp3";
-    horse.tag = 6;
-    horse.imgNum = 7;
-    horse.delayTime = 0.1f;
-    //horse.repeatTime = 2;
-    [horse setPosition:LOCATION(775, 380)];
+    horse = [EAAnimSprite spriteWithName:@"P3_119Car"];
+    horse.wordsoundName = @"P3_119Car_word.mp3";
+    horse.wordimageName = @"P3_119car_en&ch.jpg";
+    horse.soundName = @"P3_119Car.mp3";
+    horse.tag = 3;
+    horse.imgNum = 3;
+    horse.delayTime = 0.3f;
+    horse.repeatTime = 2;
+    [horse setPosition:ccp( 129 , 320 )];
     [self addChild:horse];
     
-    sheep = [EAAnimSprite spriteWithName:@"P2_sheep"];
-    sheep.wordsoundName = @"P2_goat_word.mp3";
-    sheep.wordimageName = @"P2_goat_EN&CH.jpg";
-    sheep.soundName = @"P2_goat.mp3";
-    sheep.tag = 3;
-    sheep.imgNum = 2;
-    sheep.repeatTime = 2;
-    sheep.delayTime = 1.0f;
-    [sheep setPosition:LOCATION(580, 625)];
+    sheep = [EAAnimSprite spriteWithName:@"P3_Bulldozer"];
+    sheep.wordsoundName = @"P3_Bulldozer_word.mp3";
+    sheep.wordimageName = @"P3_bulldozer_en&ch.jpg";
+    sheep.soundName = @"P3_Bulldozer.mp3";
+    sheep.tag = 4;
+    sheep.imgNum = 4;
+    //sheep.repeatTime = 2;
+    sheep.delayTime = 0.3f;
+    [sheep setPosition:ccp( 500 , 600 )];
     [self addChild:sheep];
     
-    zibber = [EAAnimSprite spriteWithName:@"P2_zibber"];
-    zibber.wordsoundName = @"P2_Zebra_word.mp3";
-    zibber.wordimageName = @"P2_zerba_EN&CH.jpg";
-    zibber.soundName = @"P2_Zebra.mp3";
-    zibber.tag = 4;
+    zibber = [EAAnimSprite spriteWithName:@"P3_WaterCar"];
+    zibber.wordsoundName = @"P3_WaterCar_word.mp3";
+    zibber.wordimageName = @"P3_sprinkler_en&ch.jpg";
+    zibber.soundName = @"P3_WaterCar.mp3";
+    zibber.tag = 5;
     zibber.imgNum = 5;
-    zibber.repeatTime = 2;
-    [zibber setPosition:LOCATION(150, 450)];
+    //zibber.repeatTime = 2;
+    zibber.delayTime = 0.3f;
+    [zibber setPosition:ccp( 740 , 396 )];
     [self addChild:zibber];
     
     [tapObjectArray addObject:[self getChildByTag:0]];
@@ -137,7 +149,7 @@
     [swipeObjectArray addObject:sheep];
     [swipeObjectArray addObject:horse];
     
-    soundDetect.sprite = windmil;
+    //soundDetect.sprite = windmil;
     //聲音測試
     //[soundMgr playWordSoundFile:@"P3-1_owl_word.mp3"];
 }
@@ -232,13 +244,13 @@
             [soundMgr playSoundFile:tempObject.soundName];
             
             switch (tempObject.tag) {
-                case 6:
+                case 3:
                     [gamepoint addTypeA];
                     break;
-                case 3:
+                case 4:
                     [gamepoint addTypeB];
                     break;
-                case 4:
+                case 5:
                     [gamepoint addTypeC];
                     break;
                 default:

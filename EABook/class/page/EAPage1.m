@@ -80,12 +80,22 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P1_Background.jpg"];
+    [self addBackGround:@"P2_background.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P1.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P1.png"];
+     @"P2_DustCar.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P2_DustCar.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P2_LectCar.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P2_LectCar.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P2_Train.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P2_Train.png"];
     [self addChild:spriteSheet];
     
     //加入上下頁按鈕
@@ -95,60 +105,52 @@
     //加入互動物件
     NSString *tempName;
     
-    tempName = @"P1_cow";
-    cow = [EAAnimSprite spriteWithName:tempName];
-    cow.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    cow.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
-    cow.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    cow.tag = 4;
-    cow.imgNum = 7;
-    cow.delayTime = 0.1f;
-    cow.repeatTime = 3;
-    [cow setPosition:LOCATION(250, 350)];
-    [self addChild:cow];
+    tempName = @"P2_DustCar";
+    DustCar = [EAAnimSprite spriteWithName:tempName];
+    DustCar.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    DustCar.wordimageName = [NSString stringWithFormat:@"P2_Truck_en&ch.jpg"];
+    DustCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    DustCar.tag = 3;
+    DustCar.imgNum = 5;
+    DustCar.delayTime = 0.3f;
+    //DustCar.repeatTime = 1;
+    [DustCar setPosition:ccp( 206 , 450 )];
+    [self addChild:DustCar];
     
-    tempName = @"P1_pig";
-    pig = [EAAnimSprite spriteWithName:tempName];
-    pig.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    pig.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
-    pig.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    pig.tag = 5;
-    pig.imgNum = 4;
-    pig.repeatTime = 3;
-    pig.delayTime = 0.2f;
-    [pig setPosition:LOCATION(830, 250)];
-    [self addChild:pig];
+    tempName = @"P2_LectCar";
+    LectCar = [EAAnimSprite spriteWithName:tempName];
+    LectCar.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    LectCar.wordimageName = [NSString stringWithFormat:@"P2_crane_en&ch.jpg"];
+    LectCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    LectCar.tag = 4;
+    LectCar.imgNum = 2;
+    //LectCar.repeatTime = 1;
+    LectCar.delayTime = 0.3f;
+    [LectCar setPosition:ccp( 660 , 468)];
+    [self addChild:LectCar];
     
-    tempName = @"P1_chicken";
-    chicken = [EAAnimSprite node];
-    [chicken setTextureRect:CGRectMake(0, 0, 130, 130)];
-    chicken.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
-    chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    chicken.tag = 3;
-    chicken.visible = NO;
-    [chicken setPosition:LOCATION(450, 640)];
-    [self addChild:chicken];
+    tempName = @"P2_Train";
+    Train = [EAAnimSprite spriteWithName:tempName];
+    //[chicken setTextureRect:CGRectMake(0, 0, 130, 130)];
+    Train.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    Train.wordimageName = [NSString stringWithFormat:@"P2_train_en&ch.jpg"];
+    Train.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    Train.tag = 5;
+    Train.imgNum = 4;
+    Train.delayTime = 0.3f;
+    [Train setPosition:ccp( 780 , 158 )];
+    [self addChild:Train];
     
-    tempName = @"P1_egg";
-    
-    egg = [EAAnimSprite spriteWithName:tempName];
-    egg.tag = 6;
-    egg.imgNum = 6;
-    egg.delayTime = 0.5f;
-    egg.visible = YES;
-    [egg setPosition:LOCATION(750, 570)];
-    [egg setRotation:-15];
     
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
-    [tapObjectArray addObject: chicken];
-    [tapObjectArray addObject: pig];
-    [tapObjectArray addObject: cow];
+    [tapObjectArray addObject: Train];
+    [tapObjectArray addObject: DustCar];
+    [tapObjectArray addObject: LectCar];
     
-    [swipeObjectArray addObject: chicken];
-    [swipeObjectArray addObject: cow];
-    [swipeObjectArray addObject: pig];
+    [swipeObjectArray addObject: DustCar];
+    [swipeObjectArray addObject: LectCar];
+    [swipeObjectArray addObject: Train];
 }
 
 -(void) draw
@@ -188,7 +190,7 @@
                 case 0:
                     //上一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
@@ -196,11 +198,6 @@
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
                 case 6: //蛋tap消失
-                    [tapObjectArray removeObject:tempObject];
-                    [moveObjectArray removeObject:tempObject];
-                    [self removeChild:tempObject cleanup:NO];
-                    motionDetect.moveObjects = moveObjectArray;
-                    break;
                 case 3:
                 case 4:
                 case 5:
@@ -226,31 +223,10 @@
         
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [soundMgr playSoundFile:tempObject.soundName];
-            if (tempObject.tag == 3) {
-                if (moveObjectArray.count < 5) {
-                    [gamepoint addTypeA];
-                    
-                    NSString *tempName = @"P1_egg";
-                    egg = [EAAnimSprite spriteWithName:tempName];
-                    egg.tag = 6;
-                    egg.imgNum = 6;
-                    egg.delayTime = 0.5f;
-                    egg.visible = YES;
-                    [egg setPosition:LOCATION(750, 570)];
-                    [egg setRotation:-15];
-                    [moveObjectArray addObject:egg];
-                    [tapObjectArray insertObject:egg atIndex:0];
-                    [self addChild:egg];
-                    
-                    motionDetect.moveObjects = moveObjectArray;
-                    CCRotateTo *rotate = [CCRotateTo actionWithDuration:0.1 angle:480 + 100 * moveObjectArray.count];
-                    CCMoveTo *move = [CCMoveTo actionWithDuration:0.1 position:ccp(600+50 * motionDetect.moveObjects.count, 200)];
-                    [egg runAction:[CCSpawn actions:rotate, move, nil]];
-                }
-            }
-            else
-            {
-                switch (tempObject.tag) {
+            switch (tempObject.tag) {
+                    case 3:
+                        [gamepoint addTypeA];
+                        break;
                     case 4:
                         [gamepoint addTypeB];
                         break;
@@ -261,7 +237,7 @@
                         break;
                 }
                 [tempObject startAnimation];
-            }
+            
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {

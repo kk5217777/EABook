@@ -12,12 +12,13 @@
 
 #import "EAPageMenu.h"
 #import "EAPage2.h"
+#import "EAPage0.h"
 
 @interface EAPage1 : EALayer {
-    EAAnimSprite *egg;
-    EAAnimSprite *chicken;
-    EAAnimSprite *pig;
-    EAAnimSprite *cow;
+    //EAAnimSprite *egg;
+    EAAnimSprite *DustCar;
+    EAAnimSprite *LectCar;
+    EAAnimSprite *Train;
     
     BOOL eggEnable;
 }

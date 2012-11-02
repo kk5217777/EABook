@@ -27,7 +27,7 @@
                     }
                 }
                 if (sprite.position.x > 30 && sprite.position.x < 1000 && sprite.position.y > 30 && sprite.position.y < 730) {
-                    [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*10), sprite.position.y)];
+                    [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*5), sprite.position.y)];
                     if (sprite2) {
                         [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*10), sprite2.position.y)];
                     }

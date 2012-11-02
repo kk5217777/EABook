@@ -102,7 +102,7 @@
         }
     }
     [pAnim setDelayPerUnit:delayTime];
-    
+    pAnim.restoreOriginalFrame = YES;
     CCAnimate *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:pAnim]];
     [self runAction:action];
 }

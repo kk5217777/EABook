@@ -61,7 +61,7 @@
         //[self addChild:motionDetect];
         
         [self addChild:soundMgr];
-        [self addObjects];
+        //[self addObjects];
     }
     return self;
 }

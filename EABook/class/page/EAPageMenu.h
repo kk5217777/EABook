@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "EALayer.h"
 #import "EAPageMap.h"
-#import "EAPage1.h"
+#import "EAPage0.h"
 #import "EAPageConfig.h"
 
 @interface EAPageMenu : EALayer {

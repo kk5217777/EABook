@@ -51,38 +51,36 @@
 {
     [self addBackGround:@"P0_Cover.jpg"];
     //載入圖片
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+    /*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
      @"P0.plist"];
-    
     spriteSheet = [CCSpriteBatchNode
                                       batchNodeWithFile:@"P0.png"];
-    [self addChild:spriteSheet];
+    [self addChild:spriteSheet];*/
     
     NSLog(@"Tap! %d", tapObjectArray.count);
     CCSprite *btnback;
-    btnback= [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_start.png"]];
-    
+    btnback= [CCSprite spriteWithFile:@"P0_Start.png"];
     [btnback setTag:0];
     [btnback setPosition:LOCATION(155 , 670)];
-    [spriteSheet addChild:btnback];
+    [self addChild:btnback];
     [tapObjectArray addObject:btnback];
     
-    btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_map.png"]] autorelease];
+    btnback = [CCSprite spriteWithFile:@"P0_Map.png"];
     [btnback setTag:1];
     [btnback setPosition:LOCATION(400 , 670)];
-    [spriteSheet addChild:btnback];
+    [self addChild:btnback];
     [tapObjectArray addObject:btnback];
     
-    btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_game.png"]] autorelease];
-    [btnback setTag:2];
+    btnback = [CCSprite spriteWithFile:@"P0_Game.png"];
+    [btnback setTag:4];
     [btnback setPosition:LOCATION(640 , 670)];
-    [spriteSheet addChild:btnback];
+    [self addChild:btnback];
     [tapObjectArray addObject:btnback];
     
-    btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_option.png"]] autorelease];
+    btnback = [CCSprite spriteWithFile:@"P0_Option.png"];
     [btnback setTag:3];
     [btnback setPosition:LOCATION(870 , 670)];
-    [spriteSheet addChild:btnback];
+    [self addChild:btnback];
     [tapObjectArray addObject:btnback];
 }
 
@@ -105,7 +103,7 @@
                     NSLog(@"開始");
                     [soundMgr playSoundFile:@"push.mp3"];
                     delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] backwards:NO]];
                     break;
                 case 1:
                     NSLog(@"地圖");
@@ -113,7 +111,7 @@
                     delegate.EAGamePoint = gamepoint;
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene] backwards:NO]];
                     break;
-                case 2:
+                case 4:
                     NSLog(@"遊戲");
                     [soundMgr playSoundFile:@"push.mp3"];
                     break;

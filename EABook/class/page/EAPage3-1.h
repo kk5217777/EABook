@@ -15,7 +15,7 @@
 #import "EAUpDownSprite.h"
 
 @interface EAPage3_1 : EALayer {
-    
+    int selectedMoveSprite;
 }
 +(CCScene *) scene;
 @end

@@ -23,8 +23,8 @@
     }
     [pAnim setDelayPerUnit:delayTime];
     
-    CCMoveBy *moveBy1 = [CCMoveBy actionWithDuration:0.5 position:ccp(0, 20)];//向上
-    CCMoveBy *moveBy2 = [CCMoveBy actionWithDuration:0.5 position:ccp(0, -20)];//向下
+    CCMoveBy *moveBy1 = [CCRotateBy actionWithDuration:0.5 angle:5];//向上
+    CCMoveBy *moveBy2 = [CCRotateBy actionWithDuration:0.5 angle:-5];//向下
     CCEaseInOut *ease1 = [CCEaseInOut actionWithAction:moveBy1 rate:0.5];//逆时针时摆动时先匀加速再匀减速运动
     CCEaseInOut *ease2 = [CCEaseInOut actionWithAction:moveBy2 rate:0.5];//顺时针时摆动时先匀加速再匀减速运动
     CCSequence *seq1 = [CCSequence actions:ease1, ease2, nil];//将两个摆动合成为一个动画

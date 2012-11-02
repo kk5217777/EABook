@@ -16,6 +16,7 @@
 @interface EAPage3_2 : EALayer {
     //NSMutableArray *myTrees;
     //NSMutableArray *myGrasses;
+   int selectedMoveSprite;
 }
 +(CCScene *) scene;
 @end

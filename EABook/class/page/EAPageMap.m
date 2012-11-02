@@ -36,7 +36,7 @@
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
         [self addChild:soundMgr];
-        [self addObjects];
+        //[self addObjects];
     }
     return self;
 }

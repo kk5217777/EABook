@@ -1,23 +1,22 @@
 //
-//  EAPage3-1.m
+//  EAPage0.m
 //  EABook
 //
-//  Created by Mac06 on 12/10/30.
+//  Created by Mac04 on 12/11/2.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "EAPage3-1.h"
+#import "EAPage0.h"
 
 
-@implementation EAPage3_1
-
+@implementation EAPage0
 +(CCScene *) scene
 {
     // 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	EAPage3_1 *layer = [EAPage3_1 node];
+	EAPage0 *layer = [EAPage0 node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -25,7 +24,6 @@
 	// return the scene
 	return scene;
 }
-
 -(id) init
 {
     if (self = [super init]) {
@@ -36,12 +34,14 @@
         panObjectArray = [[NSMutableArray alloc] init];
         
         selectedMoveSprite = -1;
+        
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
         //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+        
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
@@ -51,10 +51,19 @@
         swipegestureRecognizerLeft = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
         [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
         
+        pangestureRecognizer = [[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)]autorelease];
+        /*
+         swipegestureRecognizerUp = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
+         [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionUp];
+         
+         swipegestureRecognizerDown = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
+         [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionDown];
+         
+         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerUp];
+         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerDown];
+         */
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
-        
-         pangestureRecognizer = [[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)]autorelease];
         [delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
         [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
@@ -66,9 +75,9 @@
         //[self addChild:soundDetect];
         
         //重力
-        //motionDetect = [[MotionSensor alloc] init];
-        //motionDetect.sManage = soundMgr;
-        //[self addChild:motionDetect];
+        motionDetect = [[MotionSensorIce alloc] init];
+        motionDetect.sManage = soundMgr;
+        [self addChild:motionDetect];
         
         [self addChild:soundMgr];
         [self addObjects];
@@ -79,110 +88,122 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P4-1_fourcar.jpg"];
+    [self addBackGround:@"P1_Background.jpg"];
+    CCSprite *Man = [[CCSprite alloc]initWithFile:@"P1_Man.png"];
+    Man.position = ccp(510, 112);
+    [self addChild:Man];
     
+    CCSprite *OldWomen = [[CCSprite alloc]initWithFile:@"P1_OldWomen.png"];
+    OldWomen.position = ccp(164, 112);
+    [self addChild:OldWomen];
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P4-1_jeep.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-1_jeep.png"];
+     @"P1_taxi.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P1_taxi.png"];
     [self addChild:spriteSheet];
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P4-1_policecar.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-1_policecar.png"];
+     @"P1_ThreeCar.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P1_ThreeCar.png"];
     [self addChild:spriteSheet];
-
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P4-1_motorcycle.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-1_motorcycle.png"];
+     @"P1_cat.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P1_cat.png"];
     [self addChild:spriteSheet];
-
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P4-1_purplecar.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-1_purplecar.png"];
+     @"P1_dog.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P1_dog.png"];
     [self addChild:spriteSheet];
 
-    //加入互動物件
-    NSString *tempName;
-    
-    tempName = @"P4-1_jeep";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 3;
-    tempObject.imgNum = 5;
-    tempObject.delayTime = 0.3f;
-    //tempObject.repeatTime = 1;
-    [tempObject setPosition:ccp( 700 , 450 )];
-    [self addChild:tempObject];
-    //[moveObjectArray addObject:tempObject];
-    //soundDetect.moveObjects = moveObjectArray;
-    
-    tempName = @"P4-1_policecar";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 4;
-    tempObject.imgNum = 3;
-    tempObject.delayTime = 0.3f;
-    //tempObject.repeatTime = 2;
-    [tempObject setPosition:ccp( 300 , 200 )];
-    [self addChild:tempObject];
-    
-    tempName = @"P4-1_motorcycle";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 5;
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.3f;
-    //tempObject.repeatTime = 3;
-    [tempObject setPosition:ccp( 180 , 400 )];
-    [self addChild:tempObject];
-    
-    tempName = @"P4-1_purplecar";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 6;
-    tempObject.imgNum = 7;
-    tempObject.delayTime = 0.1f;
-    tempObject.repeatTime = 2;
-    [tempObject setPosition:ccp( 300 , 612 )];
-    [self addChild:tempObject];
     
     //加入上下頁按鈕
     [self addPre];
     [self addNext];
     
-    //加入array
+    //加入互動物件
+    NSString *tempName;
+    
+    
+    
+    tempName = @"P1_cat";
+    Cat = [EAAnimSprite spriteWithName:tempName];
+    //pig.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    //pig.wordimageName = [NSString stringWithFormat:@"%@_en&ch.jpg",tempName];
+    //pig.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    //Cat.tag = 5;
+    Cat.imgNum = 2;
+    Cat.repeatTime = 3;
+    Cat.delayTime = 0.3f;
+    [Cat setPosition:ccp(512, 384)];
+    [self addChild:Cat];
+    
+    tempName = @"P1_dog";
+    Dog = [EAAnimSprite spriteWithName:tempName];
+    //[chicken setTextureRect:CGRectMake(0, 0, 130, 130)];
+    //chicken.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    //chicken.wordimageName = [NSString stringWithFormat:@"%@_en&ch.jpg",tempName];
+    //chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    Dog.imgNum = 4;
+    //Dog.tag = 4;
+    //chicken.visible = NO;
+    Dog.delayTime = 0.3f;
+    [Dog setPosition:ccp(660, 192)];
+    [self addChild:Dog];
+    
+    tempName = @"P1_taxi";
+    
+    Taxi = [EAAnimSprite spriteWithName:tempName];
+    Taxi.soundName =[NSString stringWithFormat:@"%@.mp3",tempName];
+    Taxi.wordimageName = [NSString stringWithFormat:@"%@_en&ch.jpg",tempName];
+    Taxi.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    Taxi.tag = 3;
+    Taxi.imgNum = 3;
+    Taxi.delayTime = 0.5f;
+    //Taxi.visible = YES;
+    [Taxi setPosition:ccp(710, 390)];
+    [moveObjectArray addObject:Taxi];
+    [tapObjectArray insertObject:Taxi atIndex:0];
+    [self addChild:Taxi];
+    
+    motionDetect.moveObjects = moveObjectArray;
+    
+    tempName = @"P1_ThreeCar";
+    ThreeCar = [EAAnimSprite spriteWithName:tempName];
+    ThreeCar.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    ThreeCar.wordimageName = [NSString stringWithFormat:@"%@_en&ch.jpg",tempName];
+    ThreeCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    ThreeCar.tag = 4;
+    ThreeCar.imgNum = 2;
+    ThreeCar.delayTime = 0.5f;
+    ThreeCar.repeatTime = 2;
+    [ThreeCar setPosition:ccp(300, 266)];
+    [self addChild:ThreeCar];
+    
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
-    [tapObjectArray addObject:[self getChildByTag:6]];
-    [tapObjectArray addObject:[self getChildByTag:5]];
-    [tapObjectArray addObject:[self getChildByTag:4]];
-    [tapObjectArray addObject:[self getChildByTag:3]];
+    [tapObjectArray addObject: Taxi];
+    [tapObjectArray addObject: ThreeCar];
+        
     
-    [panObjectArray addObject:[self getChildByTag:6]];
-    [panObjectArray addObject:[self getChildByTag:5]];
-    [panObjectArray addObject:[self getChildByTag:4]];
-    [panObjectArray addObject:[self getChildByTag:3]];
+    [swipeObjectArray addObject: Cat];
+    [swipeObjectArray addObject: Dog];
+    
+    [panObjectArray addObject:ThreeCar];
     tempObject = nil;
-    //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
+    
+    motionDetect.sprite = Taxi;
 }
 
 -(void) draw
 {
-    if (soundEnable) {
-        //[soundDetect update];
+    if (soundEnable && moveObjectArray.count > 0) {
+        [motionDetect update];
     }
 }
 
-#pragma mark 手勢
+#pragma 手勢區
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
@@ -194,12 +215,14 @@
 
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
 {
+    NSLog(@"swipe");
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     if (touchEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
+
 -(void)handlePan:(UIPanGestureRecognizer *)recognizer{
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
@@ -224,10 +247,10 @@
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
         if (panEnable) {
-            NSLog(@"pan");
-            CGPoint translation = [recognizer translationInView:recognizer.view];
-            translation = ccp(translation.x, -translation.y);
-            [self panSpriteMovement:translation];
+        NSLog(@"pan");
+        CGPoint translation = [recognizer translationInView:recognizer.view];
+        translation = ccp(translation.x, -translation.y);
+        [self panSpriteMovement:translation];
             //}
             //NSLog(@"translation X%f,Y%f----------------",translation.x,-translation.y);
             [recognizer setTranslation:CGPointZero inView:recognizer.view];
@@ -247,6 +270,7 @@
         }
     }
 }
+#pragma mark 手勢
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     NSLog(@"tap");
@@ -257,18 +281,17 @@
                 case 0:
                     //上一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
                     [soundMgr playSoundFile:@"push.mp3"];
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
                     break;
+                case 6: //蛋tap消失
                 case 3:
                 case 4:
                 case 5:
-                case 6:
                     [self addWordImage:tempObject.wordimageName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
@@ -284,9 +307,29 @@
 {
     NSLog(@"swipe");
     for (tempObject in swipeObjectArray) {
+        
+        CGRect temp = tempObject.boundingBox;
+        temp.origin.x = tempObject.boundingBox.origin.x - 50;
+        temp.size.width = tempObject.boundingBox.size.width + 100;
+        
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
-            [tempObject startAnimation];
             [soundMgr playSoundFile:tempObject.soundName];
+            
+
+                switch (tempObject.tag) {
+                    case 3:
+                        [gamepoint addTypeA];
+                        break;
+                    case 4:
+                        [gamepoint addTypeB];
+                        break;
+                    case 5:
+                        [gamepoint addTypeC];
+                        break;
+                    default:
+                        break;
+                }
+                [tempObject startAnimation];
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {
@@ -341,16 +384,14 @@
 }
 
 -(void) dealloc {
-    //soundDetect = Nil;
-    //motionDetect = Nil;
+    [super dealloc];
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
     [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];
-    
-    [super dealloc];
+    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerUp];
+    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerDown];
     tempObject = nil;
 }
-
 @end

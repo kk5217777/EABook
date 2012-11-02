@@ -23,7 +23,7 @@
     EAAnimSprite *horse;
     EAAnimSprite *sheep;
     EAAnimSprite *zibber;
-    EAAnimSprite *windmil;
+    //EAAnimSprite *windmil;
 }
 
 +(CCScene *) scene;

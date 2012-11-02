@@ -32,7 +32,9 @@
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
         moveObjectArray = [[NSMutableArray alloc] init];
+        panObjectArray= [[NSMutableArray alloc] init];
         
+        selectedMoveSprite = -1;
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
         //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
@@ -50,6 +52,9 @@
         
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
+        
+        pangestureRecognizer = [[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)]autorelease];
+        [delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
         //音量
         soundDetect = [[SoundSensor alloc] init];
@@ -70,47 +75,69 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P3-2_greenplace.jpg"];
+    [self addBackGround:@"P4-2_airport.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P3-2.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3-2.png"];
+     @"P4-2_airplane.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-2_airplane.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P4-2_helicopter.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-2_helicopter.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P4-2_hotairballoon.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4-2_hotairballoon.png"];
     [self addChild:spriteSheet];
     
     //加入互動物件
     NSString *tempName;
     
-    tempName = @"P3-2_grass";//草五株
+    tempName = @"P4-2_airplane";//草五株
     tempObject = [EAAnimSprite spriteWithName:tempName];//5
-    //tempObject.tag = 5;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(300, 240)];
+    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    tempObject.tag = 3;
+    tempObject.imgNum = 7;
+    tempObject.delayTime = 0.3f;
+    //tempObject.repeatTime = 3;
+    [tempObject setPosition:ccp(586,482)];
     [self addChild:tempObject];
-    [moveObjectArray addObject:tempObject];
+    //[moveObjectArray addObject:tempObject];
     
+    tempName = @"P4-2_helicopter";
     tempObject = [EAAnimSprite spriteWithName:tempName];//4
-    //tempObject.tag = 5;
+    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    tempObject.tag = 4;
     //tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.25f;
     tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(590, 280)];
+    [tempObject setPosition:ccp(736 , 147)];
     [self addChild:tempObject];
-    [moveObjectArray addObject:tempObject];
+    //[moveObjectArray addObject:tempObject];
     
-    tempObject = [EAAnimSprite spriteWithName:tempName];//3
-    //tempObject.tag = 5;
+    tempName = @"P4-2_hotairballoon";
+    tempObject = [EAUpDownSprite spriteWithName:tempName];//3
+    tempObject.soundName = [NSString stringWithFormat:@"P4-2_hotairballo.mp3"];
+    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    tempObject.wordsoundName = [NSString stringWithFormat:@"P4-2_hotairballo_word.mp3"];
+    tempObject.tag = 5;
     //tempObject.scale = 1.2f;
-    tempObject.imgNum = 2;
+    tempObject.imgNum = 6;
     tempObject.delayTime = 0.3f;
-    tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(100, 350)];
+    //tempObject.repeatTime = 3;
+    [tempObject setPosition:ccp(216,187)];
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
-    
+    soundDetect.moveObjects = moveObjectArray;
+    /*
     tempObject = [EAAnimSprite spriteWithName:tempName];//2
     //tempObject.tag = 5;
     tempObject.scale = 1.2f;
@@ -182,7 +209,7 @@
     tempObject.delayTime = 0.2f;
     tempObject.repeatTime = 4;
     [tempObject setPosition:LOCATION(445, 260)];
-    [self addChild:tempObject];
+    [self addChild:tempObject];*/
     
     //加入上下頁按鈕
     [self addPre];
@@ -193,10 +220,11 @@
     [tapObjectArray addObject:[self getChildByTag:1]];
     [tapObjectArray addObject:[self getChildByTag:4]];
     [tapObjectArray addObject:[self getChildByTag:3]];
+    [tapObjectArray addObject:[self getChildByTag:5]];
     
-    [swipeObjectArray addObject:[self getChildByTag:4]];
-    [swipeObjectArray addObject:[self getChildByTag:3]];
-    
+    [panObjectArray addObject:[self getChildByTag:4]];
+    [panObjectArray addObject:[self getChildByTag:3]];
+    tempObject = nil;
     //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }
 
@@ -225,7 +253,53 @@
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
-
+-(void)handlePan:(UIPanGestureRecognizer *)recognizer{
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        if (panEnable) {
+            for (tempObject in panObjectArray) {
+                if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+                    //NSLog(@"pan");
+                    selectedMoveSprite = tempObject.tag;
+                    [self switchPanInteraction];
+                    //[self panSpriteMovement:touchLocation];
+                    
+                    [tempObject startLoopAnimation];
+                    if (tempObject.soundName) {
+                        [soundMgr playLoopSound:tempObject.soundName];
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        if (panEnable) {
+            NSLog(@"pan");
+            CGPoint translation = [recognizer translationInView:recognizer.view];
+            translation = ccp(translation.x, -translation.y);
+            [self panSpriteMovement:translation];
+            //}
+            //NSLog(@"translation X%f,Y%f----------------",translation.x,-translation.y);
+            [recognizer setTranslation:CGPointZero inView:recognizer.view];
+        }
+    }
+    else
+    {
+        if (panEnable) {
+            selectedMoveSprite = -1;
+            [self switchPanInteraction];
+            
+            [tempObject stopAllActions];
+            if (tempObject.soundName && soundMgr) {
+                [soundMgr stopSound];
+            }
+            //[recognizer setTranslation:CGPointZero inView:recognizer.view];
+        }
+    }
+}
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     NSLog(@"tap");
@@ -292,13 +366,43 @@
         }
     }
 }
+-(void) panSpriteMovement:(CGPoint)touchLocation{
+    NSLog(@"move sprite");
+    if (selectedMoveSprite > 0) {
+        tempObject = (EAAnimSprite*)[self getChildByTag:selectedMoveSprite];
+    }
+    if (tempObject.position.x<1000 && tempObject.position.x>20 && tempObject.position.y <740 && tempObject.position.y >20) {
+        CGPoint newPos = ccpAdd(tempObject.position, touchLocation);
+        tempObject.position = newPos;
+    }
+    else
+    {
+        if (tempObject.position.x >= 1000) {
+            CGPoint newPos = ccpSub(tempObject.position, CGPointMake(20, 0));
+            tempObject.position = newPos;
+        }
+        if (tempObject.position.x <= 20) {
+            CGPoint newPos = ccpAdd(tempObject.position, CGPointMake(20, 0));
+            tempObject.position = newPos;
+        }
+        if (tempObject.position.y >= 740) {
+            CGPoint newPos = ccpSub(tempObject.position, CGPointMake(0, 30));
+            tempObject.position = newPos;
+        }
+        if (tempObject.position.y <= 20) {
+            CGPoint newPos = ccpAdd(tempObject.position, CGPointMake(0, 30));
+            tempObject.position = newPos;
+        }
+    }
+}
 
 -(void) dealloc {
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
+    [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];
+    tempObject = nil;
     [super dealloc];
 }
 @end

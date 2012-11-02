@@ -27,6 +27,7 @@
     
     BOOL touchEnable;
     BOOL soundEnable;
+    BOOL panEnable;
     
     SoundSensor *soundDetect;
     MotionSensor *motionDetect;
@@ -61,6 +62,7 @@
 
 -(void) switchInteraction;
 -(void) switchTouchInteraction;
+-(void) switchPanInteraction;
 -(void) stopSpriteMove;
 /*
 -(void) addSprite:(CCSprite*) obj spriteType:(int)type;

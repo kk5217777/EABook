@@ -62,7 +62,7 @@ CCSpriteBatchNode *spriteSheet;
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
-        [self addObjects];
+        //[self addObjects];
     }
     return self;
 }
