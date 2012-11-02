@@ -159,6 +159,7 @@
             switch (tempObject.tag) {
                 case 3:
                     goToPage = tempObject.tag;
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [tempObject runAction:turnPage];
                     break;
                 case 4:
