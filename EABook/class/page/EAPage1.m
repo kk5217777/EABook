@@ -48,7 +48,16 @@
         
         swipegestureRecognizerLeft = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
         [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+        /*
+        swipegestureRecognizerUp = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
+        [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionUp];
         
+        swipegestureRecognizerDown = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
+        [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionDown];
+        
+        [delegate.navController.view addGestureRecognizer:swipegestureRecognizerUp];
+        [delegate.navController.view addGestureRecognizer:swipegestureRecognizerDown];
+         */
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
@@ -161,6 +170,7 @@
 
 -(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
 {
+    NSLog(@"swipe");
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     if (touchEnable) {
@@ -282,7 +292,8 @@
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
+    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerUp];
+    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerDown];
     tempObject = nil;
 }
 @end

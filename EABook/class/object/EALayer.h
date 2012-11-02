@@ -34,6 +34,8 @@
     UITapGestureRecognizer *tapgestureRecognizer;
     UISwipeGestureRecognizer *swipegestureRecognizerLeft;
     UISwipeGestureRecognizer *swipegestureRecognizerRight;
+    UISwipeGestureRecognizer *swipegestureRecognizerUp;
+    UISwipeGestureRecognizer *swipegestureRecognizerDown;
     UIPanGestureRecognizer *pangestureRecognizer;
     
     CCSpriteBatchNode *spriteSheet;

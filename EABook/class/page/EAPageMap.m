@@ -100,9 +100,13 @@
 {
     switch (goToPage) {
         case 3:
+            gamepoint = [[GamePoint alloc] init];
+            delegate.EAGamePoint = gamepoint;
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] withColor:ccWHITE]];
             break;
         case 4:
+            gamepoint = [[GamePoint alloc] init];
+            delegate.EAGamePoint = gamepoint;
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] withColor:ccWHITE]];
             break;
         case 5:
