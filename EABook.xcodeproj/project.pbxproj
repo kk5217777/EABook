@@ -154,6 +154,12 @@
 		B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
+		E842B0131647A79F00E9A0FD /* P0-1_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */; };
+		E842B01C1647ABF700E9A0FD /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0161647ABF700E9A0FD /* Box.m */; };
+		E842B01D1647ABF700E9A0FD /* MySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0191647ABF700E9A0FD /* MySprite.m */; };
+		E842B01E1647ABF700E9A0FD /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B01B1647ABF700E9A0FD /* Tile.m */; };
+		E842B0211647AC5A00E9A0FD /* PlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0201647AC5A00E9A0FD /* PlayLayer.m */; };
+		E842B0241647AEF900E9A0FD /* EAGameMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0231647AEF800E9A0FD /* EAGameMenu.m */; };
 		E86290351643976F004197F3 /* car00.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628EF41643976F004197F3 /* car00.png */; };
 		E86290361643976F004197F3 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628EF51643976F004197F3 /* car1.png */; };
 		E86290371643976F004197F3 /* car2.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628EF61643976F004197F3 /* car2.png */; };
@@ -323,7 +329,6 @@
 		E86290DB1643976F004197F3 /* P0-1_hospital_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FA71643976F004197F3 /* P0-1_hospital_0.png */; };
 		E86290DC1643976F004197F3 /* P0-1_island.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FA81643976F004197F3 /* P0-1_island.png */; };
 		E86290DD1643976F004197F3 /* P0-1_island_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FA91643976F004197F3 /* P0-1_island_0.png */; };
-		E86290DE1643976F004197F3 /* P0-1_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FAA1643976F004197F3 /* P0-1_Map.jpg */; };
 		E86290DF1643976F004197F3 /* P0-1_police.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FAB1643976F004197F3 /* P0-1_police.png */; };
 		E86290E01643976F004197F3 /* P0-1_police_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FAC1643976F004197F3 /* P0-1_police_0.png */; };
 		E86290E11643976F004197F3 /* P0-1_pop.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FAD1643976F004197F3 /* P0-1_pop.png */; };
@@ -756,6 +761,18 @@
 		B8F8518416423A6400C15A6E /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
 		B8F851861642833200C15A6E /* EAPageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMap.h; sourceTree = "<group>"; };
 		B8F851871642833300C15A6E /* EAPageMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageMap.m; sourceTree = "<group>"; };
+		E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-1_Map.jpg"; sourceTree = "<group>"; };
+		E842B0151647ABF700E9A0FD /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
+		E842B0161647ABF700E9A0FD /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Box.m; sourceTree = "<group>"; };
+		E842B0171647ABF700E9A0FD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E842B0181647ABF700E9A0FD /* MySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySprite.h; sourceTree = "<group>"; };
+		E842B0191647ABF700E9A0FD /* MySprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySprite.m; sourceTree = "<group>"; };
+		E842B01A1647ABF700E9A0FD /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		E842B01B1647ABF700E9A0FD /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
+		E842B01F1647AC5A00E9A0FD /* PlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayLayer.h; path = ../../20121015traffic/traffic/traffic/PlayLayer.h; sourceTree = "<group>"; };
+		E842B0201647AC5A00E9A0FD /* PlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayLayer.m; path = ../../20121015traffic/traffic/traffic/PlayLayer.m; sourceTree = "<group>"; };
+		E842B0221647AEF800E9A0FD /* EAGameMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGameMenu.h; sourceTree = "<group>"; };
+		E842B0231647AEF800E9A0FD /* EAGameMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGameMenu.m; sourceTree = "<group>"; };
 		E8628EF41643976F004197F3 /* car00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car00.png; sourceTree = "<group>"; };
 		E8628EF51643976F004197F3 /* car1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car1.png; sourceTree = "<group>"; };
 		E8628EF61643976F004197F3 /* car2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car2.png; sourceTree = "<group>"; };
@@ -925,7 +942,6 @@
 		E8628FA71643976F004197F3 /* P0-1_hospital_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_hospital_0.png"; sourceTree = "<group>"; };
 		E8628FA81643976F004197F3 /* P0-1_island.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_island.png"; sourceTree = "<group>"; };
 		E8628FA91643976F004197F3 /* P0-1_island_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_island_0.png"; sourceTree = "<group>"; };
-		E8628FAA1643976F004197F3 /* P0-1_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-1_Map.jpg"; sourceTree = "<group>"; };
 		E8628FAB1643976F004197F3 /* P0-1_police.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_police.png"; sourceTree = "<group>"; };
 		E8628FAC1643976F004197F3 /* P0-1_police_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_police_0.png"; sourceTree = "<group>"; };
 		E8628FAD1643976F004197F3 /* P0-1_pop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_pop.png"; sourceTree = "<group>"; };
@@ -1494,6 +1510,7 @@
 		8496701F163EEDD4001F1A8E /* class */ = {
 			isa = PBXGroup;
 			children = (
+				E842B0141647ABF600E9A0FD /* Puzzle */,
 				84967020163EEDD4001F1A8E /* object */,
 				84967034163EEDD4001F1A8E /* sensors */,
 				8496702B163EEDD4001F1A8E /* page */,
@@ -1521,6 +1538,8 @@
 		8496702B163EEDD4001F1A8E /* page */ = {
 			isa = PBXGroup;
 			children = (
+				E842B0221647AEF800E9A0FD /* EAGameMenu.h */,
+				E842B0231647AEF800E9A0FD /* EAGameMenu.m */,
 				84967030163EEDD4001F1A8E /* EAPageConfig.h */,
 				84967031163EEDD4001F1A8E /* EAPageConfig.m */,
 				84967032163EEDD4001F1A8E /* EAPageMenu.h */,
@@ -1562,6 +1581,23 @@
 				84967038163EEDD4001F1A8E /* SoundSensor.m */,
 			);
 			path = sensors;
+			sourceTree = "<group>";
+		};
+		E842B0141647ABF600E9A0FD /* Puzzle */ = {
+			isa = PBXGroup;
+			children = (
+				E842B01F1647AC5A00E9A0FD /* PlayLayer.h */,
+				E842B0201647AC5A00E9A0FD /* PlayLayer.m */,
+				E842B0151647ABF700E9A0FD /* Box.h */,
+				E842B0161647ABF700E9A0FD /* Box.m */,
+				E842B0171647ABF700E9A0FD /* Constants.h */,
+				E842B0181647ABF700E9A0FD /* MySprite.h */,
+				E842B0191647ABF700E9A0FD /* MySprite.m */,
+				E842B01A1647ABF700E9A0FD /* Tile.h */,
+				E842B01B1647ABF700E9A0FD /* Tile.m */,
+			);
+			name = Puzzle;
+			path = ../../../trafficdata/Puzzle;
 			sourceTree = "<group>";
 		};
 		E8628EF31643976F004197F3 /* EBImage */ = {
@@ -1847,13 +1883,13 @@
 		E8628FA31643976F004197F3 /* P0-1 */ = {
 			isa = PBXGroup;
 			children = (
+				E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */,
 				E8628FA41643976F004197F3 /* P0-1_factory.png */,
 				E8628FA51643976F004197F3 /* P0-1_factory_0.png */,
 				E8628FA61643976F004197F3 /* P0-1_hospital.png */,
 				E8628FA71643976F004197F3 /* P0-1_hospital_0.png */,
 				E8628FA81643976F004197F3 /* P0-1_island.png */,
 				E8628FA91643976F004197F3 /* P0-1_island_0.png */,
-				E8628FAA1643976F004197F3 /* P0-1_Map.jpg */,
 				E8628FAB1643976F004197F3 /* P0-1_police.png */,
 				E8628FAC1643976F004197F3 /* P0-1_police_0.png */,
 				E8628FAD1643976F004197F3 /* P0-1_pop.png */,
@@ -2314,7 +2350,6 @@
 				E86290DB1643976F004197F3 /* P0-1_hospital_0.png in Resources */,
 				E86290DC1643976F004197F3 /* P0-1_island.png in Resources */,
 				E86290DD1643976F004197F3 /* P0-1_island_0.png in Resources */,
-				E86290DE1643976F004197F3 /* P0-1_Map.jpg in Resources */,
 				E86290DF1643976F004197F3 /* P0-1_police.png in Resources */,
 				E86290E01643976F004197F3 /* P0-1_police_0.png in Resources */,
 				E86290E11643976F004197F3 /* P0-1_pop.png in Resources */,
@@ -2439,6 +2474,7 @@
 				E86291591643976F004197F3 /* P6_end3_word.mp3 in Resources */,
 				E862915A1643976F004197F3 /* push.wav in Resources */,
 				E862915F1643BD33004197F3 /* P1_ThreeCar_en&ch.jpg in Resources */,
+				E842B0131647A79F00E9A0FD /* P0-1_Map.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2574,6 +2610,11 @@
 				B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */,
 				B8F851881642833300C15A6E /* EAPageMap.m in Sources */,
 				E862915D16439B57004197F3 /* EAPage0.m in Sources */,
+				E842B01C1647ABF700E9A0FD /* Box.m in Sources */,
+				E842B01D1647ABF700E9A0FD /* MySprite.m in Sources */,
+				E842B01E1647ABF700E9A0FD /* Tile.m in Sources */,
+				E842B0211647AC5A00E9A0FD /* PlayLayer.m in Sources */,
+				E842B0241647AEF900E9A0FD /* EAGameMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

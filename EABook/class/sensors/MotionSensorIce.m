@@ -28,9 +28,9 @@
                 }
                 if (sprite.position.x > 30 && sprite.position.x < 1000 && sprite.position.y > 30 && sprite.position.y < 730) {
                     [sprite setPosition:CGPointMake((sprite.position.x + _acData.acceleration.y*5), sprite.position.y)];
-                    if (sprite2) {
+                    /*if (sprite2) {
                         [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*10), sprite2.position.y)];
-                    }
+                    }*/
                 }
                 else
                 {
@@ -40,6 +40,24 @@
                     else if (sprite.position.x > 1000)
                     {
                         [sprite setPosition:CGPointMake((sprite.position.x-1), sprite.position.y)];
+                    }
+                }
+            }
+            if (sprite2) {
+                if (sprite2.position.x > 30 && sprite2.position.x < 1000 && sprite2.position.y > 30 && sprite2.position.y < 730) {
+                    [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*5), sprite2.position.y)];
+                    if (sprite2) {
+                        [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*10), sprite2.position.y)];
+                    }
+                }
+                else
+                {
+                    if (sprite2.position.x < 30) {
+                        [sprite2 setPosition:CGPointMake((sprite2.position.x+1), sprite2.position.y)];
+                    }
+                    else if (sprite2.position.x > 1000)
+                    {
+                        [sprite2 setPosition:CGPointMake((sprite2.position.x-1), sprite2.position.y)];
                     }
                 }
             }

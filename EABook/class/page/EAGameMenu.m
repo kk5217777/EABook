@@ -1,23 +1,22 @@
 //
-//  EAPageMenu.m
+//  EAGameMenu.m
 //  EABook
 //
-//  Created by gdlab on 12/10/26.
+//  Created by Mac04 on 12/11/5.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "EAPageMenu.h"
-#import "AppDelegate.h"
+#import "EAGameMenu.h"
 
 
-@implementation EAPageMenu
+@implementation EAGameMenu
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	EAPageMenu *layer = [EAPageMenu node];
+	EAGameMenu *layer = [EAGameMenu node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -26,62 +25,52 @@
 	return scene;
 }
 
-//
 -(id) init
 {
     if (self = [super init]) {
         tapObjectArray = [[NSMutableArray alloc] init];
-        gamepoint = [[GamePoint alloc] init];
-        
+        //gamepoint = [[GamePoint alloc] init];
+        /*
         if (gamepoint) {
             NSLog(@"%@", gamepoint.description);
-        }
+        }*/
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
+        [self addChild:soundMgr];
         [self addObjects];
     }
     return self;
 }
-
 -(void) addObjects
 {
-    [self addBackGround:@"P0_Cover.jpg"];
+    [self addBackGround:@"P0-2_game.jpg"];
+    [self addReturn];
     //載入圖片
     /*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
      @"P0.plist"];
-    spriteSheet = [CCSpriteBatchNode
-                                      batchNodeWithFile:@"P0.png"];
-    [self addChild:spriteSheet];*/
+     spriteSheet = [CCSpriteBatchNode
+     batchNodeWithFile:@"P0.png"];
+     [self addChild:spriteSheet];*/
     
     NSLog(@"Tap! %d", tapObjectArray.count);
     CCSprite *btnback;
-    btnback= [CCSprite spriteWithFile:@"P0_Start.png"];
-    [btnback setTag:0];
-    [btnback setPosition:LOCATION(155 , 670)];
-    [self addChild:btnback];
-    [tapObjectArray addObject:btnback];
-    
-    btnback = [CCSprite spriteWithFile:@"P0_Map.png"];
-    [btnback setTag:1];
-    [btnback setPosition:LOCATION(400 , 670)];
-    [self addChild:btnback];
-    [tapObjectArray addObject:btnback];
-    
-    btnback = [CCSprite spriteWithFile:@"P0_Game.png"];
-    [btnback setTag:4];
-    [btnback setPosition:LOCATION(640 , 670)];
-    [self addChild:btnback];
-    [tapObjectArray addObject:btnback];
-    
-    btnback = [CCSprite spriteWithFile:@"P0_Option.png"];
+    btnback= [CCSprite spriteWithFile:@"P0-2_game_Jigsaw.jpg"];
     [btnback setTag:3];
-    [btnback setPosition:LOCATION(870 , 670)];
+    [btnback setPosition:ccp(292, 292)];
     [self addChild:btnback];
     [tapObjectArray addObject:btnback];
+    
+    btnback = [CCSprite spriteWithFile:@"P0-2_game_Draw.jpg"];
+    [btnback setTag:4];
+    [btnback setPosition:ccp(728, 292)];
+    [self addChild:btnback];
+    [tapObjectArray addObject:btnback];
+    
+    [tapObjectArray addObject:[self getChildByTag:20]];
 }
 
 #pragma 手勢處理
@@ -99,27 +88,22 @@
     for (CCSprite* obj in tapObjectArray) {
         if (CGRectContainsPoint(obj.boundingBox, touchLocation)) {
             switch (obj.tag) {
-                case 0:
-                    NSLog(@"開始");
+                case 3:
+                    NSLog(@"Game1");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] backwards:NO]];
-                    break;
-                case 1:
-                    NSLog(@"地圖");
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene] backwards:NO]];
+                    //delegate.EAGamePoint = gamepoint;
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[PlayLayer scene] backwards:NO]];
                     break;
                 case 4:
-                    NSLog(@"遊戲");
+                    NSLog(@"Game2");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAGameMenu scene] backwards:NO]];
+                    //delegate.EAGamePoint = gamepoint;
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene] backwards:NO]];
                     break;
-                case 3:
+                case 20:
                     NSLog(@"設定");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
                     break;
                 default:
                     break;

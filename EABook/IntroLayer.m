@@ -11,6 +11,8 @@
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
 #import "EAPageMenu.h"
+#import "EAGameMenu.h"
+#import "PlayLayer.h"
 #import "EAPage0.h"
 #import "EAPage2.h"
 #import "EAPage1.h"
@@ -78,5 +80,6 @@
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_2 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_3 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageEnd scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PlayLayer node] withColor:ccWHITE]];
 }
 @end

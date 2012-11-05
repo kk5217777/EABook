@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "EALayer.h"
+#import "EAPage0.h"
 #import "EAPage2.h"
 #import "EAPage1.h"
 #import "EAPage3-1.h"

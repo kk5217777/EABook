@@ -51,7 +51,7 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
         [self addChild:soundMgr];
-        //[self addObjects];
+        [self addObjects];
     }
     return self;
 }
@@ -59,41 +59,46 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P4_bug.jpg"];
+    [self addBackGround:@"P5_place.jpg"];
     
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P4.plist"];
-    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P4.png"];
+     @"P5_cementtrunk.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P5_cementtrunk.png"];
+    [self addChild:spriteSheet];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P5_excavator.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P5_excavator.png"];
     [self addChild:spriteSheet];
     
     //加入互動物件
     NSString *tempName;
     
-    tempName = @"P4_beetle";
+    tempName = @"P5_cementtrunk";
     tempObject = [EAAnimSprite spriteWithName:tempName];
-    //tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",@"P4_rhinoceros"];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    tempObject.soundName = [NSString stringWithFormat:@"P5_cementtruck.mp3"];
+    tempObject.wordimageName = [NSString stringWithFormat:@"P5_Cement_word.png"];
+    tempObject.wordsoundName = [NSString stringWithFormat:@"P5_cementtruck_word.mp3"];
     tempObject.tag = 3;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 4;
-    [tempObject setPosition:LOCATION(725, 400)];
+    tempObject.imgNum = 4;
+    tempObject.delayTime = 0.3f;
+    //tempObject.repeatTime = 4;
+    [tempObject setPosition:ccp(460,218)];
     [self addChild:tempObject];
     
-    tempName = @"P4_butterfly";
+    tempName = @"P5_excavator";
     tempObject = [EAAnimSprite spriteWithName:tempName];
-    //tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     tempObject.tag = 4;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.1f;
-    tempObject.repeatTime = 4;
-    [tempObject setPosition:LOCATION(125, 200)];
+    tempObject.imgNum = 4;
+    tempObject.delayTime = 0.3f;
+    //tempObject.repeatTime = 4;
+    [tempObject setPosition:ccp(720,490)];
     [self addChild:tempObject];
-    
+    /*
     tempName = @"P4_ladybug";
     tempObject = [EAAnimSprite spriteWithName:tempName];
     //tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
@@ -104,7 +109,7 @@
     tempObject.delayTime = 0.1f;
     tempObject.repeatTime = 4;
     [tempObject setPosition:LOCATION(125, 575)];
-    [self addChild:tempObject];
+    [self addChild:tempObject];*/
     
     //加入上下頁按鈕
     [self addPre];
@@ -113,13 +118,13 @@
     //加入array
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
-    [tapObjectArray addObject:[self getChildByTag:5]];
+    //[tapObjectArray addObject:[self getChildByTag:5]];
     [tapObjectArray addObject:[self getChildByTag:4]];
     [tapObjectArray addObject:[self getChildByTag:3]];
     
     [swipeObjectArray addObject:[self getChildByTag:3]];
     [swipeObjectArray addObject:[self getChildByTag:4]];
-    [swipeObjectArray addObject:[self getChildByTag:5]];
+    //[swipeObjectArray addObject:[self getChildByTag:5]];
 
     //soundDetect.sprite = windmil;
     

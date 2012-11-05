@@ -36,7 +36,7 @@
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
         [self addChild:soundMgr];
-        //[self addObjects];
+        [self addObjects];
     }
     return self;
 }
@@ -49,44 +49,58 @@
     [self addReturn];
     
     NSString *page = @"P0-1";
-    tempObject = [EAAnimSprite node];
-    [tempObject setTextureRect: CGRectMake(0, 0, 250, 130)];
-    [tempObject setPosition:ccp(500, 60)];
+    //tempObject = [EAAnimSprite node];
+    //[tempObject setTextureRect: CGRectMake(0, 0, 250, 130)];
+    //[tempObject setPosition:ccp(500, 60)];
+    //[tempObject setTag:3];
+    //[tempObject setOpacity:0];
+    //[self addChild:tempObject];
+    //[tapObjectArray insertObject:tempObject atIndex:0];
+    
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"pop"]];
+    [tempObject setPosition:ccp(531, 153)];
+    [tempObject setTag:9];
+    [tempObject setOpacity:0];
+    [self addChild:tempObject];
+    [tapObjectArray insertObject:tempObject atIndex:0];
+    
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"train"]];
+    [tempObject setPosition:ccp(296, 185)];
     [tempObject setTag:3];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
-    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"birdcage"]];
-    [tempObject setPosition:LOCATION(716+tempObject.boundingBox.size.width/2, 353-tempObject.boundingBox.size.height/2)];
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"police"]];
+    [tempObject setPosition:ccp(791, 375)];
     [tempObject setTag:5];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
-    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"Jungle"]];
-    [tempObject setPosition:LOCATION(380+tempObject.boundingBox.size.width/2, 341-tempObject.boundingBox.size.height/2+15)];
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"space"]];
+    [tempObject setPosition:ccp(550, 360)];
     [tempObject setTag:6];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
-    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"grassland"]];
-    [tempObject setPosition:LOCATION(366+tempObject.boundingBox.size.width/2-30, 482-tempObject.boundingBox.size.height/2-1)];
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"hospital"]];
+    [tempObject setPosition:ccp(736, 200)];
     [tempObject setTag:4];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
-    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"sea"]];
-    [tempObject setPosition:LOCATION(122+tempObject.boundingBox.size.width/2, 373-tempObject.boundingBox.size.height/2+25)];
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"island"]];
+    [tempObject setPosition:ccp(240, 470)];
     [tempObject setTag:7];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
-    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"garden"]];
-    [tempObject setPosition:LOCATION(382+tempObject.boundingBox.size.width/2, 237-tempObject.boundingBox.size.height/2)];
+    tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"factory"]];
+    [tempObject setPosition:ccp(537, 460)];
     [tempObject setTag:8];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
@@ -127,6 +141,11 @@
         case 8:
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage4 scene] withColor:ccWHITE]];
             break;
+        case 9:
+            gamepoint = [[GamePoint alloc] init];
+            delegate.EAGamePoint = gamepoint;
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] withColor:ccWHITE]];
+            break;
         default:
             break;
     }
@@ -157,7 +176,7 @@
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             NSLog(@"Tap! %2d", tempObject.tag);
             switch (tempObject.tag) {
-                case 3:
+                case 9:
                     goToPage = tempObject.tag;
                     [soundMgr playSoundFile:@"push.mp3"];
                     [tempObject runAction:turnPage];
@@ -167,6 +186,7 @@
                 case 6:
                 case 7:
                 case 8:
+                case 3:
                     goToPage = tempObject.tag;
                     [soundMgr playSoundFile:@"push.mp3"];
                     [tempObject runAction:turnWithShining];

@@ -31,6 +31,7 @@
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
         swipeObjectArray = [[NSMutableArray alloc] init];
+        moveObjectArray = [[NSMutableArray alloc] init];
         
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
@@ -61,7 +62,7 @@
         [self addChild:motionDetect];
         
         [self addChild:soundMgr];
-        //[self addObjects];
+        [self addObjects];
     }
     return self;
 }
@@ -104,10 +105,13 @@
     [tempObject setPosition:ccp( 730 , 160 )];
     [self addChild:tempObject];
     
-    //tempName = @"P3-3_ice";
-    //CCSprite *ice = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_%d.png",tempName,0]];
-    //[ice setPosition:LOCATION(620, 220)];
-    //[self addChild:ice];
+    //tempName = @"4-3_island";
+    CCSprite *island = [CCSprite spriteWithFile:@"P4-3_island.png"];
+    [island setPosition:ccp(324, 556)];
+    [self addChild:island];
+    [moveObjectArray addObject:island];
+    
+    motionDetect.moveObjects = moveObjectArray;
     
     //互動物件
     tempName = @"P4-3_sailboat";
@@ -134,17 +138,17 @@
     [tempObject setPosition:ccp(650,560)];
     [self addChild:tempObject];
     
-    tempName = @"P4-3_island";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
+    //tempName = @"P4-3_island";
+    //tempObject = [EAAnimSprite spriteWithName:tempName];
     //tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     //tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 6;
+    //tempObject.tag = 6;
     //tempObject.imgNum = 2;
     //tempObject.delayTime = 0.5f;
     //tempObject.repeatTime = 2;
-    [tempObject setPosition:ccp(324, 556)];
-    [self addChild:tempObject];
-
+    //[tempObject setPosition:ccp(324, 556)];
+    //[self addChild:tempObject];
+    
 
     //加入上下頁按鈕
     [self addPre];
@@ -163,14 +167,14 @@
     [swipeObjectArray addObject:[self getChildByTag:4]];
     [swipeObjectArray addObject:[self getChildByTag:3]];
     
-    motionDetect.sprite = (EAAnimSprite*)[self getChildByTag:6];
-    //motionDetect.sprite2 = (EAAnimSprite*)ice;
+    //motionDetect.sprite = (EAAnimSprite*)[self getChildByTag:6];
+    motionDetect.sprite2 = (EAAnimSprite*)island;
     //motionDetect.sManage = soundMgr;
 }
 
 -(void) draw
 {
-    if (soundEnable) {
+    if (soundEnable&& moveObjectArray.count > 0) {
         [motionDetect update];
     }
 }
@@ -262,7 +266,7 @@
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
+    tempObject = nil;
     [super dealloc];
 }
 @end
