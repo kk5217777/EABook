@@ -30,14 +30,24 @@
     if (self = [super init]) {
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
+       
         //swipeObjectArray = [[NSMutableArray alloc] init];
         
+        int picvalue = (arc4random() % kKindCount);
+        NSLog(@"picvalue: %d", picvalue);
+        
+        tt = TRUE;
+        isReturn = TRUE;
+        count = 0;
+        countTime=0;
+        
         //手勢
-        //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
-        //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
-        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+        pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanForm:)] autorelease];
+        [delegate.navController.view addGestureRecognizer:pangestureRecognizer];
+        
+        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)] autorelease];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         /*
@@ -50,6 +60,31 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         */
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        
+        background =[[CCSprite alloc]initWithFile:@"P0-2_game-Jigsaw_background.jpg"];
+        background.position = ccp(size.width/2, size.height/2);
+        [self addChild:background];
+        
+        PrePage = [[CCSprite alloc]initWithFile:@"P0-2_game_return-buttun.png"];
+        PrePage.position = ccp(50, 60);
+        //[self addChild:PrePage];
+        
+        wordimage=[[CCSprite alloc]initWithFile:[NSString stringWithFormat:@"GAME_word_%d.png",picvalue]];
+        wordimage.position = ccp(520, 670);
+        [self addChild:wordimage];
+         
+        destimage=[[CCSprite alloc]initWithFile:[NSString stringWithFormat:@"GAME_black_%d.jpg",picvalue]];
+        destimage.position = ccp(760, 350);
+        [self addChild:destimage];
+        
+        box = [[Box alloc] initWithSize:CGSizeMake(kBoxWidth,kBoxHeight) imgValue:picvalue];
+        box.layer = self;
+        box.lock = YES;
+        [box check];
+
+
         //音量
         //soundDetect = [[SoundSensor alloc] init];
         //soundDetect.sManage = soundMgr;
@@ -60,7 +95,7 @@
         //motionDetect.sManage = soundMgr;
         //[self addChild:motionDetect];
         
-        [self addChild:soundMgr];
+        //[self addChild:soundMgr];
         //[self addObjects];
     }
     return self;
@@ -68,14 +103,14 @@
 
 -(void) addObjects
 {
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game Page 1" fontName:@"Marker Felt" fontSize:64];
+    //CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game Page 1" fontName:@"Marker Felt" fontSize:64];
     
     // ask director for the window size
-    CGSize size = [[CCDirector sharedDirector] winSize];
+    //CGSize size = [[CCDirector sharedDirector] winSize];
     
     // position the label on the center of the screen
-    label.position =  ccp( size.width /2 , size.height/2 );
-    [self addChild:label];
+    //label.position =  ccp( size.width /2 , size.height/2 );
+    //[self addChild:label];
     /*
     [self addBackGround:@"P0_Cover.jpg"];
     //載入圖片
@@ -124,6 +159,7 @@
     [tapObjectArray addObject:[self getChildByTag:1]];
 }
 
+/*
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
@@ -175,14 +211,200 @@
             break;
         }
     }
+}*/
+
+-(void) handleTapFrom:(UITapGestureRecognizer *)recognizer{
+    NSLog(@"Tap");
+    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    [self selectTapSpriteForTouch:touchLocation];
+    
+}
+- (void)selectTapSpriteForTouch:(CGPoint)touchLocation{
+    /*
+    if (CGRectContainsPoint(PrePage.boundingBox, touchLocation)&&isReturn) {
+        tt = FALSE;
+        [soundMgr playSoundFile:@"push.mp3"];
+        [self removeAllChildrenWithCleanup:YES];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:0.8 scene:[EAGameMenu scene] backwards:YES]];
+     
+    }
+    else if (CGRectContainsPoint(AgainBtn.boundingBox, touchLocation)){
+        NSLog(@"again");
+        [soundMgr playSoundFile:@"push.mp3"];
+        //[self removeAllChildrenWithCleanup:YES];
+        //[self PlayAgain];
+    }
+    else if (CGRectContainsPoint(NextRoundBtn.boundingBox, touchLocation)){
+        tt=FALSE;
+        [soundMgr playSoundFile:@"push.mp3"];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.8 scene:[PlayLayer node]withColor:ccWHITE]];
+        
+    }*/
+    if (CGRectContainsPoint(ExitBtn.boundingBox, touchLocation)){
+        tt=FALSE;
+        [soundMgr playSoundFile:@"push.mp3"];
+        [self removeAllChildrenWithCleanup:YES];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:0.8 scene:[EAPage4 scene]backwards:YES]];
+        
+    }
+}
+-(void)selectSpriteForTouch:(CGPoint)touchLocation{
+    MySprite *newSprite = nil;
+    for (MySprite *sprite in box.movableSprites) {
+        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
+            newSprite = sprite;
+            break;
+        }
+    }
+    if (newSprite != selsprite) {
+        [selsprite stopAllActions];
+        selsprite = newSprite;
+    }
+}
+-(void)panForTranslation:(CGPoint)translation{
+    
+    if (selsprite) {
+        if (selsprite.position.x>(kStartX)&&selsprite.position.x<(kDestX+(kTileSize*kBoxWidth))&&selsprite.position.y>(kStartY)&&selsprite.position.y<(kStartY + (kTileSize * kBoxHeight))) {
+            CGPoint newPos = ccpAdd(selsprite.position,translation);
+            selsprite.position = newPos;
+        }
+        else{
+            if (selsprite.position.x >= (kDestX+(kTileSize*kBoxWidth))) {
+                CGPoint newPos = ccpSub(selsprite.position, CGPointMake(3, 0));
+                selsprite.position = newPos;
+            }
+            if (selsprite.position.x <= (kStartX)) {
+                CGPoint newPos = ccpAdd(selsprite.position, CGPointMake(3, 0));
+                selsprite.position = newPos;
+            }
+            if (selsprite.position.y >= (kStartY + (kTileSize * kBoxHeight))) {
+                CGPoint newPos = ccpSub(selsprite.position, CGPointMake(0, 3));
+                selsprite.position = newPos;
+            }
+            if (selsprite.position.y <= (kStartY)) {
+                CGPoint newPos = ccpAdd(selsprite.position, CGPointMake(0, 3));
+                selsprite.position = newPos;
+            }
+        }
+        
+    }
+}
+-(void)handlePanForm:(UIPanGestureRecognizer *)recognizer{
+    //NSLog(@"Pan點中圖片");
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        
+        CGPoint touchLocation = [recognizer locationInView:recognizer.view];
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+        touchLocation = [self convertToNodeSpace:touchLocation];
+        [self selectSpriteForTouch:touchLocation];
+        
+    }
+    else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        
+        if (tt) {
+            CGPoint translation = [recognizer translationInView:recognizer.view];
+            translation = ccp(translation.x, -translation.y);
+            [self panForTranslation:translation];
+            
+            //NSLog(@"translation X%f,Y%f----------------",translation.x,-translation.y);
+            [recognizer setTranslation:CGPointZero inView:recognizer.view];
+        }
+        
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded){
+        //NSLog(@"**PanEnd");
+        if (tt) {
+            
+            
+            //CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+            //NSLog(@"touchLocationx:%f touchLocationy:%f ",touchLocation.x,touchLocation.y);
+            
+            //NSLog(@"selsprite position x:%f y:%f",selsprite.position.x,selsprite.position.y);
+            
+            if (selsprite.position.x >= kDestX-kTileImageSize/2 && selsprite.position.x <= kDestX+(kBoxWidth)*kTileImageSize+kTileImageSize/2 && selsprite.position.y >=kStartY-kTileImageSize/2 && selsprite.position.y <= kStartY+(kBoxHeight)*kTileImageSize+kTileImageSize/2) {
+                NSLog(@"correct area");
+                //NSLog(@"selsprite orix:%d , oriy:%d",selsprite.originalX,selsprite.originalY);
+                
+                NSLog(@"distance----------\n X:%d  Y:%d \n",abs(selsprite.position.x - selsprite.originalX),abs(selsprite.position.y - selsprite.originalY));
+                
+                if (abs(selsprite.position.x - selsprite.originalX) <= 40 && abs(selsprite.position.y - selsprite.originalY) <= 40){
+                    
+                    
+                    NSLog(@"correct position");
+                    
+                    selsprite.position = ccp(selsprite.originalX, selsprite.originalY);
+                    [box.movableSprites removeObject:selsprite];
+                    count+=1;
+                    printf("count : %i----------------",count);
+                    
+                    if (count==9) {
+                        isReturn =FALSE;
+                        gamewin = [[CCSprite alloc]initWithFile:@"P0-2_game_win.png"];
+                        gamewin.position = ccp(512, 384);
+                        [self addChild:gamewin];
+                        [self schedule:@selector(Showgamewin:) interval:1];
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        
+    }
+    
+}
+-(void) Showgamewin:(ccTime)dt{
+    if (countTime<2) {
+        countTime++;
+        printf("countTime %i",countTime);
+    }
+    else{
+        countTime =0;
+        [self removeChild:gamewin cleanup:YES];
+        [self CheckWin];
+        [self unschedule:@selector(Showgamewin:)];
+        isReturn = TRUE;
+        
+    }
 }
 
+-(void) CheckWin{
+    
+    
+    //[self removeChild:PrePage cleanup:YES];
+    
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    MenuImage = [[CCSprite alloc]initWithFile:@"P0-2_game_end.png"];
+    MenuImage.position =ccp(size.width/2, size.height/2);
+    [self addChild:MenuImage];
+    
+    NextRoundBtn = [[CCSprite alloc]initWithFile:@"P0-2_game_next.png"];
+    NextRoundBtn.position = ccp(500, 350);
+    //[self addChild:NextRoundBtn];
+    
+    ExitBtn = [[CCSprite alloc]initWithFile:@"P0-2_game_exit.png"];
+    ExitBtn.position =ccp(512, 350);
+    [self addChild:ExitBtn];
+    
+    AgainBtn = [[CCSprite alloc]initWithFile:@"P0-2_game_again.png"];
+    AgainBtn.position = ccp(200, 350);
+    //[self addChild:AgainBtn];
+    
+    
+}
 -(void) dealloc {
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
+    [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];//new add
+    [box.movableSprites removeAllObjects];
+    [self removeAllChildrenWithCleanup:YES];
     [super dealloc];
 }
 @end

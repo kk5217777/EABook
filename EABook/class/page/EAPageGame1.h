@@ -13,9 +13,29 @@
 #import "EAPage3-2.h"
 #import "EAPage3-3.h"
 #import "EAPage4.h"
+#import "MySprite.h"
+#import "Box.h"
 
 @interface EAPageGame1 : EALayer {
+    Box *box;
+    MySprite *selsprite;
+	Tile *selectedTile;
+    CCSprite *MenuImage;
+    CCSprite *destimage;
+    CCSprite *PrePage;
+    CCSprite *background;
+    CCSprite *wordimage;
+    CCSprite *gamewin;
+    CCSprite *NextRoundBtn;
+    CCSprite *ExitBtn;
+    CCSprite *AgainBtn;
     
+    
+    BOOL tt ;
+    BOOL isReturn;
+    int nowvalue;
+	int count;
+    int countTime;
 }
 +(CCScene *) scene;
 @end
