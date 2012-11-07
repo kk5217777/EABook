@@ -154,11 +154,11 @@
 		B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
+		E80C7EC7164A75FC009E419B /* PlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E80C7EC6164A75FC009E419B /* PlayLayer.m */; };
 		E842B0131647A79F00E9A0FD /* P0-1_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */; };
 		E842B01C1647ABF700E9A0FD /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0161647ABF700E9A0FD /* Box.m */; };
 		E842B01D1647ABF700E9A0FD /* MySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0191647ABF700E9A0FD /* MySprite.m */; };
 		E842B01E1647ABF700E9A0FD /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B01B1647ABF700E9A0FD /* Tile.m */; };
-		E842B0211647AC5A00E9A0FD /* PlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0201647AC5A00E9A0FD /* PlayLayer.m */; };
 		E842B0241647AEF900E9A0FD /* EAGameMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0231647AEF800E9A0FD /* EAGameMenu.m */; };
 		E86290351643976F004197F3 /* car00.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628EF41643976F004197F3 /* car00.png */; };
 		E86290361643976F004197F3 /* car1.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628EF51643976F004197F3 /* car1.png */; };
@@ -789,6 +789,8 @@
 		B8F8518416423A6400C15A6E /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
 		B8F851861642833200C15A6E /* EAPageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMap.h; sourceTree = "<group>"; };
 		B8F851871642833300C15A6E /* EAPageMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageMap.m; sourceTree = "<group>"; };
+		E80C7EC5164A75FC009E419B /* PlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayLayer.h; sourceTree = "<group>"; };
+		E80C7EC6164A75FC009E419B /* PlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayLayer.m; sourceTree = "<group>"; };
 		E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-1_Map.jpg"; sourceTree = "<group>"; };
 		E842B0151647ABF700E9A0FD /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
 		E842B0161647ABF700E9A0FD /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Box.m; sourceTree = "<group>"; };
@@ -797,8 +799,6 @@
 		E842B0191647ABF700E9A0FD /* MySprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySprite.m; sourceTree = "<group>"; };
 		E842B01A1647ABF700E9A0FD /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
 		E842B01B1647ABF700E9A0FD /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
-		E842B01F1647AC5A00E9A0FD /* PlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayLayer.h; path = ../../20121015traffic/traffic/traffic/PlayLayer.h; sourceTree = "<group>"; };
-		E842B0201647AC5A00E9A0FD /* PlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayLayer.m; path = ../../20121015traffic/traffic/traffic/PlayLayer.m; sourceTree = "<group>"; };
 		E842B0221647AEF800E9A0FD /* EAGameMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGameMenu.h; sourceTree = "<group>"; };
 		E842B0231647AEF800E9A0FD /* EAGameMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGameMenu.m; sourceTree = "<group>"; };
 		E8628EF41643976F004197F3 /* car00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car00.png; sourceTree = "<group>"; };
@@ -1645,8 +1645,8 @@
 		E842B0141647ABF600E9A0FD /* Puzzle */ = {
 			isa = PBXGroup;
 			children = (
-				E842B01F1647AC5A00E9A0FD /* PlayLayer.h */,
-				E842B0201647AC5A00E9A0FD /* PlayLayer.m */,
+				E80C7EC5164A75FC009E419B /* PlayLayer.h */,
+				E80C7EC6164A75FC009E419B /* PlayLayer.m */,
 				E842B0151647ABF700E9A0FD /* Box.h */,
 				E842B0161647ABF700E9A0FD /* Box.m */,
 				E842B0171647ABF700E9A0FD /* Constants.h */,
@@ -2760,9 +2760,9 @@
 				E842B01C1647ABF700E9A0FD /* Box.m in Sources */,
 				E842B01D1647ABF700E9A0FD /* MySprite.m in Sources */,
 				E842B01E1647ABF700E9A0FD /* Tile.m in Sources */,
-				E842B0211647AC5A00E9A0FD /* PlayLayer.m in Sources */,
 				E842B0241647AEF900E9A0FD /* EAGameMenu.m in Sources */,
 				E8FB9671164925A000A9B9F1 /* GuessWho.m in Sources */,
+				E80C7EC7164A75FC009E419B /* PlayLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

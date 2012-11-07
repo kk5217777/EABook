@@ -100,18 +100,18 @@
     }
     return self;
 }
-
+/*
 -(void) addObjects
 {
-    //CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game Page 1" fontName:@"Marker Felt" fontSize:64];
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game Page 1" fontName:@"Marker Felt" fontSize:64];
     
-    // ask director for the window size
-    //CGSize size = [[CCDirector sharedDirector] winSize];
+     //ask director for the window size
+    CGSize size = [[CCDirector sharedDirector] winSize];
     
-    // position the label on the center of the screen
-    //label.position =  ccp( size.width /2 , size.height/2 );
-    //[self addChild:label];
-    /*
+     //position the label on the center of the screen
+    label.position =  ccp( size.width /2 , size.height/2 );
+    [self addChild:label];
+    
     [self addBackGround:@"P0_Cover.jpg"];
     //載入圖片
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
@@ -148,7 +148,7 @@
     [btnback setPosition:LOCATION(870 , 670)];
     [spriteSheet addChild:btnback];
     [tapObjectArray addObject:btnback];
-     */
+     
     
     //加入上下頁按鈕
     [self addPre];
@@ -158,7 +158,7 @@
     [tapObjectArray addObject:[self getChildByTag:0]];
     [tapObjectArray addObject:[self getChildByTag:1]];
 }
-
+*/
 /*
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
@@ -245,7 +245,7 @@
         tt=FALSE;
         [soundMgr playSoundFile:@"push.mp3"];
         [self removeAllChildrenWithCleanup:YES];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:0.8 scene:[EAPage4 scene]backwards:YES]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:0.8 scene:[EAPage4 scene]]];
         
     }
 }

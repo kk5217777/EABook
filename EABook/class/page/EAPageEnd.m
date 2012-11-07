@@ -38,21 +38,13 @@
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
         [self addChild:soundMgr];
-        //[self addObjects];
+        [self addObjects];
     }
     return self;
 }
 
 -(void) addObjects
 {
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Ending..." fontName:@"Marker Felt" fontSize:64];
-    // ask director for the window size
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    
-    // position the label on the center of the screen
-    label.position =  ccp( size.width /2 , size.height/2 );
-    [self addChild:label];
-    
     /*
      [self addBackGround:@"P0_Cover.jpg"];
      //載入圖片
@@ -91,7 +83,38 @@
      [spriteSheet addChild:btnback];
      [tapObjectArray addObject:btnback];
      */
+    //加入結局畫面
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    NSString *tempName;
+    tempName = @"Ending-1";
+    CCSprite *End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
+    End.position = ccp(winSize.width/2, winSize.height/2);
     
+    switch ([gamepoint goToPageNum]) {
+        case 1:
+            printf("End1");
+            [soundMgr playSoundFile:@"P6_end1_word.mp3"];
+            [self addChild:End];
+            break;
+        case 2:
+            printf("End2");
+            [soundMgr playSoundFile:@"P6_end2_word.mp3"];
+            tempName = @"Ending-2";
+            End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
+            End.position = ccp(winSize.width/2, winSize.height/2);
+            [self addChild:End];
+            break;
+        case 3:
+            printf("End3");
+            [soundMgr playSoundFile:@"P6_end3_word.mp3"];
+            tempName = @"Ending-3";
+            End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
+            End.position = ccp(winSize.width/2, winSize.height/2);
+            [self addChild:End];
+            break;
+        default:
+            break;
+    }
     //加入上下頁按鈕
     [self addPre];
     [self addNext];
@@ -136,9 +159,6 @@
 -(void) dealloc {
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
-    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
     [super dealloc];
 }
 @end
