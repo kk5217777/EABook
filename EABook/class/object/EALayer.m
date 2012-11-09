@@ -42,10 +42,10 @@
 -(void) switchInteraction
 {
     if (touchEnable) {
-        NSLog(@"witchInteraction OFF");
+        NSLog(@"switchInteraction OFF");
     }
     else{
-        NSLog(@"witchInteraction ON");
+        NSLog(@"switchInteraction ON");
         [self removeWordImage];
     }
     touchEnable = !touchEnable;

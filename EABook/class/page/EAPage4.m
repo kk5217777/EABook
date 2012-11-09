@@ -200,7 +200,7 @@
     for (tempObject in swipeObjectArray) {
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [tempObject startAnimation];
-            //[soundMgr playSoundFile:tempObject.soundName];
+            [soundMgr playSoundFile:tempObject.soundName];
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {

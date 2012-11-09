@@ -146,7 +146,7 @@
     tempName = @"P4-1_purplecar";
     tempObject = [EAAnimSprite spriteWithName:tempName];
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    tempObject.wordimageName = [NSString stringWithFormat:@"P4-1_car_word.png"];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     tempObject.tag = 6;
     tempObject.imgNum = 7;

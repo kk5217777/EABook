@@ -88,7 +88,7 @@
     NSString *tempName;
     tempName = @"Ending-1";
     CCSprite *End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
-    End.position = ccp(winSize.width/2, winSize.height/2);
+    End.position = ccp(winSize.width/2, winSize.height/2+20);
     
     switch ([gamepoint goToPageNum]) {
         case 1:
@@ -101,7 +101,7 @@
             [soundMgr playSoundFile:@"P6_end2_word.mp3"];
             tempName = @"Ending-2";
             End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
-            End.position = ccp(winSize.width/2, winSize.height/2);
+            End.position = ccp(winSize.width/2, winSize.height/2+20);
             [self addChild:End];
             break;
         case 3:
@@ -109,7 +109,7 @@
             [soundMgr playSoundFile:@"P6_end3_word.mp3"];
             tempName = @"Ending-3";
             End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
-            End.position = ccp(winSize.width/2, winSize.height/2);
+            End.position = ccp(winSize.width/2, winSize.height/2+20);
             [self addChild:End];
             break;
         default:

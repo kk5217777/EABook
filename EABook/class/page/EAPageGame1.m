@@ -260,6 +260,7 @@
     if (newSprite != selsprite) {
         [selsprite stopAllActions];
         selsprite = newSprite;
+        [selsprite setZOrder:1];
     }
 }
 -(void)panForTranslation:(CGPoint)translation{
@@ -335,6 +336,7 @@
                     NSLog(@"correct position");
                     
                     selsprite.position = ccp(selsprite.originalX, selsprite.originalY);
+                    [selsprite setZOrder:0];
                     [box.movableSprites removeObject:selsprite];
                     count+=1;
                     printf("count : %i----------------",count);
