@@ -28,7 +28,6 @@
         
         touchEnable = NO;
         soundEnable = NO;
-        panEnable = NO;
         
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
         
@@ -41,16 +40,24 @@
 
 -(void) switchInteraction
 {
+    
     if (touchEnable) {
-        NSLog(@"switchInteraction OFF");
+        NSLog(@"witchInteraction OFF");
+        touchEnable = NO;
+        soundEnable = NO;
     }
     else{
-        NSLog(@"switchInteraction ON");
+        NSLog(@"witchInteraction ON");
         [self removeWordImage];
+        touchEnable = YES;
+        soundEnable = YES;
+        if (soundDetect.enable == NO) {
+            NSLog(@"soundDetect開啟");
+            soundDetect.enable = YES;
+        }
     }
-    touchEnable = !touchEnable;
-    soundEnable = !soundEnable;
-    panEnable = !panEnable;
+    //touchEnable = !touchEnable;
+    //soundEnable = !soundEnable;
 }
 
 -(void) switchTouchInteraction
@@ -62,27 +69,25 @@
         NSLog(@"switchTouchInteraction ON");
     }
     touchEnable = !touchEnable;
-    panEnable = !panEnable;
     //soundEnable = !soundEnable;
 }
 
 -(void) switchPanInteraction
 {
     if (touchEnable) {
-        NSLog(@"switchTouchInteraction OFF");
+        NSLog(@"switchPanInteraction OFF");
     }
     else{
-        NSLog(@"switchTouchInteraction ON");
+        NSLog(@"switchPanInteraction ON");
     }
     touchEnable = !touchEnable;
     soundEnable = !soundEnable;
 }
-
 -(void) stopSpriteMove
 {
     NSLog(@"EALayer stopSpriteMove");
     [self switchInteraction];
-    [soundMgr stopSound];
+    //[soundMgr stopSound];
 }
 
 -(void) addTapToLayer
@@ -219,7 +224,7 @@
     tempObject = [EAAnimSprite spriteWithFile:@"pushbutton_return.png"];
     tempObject.soundName = @"push.mp3";
     tempObject.tag = 20;
-    tempObject.position = ccp(55, 65);
+    tempObject.position = ccp(60, 70);
     [self addChild:tempObject];
 }
 
@@ -231,7 +236,7 @@
     backGround.position = ccp(size.width/2, size.height/2);
     [self addChild:backGround];
 }
-
+/*
 -(void) addSprite:(CCSprite*) obj spriteType:(int)type
 {
     switch (type) {
@@ -271,11 +276,14 @@
             break;
     }
 }
-
+*/
 -(void) onExitTransitionDidStart
 {
     delegate.EAGamePoint = gamepoint;
+    touchEnable = NO;
+    soundDetect = NO;
     [self stopAllActions];
+    //[self stopSpriteMove];
 }
 
 -(void) onExit//

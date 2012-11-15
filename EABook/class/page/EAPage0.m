@@ -7,7 +7,7 @@
 //
 
 #import "EAPage0.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation EAPage0
 +(CCScene *) scene
@@ -88,7 +88,7 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    [self addBackGround:@"P1_Background.jpg"];
+    //[self addBackGround:@"P1_Background.jpg"];
     CCSprite *Man = [[CCSprite alloc]initWithFile:@"P1_Man.png"];
     Man.position = ccp(510, 112);
     [self addChild:Man];
@@ -201,6 +201,13 @@
     if (soundEnable && moveObjectArray.count > 0) {
         [motionDetect update];
     }
+    
+    //glEnable(GL_LINE_SMOOTH);
+    glColor4f(255, 0, 0, 255);
+    glLineWidth(2);
+    CGPoint verices2[] = {ccp(temp.origin.x, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y + temp.size.height ), ccp(temp.origin.x, temp.origin.y + temp.size.height) };
+    
+    ccDrawPoly(verices2, 4, YES);
 }
 
 #pragma 手勢區
@@ -308,14 +315,16 @@
     NSLog(@"swipe");
     for (tempObject in swipeObjectArray) {
         
-        CGRect temp = tempObject.boundingBox;
-        temp.origin.x = tempObject.boundingBox.origin.x - 50;
+        temp = tempObject.boundingBox;
+        temp.origin.x = tempObject.boundingBox.origin.x;
+        temp.origin.y = tempObject.boundingBox.origin.y;
         temp.size.width = tempObject.boundingBox.size.width + 100;
+        temp.size.height = tempObject.boundingBox.size.height + 100;
         
-        if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+        if (CGRectContainsPoint(temp, touchLocation)) {
             [soundMgr playSoundFile:tempObject.soundName];
             
-
+                /*
                 switch (tempObject.tag) {
                     case 3:
                         [gamepoint addTypeA];
@@ -328,7 +337,7 @@
                         break;
                     default:
                         break;
-                }
+                }*/
                 [tempObject startAnimation];
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
@@ -353,6 +362,7 @@
         }
     }
 }
+
 -(void) panSpriteMovement:(CGPoint)touchLocation{
     NSLog(@"move sprite");
     if (selectedMoveSprite > 0) {

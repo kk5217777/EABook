@@ -109,7 +109,7 @@
     DustCar = [EAAnimSprite spriteWithName:tempName];
     DustCar.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     DustCar.wordimageName = [NSString stringWithFormat:@"P2_Truck_en&ch.jpg"];
-    DustCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    DustCar.wordsoundName = [NSString stringWithFormat:@"P2_Dustcar_word.mp3"];
     DustCar.tag = 3;
     DustCar.imgNum = 5;
     DustCar.delayTime = 0.3f;

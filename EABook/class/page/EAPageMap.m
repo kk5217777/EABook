@@ -58,14 +58,14 @@
     //[tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"pop"]];
-    [tempObject setPosition:ccp(531, 153)];
+    [tempObject setPosition:ccp(531, 155)];
     [tempObject setTag:9];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"train"]];
-    [tempObject setPosition:ccp(296, 185)];
+    [tempObject setPosition:ccp(287, 180)];
     [tempObject setTag:3];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
@@ -86,21 +86,21 @@
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"hospital"]];
-    [tempObject setPosition:ccp(736, 200)];
+    [tempObject setPosition:ccp(734, 200)];
     [tempObject setTag:4];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"island"]];
-    [tempObject setPosition:ccp(240, 470)];
+    [tempObject setPosition:ccp(240, 473)];
     [tempObject setTag:7];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
     tempObject = [EAAnimSprite spriteWithFile:[NSString stringWithFormat:@"%@_%@.png",page,@"factory"]];
-    [tempObject setPosition:ccp(537, 460)];
+    [tempObject setPosition:ccp(534, 457)];
     [tempObject setTag:8];
     [tempObject setOpacity:0];
     [self addChild:tempObject];
@@ -170,17 +170,13 @@
                                  [CCFadeIn actionWithDuration:0.3],
                                  [CCFadeOut actionWithDuration:0.3],
                                  [CCFadeIn actionWithDuration:0.3],
-                                 turnPage, nil];
+                                  turnPage,nil];
     //各個按鈕的分別動作
     for (tempObject in tapObjectArray) {
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             NSLog(@"Tap! %2d", tempObject.tag);
             switch (tempObject.tag) {
                 case 9:
-                    goToPage = tempObject.tag;
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [tempObject runAction:turnPage];
-                    break;
                 case 4:
                 case 5:
                 case 6:

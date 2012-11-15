@@ -19,7 +19,7 @@
     EAAnimSprite *ThreeCar;
     EAAnimSprite *Cat;
     EAAnimSprite *Dog;
-    
+    CGRect temp;
     int selectedMoveSprite;
     BOOL eggEnable;
 }
