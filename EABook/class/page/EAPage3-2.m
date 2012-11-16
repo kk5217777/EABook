@@ -124,7 +124,7 @@
     //[moveObjectArray addObject:tempObject];
     
     tempName = @"P4-2_hotairballoon";
-    tempObject = [EAUpDownSprite spriteWithName:tempName];//3
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];//3
     tempObject.soundName = [NSString stringWithFormat:@"P4-2_hotairballo.mp3"];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     tempObject.wordsoundName = [NSString stringWithFormat:@"P4-2_hotairballo_word.mp3"];

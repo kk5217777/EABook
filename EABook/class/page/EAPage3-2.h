@@ -12,6 +12,7 @@
 #import "EAPage2.h"
 #import "EAPage4.h"
 #import "EAPageGame1.h"
+#import "EASoundDectectSprite.h"
 
 @interface EAPage3_2 : EALayer {
     //NSMutableArray *myTrees;

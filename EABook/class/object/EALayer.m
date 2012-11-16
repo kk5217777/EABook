@@ -28,6 +28,7 @@
         
         touchEnable = NO;
         soundEnable = NO;
+        panEnable = NO;
         
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
         
@@ -45,12 +46,14 @@
         NSLog(@"witchInteraction OFF");
         touchEnable = NO;
         soundEnable = NO;
+        panEnable = NO;
     }
     else{
         NSLog(@"witchInteraction ON");
         [self removeWordImage];
         touchEnable = YES;
         soundEnable = YES;
+        panEnable = YES;
         if (soundDetect.enable == NO) {
             NSLog(@"soundDetect開啟");
             soundDetect.enable = YES;
@@ -69,6 +72,7 @@
         NSLog(@"switchTouchInteraction ON");
     }
     touchEnable = !touchEnable;
+    panEnable = !panEnable;
     //soundEnable = !soundEnable;
 }
 

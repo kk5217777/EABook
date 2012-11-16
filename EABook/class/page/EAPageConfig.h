@@ -31,6 +31,6 @@
 
 - (NSMutableDictionary*) readConfig;
 
-+ (BOOL) getVolumeState;
-+ (BOOL) getWordState;
+//+ (BOOL) getVolumeState;
+//+ (BOOL) getWordState;
 @end

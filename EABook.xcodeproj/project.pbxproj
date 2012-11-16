@@ -445,6 +445,10 @@
 		E8B9F1761654C60C0063894F /* GuessWhoOnce.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B9F1751654C60C0063894F /* GuessWhoOnce.m */; };
 		E8B9F17A1654F0A40063894F /* EALayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B9F1791654F0A40063894F /* EALayer.m */; };
 		E8B9F184165504030063894F /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B9F183165504030063894F /* push.mp3 */; };
+		E8FA57BF165655F000137AC9 /* SoundState.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FA57BE165655F000137AC9 /* SoundState.m */; };
+		E8FA57C41656571000137AC9 /* P0-3_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FA57C21656571000137AC9 /* P0-3_circle.png */; };
+		E8FA57C51656571000137AC9 /* P0-3_Option.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8FA57C31656571000137AC9 /* P0-3_Option.jpg */; };
+		E8FA57CD1656667A00137AC9 /* EASoundDectectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FA57CC1656667A00137AC9 /* EASoundDectectSprite.m */; };
 		E8FB9671164925A000A9B9F1 /* GuessWho.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FB9670164925A000A9B9F1 /* GuessWho.m */; };
 		E8FB968B164926B400A9B9F1 /* GAME_who_beetle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8FB9674164926B400A9B9F1 /* GAME_who_beetle.jpg */; };
 		E8FB968C164926B400A9B9F1 /* GAME_who_bug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8FB9675164926B400A9B9F1 /* GAME_who_bug.jpg */; };
@@ -1079,6 +1083,12 @@
 		E8B9F1781654F0A40063894F /* EALayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayer.h; sourceTree = "<group>"; };
 		E8B9F1791654F0A40063894F /* EALayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayer.m; sourceTree = "<group>"; };
 		E8B9F183165504030063894F /* push.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = push.mp3; sourceTree = "<group>"; };
+		E8FA57BD165655F000137AC9 /* SoundState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundState.h; sourceTree = "<group>"; };
+		E8FA57BE165655F000137AC9 /* SoundState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundState.m; sourceTree = "<group>"; };
+		E8FA57C21656571000137AC9 /* P0-3_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-3_circle.png"; sourceTree = "<group>"; };
+		E8FA57C31656571000137AC9 /* P0-3_Option.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-3_Option.jpg"; sourceTree = "<group>"; };
+		E8FA57CB1656667A00137AC9 /* EASoundDectectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASoundDectectSprite.h; sourceTree = "<group>"; };
+		E8FA57CC1656667A00137AC9 /* EASoundDectectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASoundDectectSprite.m; sourceTree = "<group>"; };
 		E8FB966F164925A000A9B9F1 /* GuessWho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessWho.h; sourceTree = "<group>"; };
 		E8FB9670164925A000A9B9F1 /* GuessWho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessWho.m; sourceTree = "<group>"; };
 		E8FB9674164926B400A9B9F1 /* GAME_who_beetle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_who_beetle.jpg; sourceTree = "<group>"; };
@@ -1563,6 +1573,10 @@
 		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
+				E8FA57CB1656667A00137AC9 /* EASoundDectectSprite.h */,
+				E8FA57CC1656667A00137AC9 /* EASoundDectectSprite.m */,
+				E8FA57BD165655F000137AC9 /* SoundState.h */,
+				E8FA57BE165655F000137AC9 /* SoundState.m */,
 				E8B9F1781654F0A40063894F /* EALayer.h */,
 				E8B9F1791654F0A40063894F /* EALayer.m */,
 				84967021163EEDD4001F1A8E /* EAAnimSprite.h */,
@@ -1873,6 +1887,7 @@
 		E8628F981643976F004197F3 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E8FA57C11656571000137AC9 /* P0-3 */,
 				E8628F991643976F004197F3 /* button */,
 				E8628F9D1643976F004197F3 /* P0 */,
 				E8628FA31643976F004197F3 /* P0-1 */,
@@ -2148,6 +2163,15 @@
 				E86290341643976F004197F3 /* push.wav */,
 			);
 			path = sound;
+			sourceTree = "<group>";
+		};
+		E8FA57C11656571000137AC9 /* P0-3 */ = {
+			isa = PBXGroup;
+			children = (
+				E8FA57C21656571000137AC9 /* P0-3_circle.png */,
+				E8FA57C31656571000137AC9 /* P0-3_Option.jpg */,
+			);
+			path = "P0-3";
 			sourceTree = "<group>";
 		};
 		E8FB966D1649256500A9B9F1 /* DrawCar */ = {
@@ -2587,6 +2611,8 @@
 				E8FB96AD164937C700A9B9F1 /* P3-2_elephant_0.png in Resources */,
 				E8FB96AE164937C700A9B9F1 /* P3-3_Crab_0.png in Resources */,
 				E8B9F184165504030063894F /* push.mp3 in Resources */,
+				E8FA57C41656571000137AC9 /* P0-3_circle.png in Resources */,
+				E8FA57C51656571000137AC9 /* P0-3_Option.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2729,6 +2755,8 @@
 				E80C7EC7164A75FC009E419B /* PlayLayer.m in Sources */,
 				E8B9F1761654C60C0063894F /* GuessWhoOnce.m in Sources */,
 				E8B9F17A1654F0A40063894F /* EALayer.m in Sources */,
+				E8FA57BF165655F000137AC9 /* SoundState.m in Sources */,
+				E8FA57CD1656667A00137AC9 /* EASoundDectectSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

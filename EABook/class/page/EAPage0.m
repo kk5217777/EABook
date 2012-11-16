@@ -232,14 +232,17 @@
 }
 
 -(void)handlePan:(UIPanGestureRecognizer *)recognizer{
+    
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     touchLocation = [self convertToNodeSpace:touchLocation];
     if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"pan OutSide");
         if (panEnable) {
+            
             for (tempObject in panObjectArray) {
                 if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
-                    //NSLog(@"pan");
+                    NSLog(@"pan");
                     selectedMoveSprite = tempObject.tag;
                     [self switchPanInteraction];
                     //[self panSpriteMovement:touchLocation];
