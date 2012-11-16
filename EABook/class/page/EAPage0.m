@@ -88,7 +88,7 @@
 -(void) addObjects
 {
     //加入背景，一定要先背景再載入sprite圖片的資源檔
-    //[self addBackGround:@"P1_Background.jpg"];
+    [self addBackGround:@"P1_Background.jpg"];
     CCSprite *Man = [[CCSprite alloc]initWithFile:@"P1_Man.png"];
     Man.position = ccp(510, 112);
     [self addChild:Man];
@@ -198,16 +198,17 @@
 
 -(void) draw
 {
+    
     if (soundEnable && moveObjectArray.count > 0) {
         [motionDetect update];
     }
     
     //glEnable(GL_LINE_SMOOTH);
-    glColor4f(255, 0, 0, 255);
-    glLineWidth(2);
-    CGPoint verices2[] = {ccp(temp.origin.x, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y + temp.size.height ), ccp(temp.origin.x, temp.origin.y + temp.size.height) };
+    //glColor4f(255, 0, 0, 255);
+    //glLineWidth(2);
+    //CGPoint verices2[] = {ccp(temp.origin.x, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y + temp.size.height ), ccp(temp.origin.x, temp.origin.y + temp.size.height) };
     
-    ccDrawPoly(verices2, 4, YES);
+    //ccDrawPoly(verices2, 4, YES);
 }
 
 #pragma 手勢區
@@ -316,14 +317,15 @@
     for (tempObject in swipeObjectArray) {
         
         temp = tempObject.boundingBox;
-        temp.origin.x = tempObject.boundingBox.origin.x;
-        temp.origin.y = tempObject.boundingBox.origin.y;
-        temp.size.width = tempObject.boundingBox.size.width + 100;
-        temp.size.height = tempObject.boundingBox.size.height + 100;
+        temp.origin.x = tempObject.boundingBox.origin.x-40;
+        temp.origin.y = tempObject.boundingBox.origin.y-20;
+        temp.size.width = tempObject.boundingBox.size.width + 80;
+        temp.size.height = tempObject.boundingBox.size.height + 30;
+        
         
         if (CGRectContainsPoint(temp, touchLocation)) {
-            [soundMgr playSoundFile:tempObject.soundName];
-            
+            //[soundMgr playSoundFile:tempObject.soundName];
+            //[self draw];
                 /*
                 switch (tempObject.tag) {
                     case 3:

@@ -44,20 +44,30 @@
                 }
             }
             if (sprite2) {
-                if (sprite2.position.x > 30 && sprite2.position.x < 1000 && sprite2.position.y > 30 && sprite2.position.y < 730) {
-                    [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*5), sprite2.position.y)];
+                float sx = 40;
+                float sy = 400;
+                float ex = 1000;
+                float ey = 618;
+                float m = (ey-sy)/(ex-sx);
+                float dx = m*_acData.acceleration.y*5;
+                
+                if (sprite2.position.x > 30 && sprite2.position.x < 1010 && sprite2.position.y > 30 && sprite2.position.y < 730) {
+                    [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*5), sprite2.position.y+dx)];
+                    
+                    printf("sprite2.x :%f ,y :%f  ",sprite2.position.x , sprite2.position.y);
+                    /*
                     if (sprite2) {
                         [sprite2 setPosition:CGPointMake((sprite2.position.x + _acData.acceleration.y*10), sprite2.position.y)];
-                    }
+                    }*/
                 }
                 else
                 {
-                    if (sprite2.position.x < 30) {
-                        [sprite2 setPosition:CGPointMake((sprite2.position.x+1), sprite2.position.y)];
+                    if (sprite2.position.x <= 30) {
+                        [sprite2 setPosition:CGPointMake(40, 471)];
                     }
-                    else if (sprite2.position.x > 1000)
+                    else if (sprite2.position.x >= 1010)
                     {
-                        [sprite2 setPosition:CGPointMake((sprite2.position.x-1), sprite2.position.y)];
+                        [sprite2 setPosition:CGPointMake(970, 683)];
                     }
                 }
             }

@@ -107,7 +107,7 @@
     
     //tempName = @"4-3_island";
     CCSprite *island = [CCSprite spriteWithFile:@"P4-3_island.png"];
-    [island setPosition:ccp(324, 556)];
+    [island setPosition:ccp(324, 536)];
     [self addChild:island];
     [moveObjectArray addObject:island];
     
