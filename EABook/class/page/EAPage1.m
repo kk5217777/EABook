@@ -189,12 +189,12 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"nextpage2.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"nextpage2.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
                 case 6: //蛋tap消失

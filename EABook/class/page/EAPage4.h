@@ -13,6 +13,7 @@
 #import "EAPage3-1.h"
 #import "EAPage3-2.h"
 #import "EAPage3-3.h"
+#import "EADraw.h"
 
 @interface EAPage4 : EALayer {
     

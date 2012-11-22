@@ -23,7 +23,7 @@
 #define LIMIT_DIFFER 0.4
 #define TURN_DELAY 0.8
 #define LOCATION(x,y) ccp(x,768-y)
-
+#define HOME_PATH [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 #define TAP 0
 #define SWIPE 1
 #define PAN 2

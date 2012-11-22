@@ -89,7 +89,7 @@
     tempName = @"Ending-1";
     CCSprite *End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
     End.position = ccp(winSize.width/2, winSize.height/2+20);
-    
+    [soundMgr playSoundFile:@"end.mp3"];
     switch ([gamepoint goToPageNum]) {
         case 1:
             printf("End1");

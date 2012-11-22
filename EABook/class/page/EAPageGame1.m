@@ -95,7 +95,7 @@
         //motionDetect.sManage = soundMgr;
         //[self addChild:motionDetect];
         
-        //[self addChild:soundMgr];
+        [self addChild:soundMgr];
         //[self addObjects];
     }
     return self;
@@ -245,7 +245,7 @@
         tt=FALSE;
         [soundMgr playSoundFile:@"push.mp3"];
         [self removeAllChildrenWithCleanup:YES];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:0.8 scene:[EAPage4 scene]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:0.8 scene:[EAPage4 scene]]];
         
     }
 }
@@ -334,7 +334,7 @@
                     
                     
                     NSLog(@"correct position");
-                    
+                    [soundMgr playSoundFile:@"gameclick.mp3"];
                     selsprite.position = ccp(selsprite.originalX, selsprite.originalY);
                     [selsprite setZOrder:0];
                     [box.movableSprites removeObject:selsprite];
@@ -343,6 +343,7 @@
                     
                     if (count==9) {
                         isReturn =FALSE;
+                        [soundMgr playSoundFile:@"gamesuccess.mp3"];
                         gamewin = [[CCSprite alloc]initWithFile:@"P0-2_game_win.png"];
                         gamewin.position = ccp(512, 384);
                         [self addChild:gamewin];

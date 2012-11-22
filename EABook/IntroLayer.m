@@ -25,6 +25,7 @@
 #import "EAPageGame2.h"
 #import "GuessWho.h"
 #import "GuessWhoOnce.h"
+#import "EADraw.h"
 
 #pragma mark - IntroLayer
 
@@ -84,5 +85,6 @@
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageEnd scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[PlayLayer node] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GuessWho scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EADraw scene] withColor:ccWHITE]];
 }
 @end

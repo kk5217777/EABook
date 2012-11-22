@@ -114,23 +114,23 @@
                     NSLog(@"開始");
                     [soundMgr playSoundFile:@"push.mp3"];
                     delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage0 scene]]];
                     break;
                 case 1:
                     NSLog(@"地圖");
                     [soundMgr playSoundFile:@"push.mp3"];
                     delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageMap scene]]];
                     break;
                 case 4:
                     NSLog(@"遊戲");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAGameMenu scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAGameMenu scene]]];
                     break;
                 case 3:
                     NSLog(@"設定");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene]]];
                     break;
                 default:
                     break;

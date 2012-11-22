@@ -116,35 +116,35 @@
         case 3:
             gamepoint = [[GamePoint alloc] init];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
             break;
         case 4:
             gamepoint = [[GamePoint alloc] init];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
             break;
         case 5:
             [gamepoint addTypeA];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
             break;
         case 6:
             [gamepoint addTypeB];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
             break;
         case 7:
             [gamepoint addTypeC];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
             break;
         case 8:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage4 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
             break;
         case 9:
             gamepoint = [[GamePoint alloc] init];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:TURN_DELAY scene:[EAPage0 scene] withColor:ccWHITE]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage0 scene]]];
             break;
         default:
             break;
@@ -184,12 +184,12 @@
                 case 8:
                 case 3:
                     goToPage = tempObject.tag;
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"mapclick.mp3"];
                     [tempObject runAction:turnWithShining];
                     break;
                 case 20:
                     [soundMgr playSoundFile:tempObject.soundName];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
                     break;
                 default:
                     break;

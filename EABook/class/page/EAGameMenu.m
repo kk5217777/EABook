@@ -90,20 +90,20 @@
             switch (obj.tag) {
                 case 3:
                     NSLog(@"Game1");
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"mapclick.mp3"];
                     //delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[PlayLayer scene] backwards:NO]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[PlayLayer scene]]];
                     break;
                 case 4:
                     NSLog(@"Game2");
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"mapclick.mp3"];
                     //delegate.EAGamePoint = gamepoint;
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene] backwards:NO]];
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageMap scene]]];
                     break;
                 case 20:
                     NSLog(@"設定");
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
                     break;
                 default:
                     break;
