@@ -11,6 +11,7 @@
 #import "EALayer.h"
 #import "PlayLayer.h"
 #import "EAPageMenu.h"
+#import "EADraw.h"
 
 @interface EAGameMenu : EALayer {
     

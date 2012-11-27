@@ -92,13 +92,13 @@
                     NSLog(@"Game1");
                     [soundMgr playSoundFile:@"mapclick.mp3"];
                     //delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[PlayLayer scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[PlayLayer scene]]];
                     break;
                 case 4:
                     NSLog(@"Game2");
                     [soundMgr playSoundFile:@"mapclick.mp3"];
                     //delegate.EAGamePoint = gamepoint;
-                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageMap scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EADraw scene]]];
                     break;
                 case 20:
                     NSLog(@"設定");

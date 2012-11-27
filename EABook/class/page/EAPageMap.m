@@ -116,35 +116,35 @@
         case 3:
             gamepoint = [[GamePoint alloc] init];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
             break;
         case 4:
             gamepoint = [[GamePoint alloc] init];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
             break;
         case 5:
             [gamepoint addTypeA];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
             break;
         case 6:
             [gamepoint addTypeB];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
             break;
         case 7:
             [gamepoint addTypeC];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
             break;
         case 8:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
             break;
         case 9:
             gamepoint = [[GamePoint alloc] init];
             delegate.EAGamePoint = gamepoint;
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPage0 scene]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage0 scene]]];
             break;
         default:
             break;

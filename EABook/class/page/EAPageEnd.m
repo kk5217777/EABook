@@ -116,25 +116,28 @@
             break;
     }
     //加入上下頁按鈕
-    [self addPre];
-    [self addNext];
+    //[self addPre];
+    //[self addNext];
     
     //加入array
-    [tapObjectArray addObject:[self getChildByTag:0]];
-    [tapObjectArray addObject:[self getChildByTag:1]];
+    //[tapObjectArray addObject:[self getChildByTag:0]];
+    //[tapObjectArray addObject:[self getChildByTag:1]];
 }
 
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable && (tapObjectArray.count > 0)) {
+    if (touchEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
 
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
+    [soundMgr stopSound];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionZoomFlipY transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
+    /*
     NSLog(@"Tap! %d", tapObjectArray.count);
     for (CCSprite* obj in tapObjectArray) {
         if (CGRectContainsPoint(obj.boundingBox, touchLocation)) {
@@ -153,7 +156,7 @@
             }
             break;
         }
-    }
+    }*/
 }
 
 -(void) dealloc {

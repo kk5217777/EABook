@@ -11,9 +11,25 @@
 #import "EALayer.h"
 #import "EAPage4.h"
 #import "EAPageEnd.h"
+#import "CCSpriteFloodFill.h"
+#import "EAPageEnd.h"
+#import "DrawGallery.h"
+#import "ShowImg.h"
+#import "FileOps.h"
 
 @interface EAPageGame2 : EALayer {
+    CCSpriteFloodFill * sprite;
+	ccColor4B Colors[9];
+    NSArray *cavas;
     
+    BOOL drawAble;
+    NSInteger canvasImageNum;
+    NSUInteger SelectedCrayon;
+    
+    DrawGallery *gallery;
+    ShowImg *imageShow;
+    NSMutableArray *tapArray;
+    FileOps *fileMgr;
 }
 +(CCScene *) scene;
 @end

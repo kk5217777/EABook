@@ -292,7 +292,7 @@
                 case 0:
                     //上一頁
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
                     break;
                 case 1:
                     //下一頁

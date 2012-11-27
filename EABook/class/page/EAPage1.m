@@ -124,7 +124,7 @@
     LectCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     LectCar.tag = 4;
     LectCar.imgNum = 2;
-    //LectCar.repeatTime = 1;
+    //LectCar.repeatTime = 2;
     LectCar.delayTime = 0.3f;
     [LectCar setPosition:ccp( 660 , 468)];
     [self addChild:LectCar];
@@ -137,6 +137,7 @@
     Train.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     Train.tag = 5;
     Train.imgNum = 4;
+    //DustCar.repeatTime = 1;
     Train.delayTime = 0.3f;
     [Train setPosition:ccp( 780 , 158 )];
     [self addChild:Train];

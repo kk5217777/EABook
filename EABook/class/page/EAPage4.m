@@ -177,7 +177,7 @@
                 case 1:
                     //下一頁
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EADraw scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame2 scene]]];
                     break;
                 case 3:
                 case 4:
