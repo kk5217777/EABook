@@ -237,7 +237,7 @@
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     touchLocation = [self convertToNodeSpace:touchLocation];
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"pan OutSide");
+        //NSLog(@"pan OutSide");
         if (panEnable) {
             
             for (tempObject in panObjectArray) {
@@ -270,14 +270,19 @@
     else
     {
         if (panEnable) {
-            selectedMoveSprite = -1;
-            [self switchPanInteraction];
-            
-            [tempObject stopAllActions];
-            if (tempObject.soundName && soundMgr) {
-                [soundMgr stopSound];
-            }
+            for (tempObject in panObjectArray) {
+                if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+                    NSLog(@"pan END");
+                    selectedMoveSprite = -1;
+                    [self switchPanInteraction];
+                    
+                    [tempObject stopAllActions];
+                    if (tempObject.soundName && soundMgr) {
+                        [soundMgr stopSound];
+                    }
             //[recognizer setTranslation:CGPointZero inView:recognizer.view];
+                }
+            }
         }
     }
 }

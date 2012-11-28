@@ -134,7 +134,6 @@
 		84604B65163AE2ED002A203B /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B64163AE2ED002A203B /* HelloWorldLayer.m */; };
 		84604B68163AE2ED002A203B /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84604B67163AE2ED002A203B /* IntroLayer.m */; };
 		84604B8B163AEE11002A203B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84604B8A163AEE11002A203B /* CoreMotion.framework */; };
-		84967039163EEDD4001F1A8E /* EAAnimSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967022163EEDD4001F1A8E /* EAAnimSprite.m */; };
 		8496703B163EEDD4001F1A8E /* GamePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967026163EEDD4001F1A8E /* GamePoint.m */; };
 		8496703D163EEDD4001F1A8E /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496702A163EEDD4001F1A8E /* SoundManager.m */; };
 		8496703E163EEDD4001F1A8E /* EAPage1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496702D163EEDD4001F1A8E /* EAPage1.m */; };
@@ -427,6 +426,7 @@
 		E8B9F1761654C60C0063894F /* GuessWhoOnce.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B9F1751654C60C0063894F /* GuessWhoOnce.m */; };
 		E8B9F17A1654F0A40063894F /* EALayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B9F1791654F0A40063894F /* EALayer.m */; };
 		E8B9F184165504030063894F /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B9F183165504030063894F /* push.mp3 */; };
+		E8CA34BF16660D5C0049269C /* EAAnimSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CA34BE16660D5C0049269C /* EAAnimSprite.m */; };
 		E8D382D61664AA2A0081A829 /* CCSpriteFloodFill.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D382CB1664AA2A0081A829 /* CCSpriteFloodFill.m */; };
 		E8D382D71664AA2A0081A829 /* CCTexture2DMutable.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D382CD1664AA2A0081A829 /* CCTexture2DMutable.m */; };
 		E8D382D81664AA2A0081A829 /* FileOps.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D382CF1664AA2A0081A829 /* FileOps.m */; };
@@ -800,8 +800,6 @@
 		84604B66163AE2ED002A203B /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		84604B67163AE2ED002A203B /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		84604B8A163AEE11002A203B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		84967021163EEDD4001F1A8E /* EAAnimSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAnimSprite.h; sourceTree = "<group>"; };
-		84967022163EEDD4001F1A8E /* EAAnimSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAnimSprite.m; sourceTree = "<group>"; };
 		84967025163EEDD4001F1A8E /* GamePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePoint.h; sourceTree = "<group>"; };
 		84967026163EEDD4001F1A8E /* GamePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePoint.m; sourceTree = "<group>"; };
 		84967029163EEDD4001F1A8E /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
@@ -1119,6 +1117,8 @@
 		E8B9F1781654F0A40063894F /* EALayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayer.h; sourceTree = "<group>"; };
 		E8B9F1791654F0A40063894F /* EALayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayer.m; sourceTree = "<group>"; };
 		E8B9F183165504030063894F /* push.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = push.mp3; sourceTree = "<group>"; };
+		E8CA34BD16660D5C0049269C /* EAAnimSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAAnimSprite.h; sourceTree = "<group>"; };
+		E8CA34BE16660D5C0049269C /* EAAnimSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAAnimSprite.m; sourceTree = "<group>"; };
 		E8D382CA1664AA2A0081A829 /* CCSpriteFloodFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSpriteFloodFill.h; sourceTree = "<group>"; };
 		E8D382CB1664AA2A0081A829 /* CCSpriteFloodFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSpriteFloodFill.m; sourceTree = "<group>"; };
 		E8D382CC1664AA2A0081A829 /* CCTexture2DMutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTexture2DMutable.h; sourceTree = "<group>"; };
@@ -1689,14 +1689,14 @@
 		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
+				E8CA34BD16660D5C0049269C /* EAAnimSprite.h */,
+				E8CA34BE16660D5C0049269C /* EAAnimSprite.m */,
 				E8FA57CB1656667A00137AC9 /* EASoundDectectSprite.h */,
 				E8FA57CC1656667A00137AC9 /* EASoundDectectSprite.m */,
 				E8FA57BD165655F000137AC9 /* SoundState.h */,
 				E8FA57BE165655F000137AC9 /* SoundState.m */,
 				E8B9F1781654F0A40063894F /* EALayer.h */,
 				E8B9F1791654F0A40063894F /* EALayer.m */,
-				84967021163EEDD4001F1A8E /* EAAnimSprite.h */,
-				84967022163EEDD4001F1A8E /* EAAnimSprite.m */,
 				84967025163EEDD4001F1A8E /* GamePoint.h */,
 				84967026163EEDD4001F1A8E /* GamePoint.m */,
 				84967029163EEDD4001F1A8E /* SoundManager.h */,
@@ -2976,7 +2976,6 @@
 				84604B62163AE2ED002A203B /* AppDelegate.m in Sources */,
 				84604B65163AE2ED002A203B /* HelloWorldLayer.m in Sources */,
 				84604B68163AE2ED002A203B /* IntroLayer.m in Sources */,
-				84967039163EEDD4001F1A8E /* EAAnimSprite.m in Sources */,
 				8496703B163EEDD4001F1A8E /* GamePoint.m in Sources */,
 				8496703D163EEDD4001F1A8E /* SoundManager.m in Sources */,
 				8496703E163EEDD4001F1A8E /* EAPage1.m in Sources */,
@@ -3012,6 +3011,7 @@
 				E8D382D91664AA2A0081A829 /* DrawGallery.m in Sources */,
 				E8D382DB1664AA2A0081A829 /* ShowImg.m in Sources */,
 				E8D382E01664AD3E0081A829 /* EADraw.m in Sources */,
+				E8CA34BF16660D5C0049269C /* EAAnimSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

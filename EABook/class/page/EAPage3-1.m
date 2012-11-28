@@ -35,6 +35,7 @@
         moveObjectArray = [[NSMutableArray alloc] init];
         panObjectArray = [[NSMutableArray alloc] init];
         
+        panIsMoving = NO;
         selectedMoveSprite = -1;
         //手勢
         //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
@@ -209,6 +210,8 @@
             for (tempObject in panObjectArray) {
                 if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
                     //NSLog(@"pan");
+                    panIsMoving = YES;
+                    
                     selectedMoveSprite = tempObject.tag;
                     [self switchPanInteraction];
                     //[self panSpriteMovement:touchLocation];
@@ -235,15 +238,21 @@
     }
     else
     {
-        if (panEnable) {
-            selectedMoveSprite = -1;
-            [self switchPanInteraction];
-            
-            [tempObject stopAllActions];
-            if (tempObject.soundName && soundMgr) {
-                [soundMgr stopSound];
-            }
+        if (panEnable && panIsMoving) {
+            for (tempObject in panObjectArray) {
+                if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+                    NSLog(@"pan END");
+                    panIsMoving = NO;
+                    selectedMoveSprite = -1;
+                    [self switchPanInteraction];
+                    
+                    [tempObject stopAllActions];
+                    if (tempObject.soundName && soundMgr) {
+                        [soundMgr stopSound];
+                    }
             //[recognizer setTranslation:CGPointZero inView:recognizer.view];
+                }
+            }
         }
     }
 }

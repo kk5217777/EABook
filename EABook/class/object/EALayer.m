@@ -91,7 +91,7 @@
 {
     NSLog(@"EALayer stopSpriteMove");
     [self switchInteraction];
-    //[soundMgr stopSound];
+    [soundMgr stopSound];
 }
 
 -(void) addTapToLayer

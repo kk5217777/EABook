@@ -289,14 +289,19 @@
     else
     {
         if (panEnable) {
-            selectedMoveSprite = -1;
-            [self switchPanInteraction];
-            
-            [tempObject stopAllActions];
-            if (tempObject.soundName && soundMgr) {
-                [soundMgr stopSound];
-            }
+            for (tempObject in panObjectArray) {
+                if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+                            NSLog(@"pan END");
+                    selectedMoveSprite = -1;
+                    [self switchPanInteraction];
+                    
+                    [tempObject stopAllActions];
+                    if (tempObject.soundName && soundMgr) {
+                        [soundMgr stopSound];
+                    }
             //[recognizer setTranslation:CGPointZero inView:recognizer.view];
+                }
+            }
         }
     }
 }

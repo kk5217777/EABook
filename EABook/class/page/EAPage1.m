@@ -67,9 +67,9 @@
         //[self addChild:soundDetect];
         
         //重力
-        motionDetect = [[MotionSensor alloc] init];
-        motionDetect.sManage = soundMgr;
-        [self addChild:motionDetect];
+        //motionDetect = [[MotionSensor alloc] init];
+        //motionDetect.sManage = soundMgr;
+        //[self addChild:motionDetect];
         
         [self addChild:soundMgr];
         [self addObjects];
@@ -238,7 +238,7 @@
                         break;
                 }
                 [tempObject startAnimation];
-            
+            break;
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {

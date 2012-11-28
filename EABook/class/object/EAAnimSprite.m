@@ -103,8 +103,14 @@
     }
     [pAnim setDelayPerUnit:delayTime];
     pAnim.restoreOriginalFrame = YES;
-    CCAnimate *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:pAnim]];
+    
+    CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
+    CCAnimate *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:pAnim] times:2];
     [self runAction:action];
+    //[self runAction:[CCSequence actions:
+     //                [CCDelayTime actionWithDuration:0.1f],
+     //                [CCRepeat actionWithAction:action times:repeatTime],
+     //                stopSound , NULL]];
 }
 
 @end

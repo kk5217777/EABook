@@ -16,6 +16,7 @@
 
 @interface EAPage3_1 : EALayer {
     int selectedMoveSprite;
+    BOOL panIsMoving;
 }
 +(CCScene *) scene;
 @end
