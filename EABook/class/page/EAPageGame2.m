@@ -143,7 +143,7 @@
 
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
-    if (touchEnable && (tapObjectArray.count > 0)) {
+    if (_touchEnable && (tapObjectArray.count > 0)) {
         //if (drawAble)
         //{
         //著色辨識

@@ -13,7 +13,7 @@
 -(id) init
 {
     if (self = [super init]) {
-        delegate = (AppController*) [[UIApplication sharedApplication] delegate];// new add
+        delegate = (AppController*) [[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -22,6 +22,7 @@
 {
     if ([delegate.BookSoundState getEffectState]) {
         NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
+        
         NSLog(@"play loop");
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         if (audioPlayer) {
@@ -43,14 +44,37 @@
         }
     }
 }
+
+-(void) playTime
+{
+    if ([delegate.BookSoundState getEffectState]) {
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],SOUND_GTIME]];
+        
+        timePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        timePlayer.numberOfLoops = -1;
+        [timePlayer play];
+    }
+}
+
+-(void) stopTime
+{
+    if(timePlayer && [timePlayer isPlaying])
+    {
+        [timePlayer stop];
+    }
+}
+
 //會switch ON and OFF
 -(void) playWordSoundFile:(NSString*) soundName
 {
-    //切換互動狀態
-    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
-    
     if ([delegate.BookSoundState getWordState]) {
+    //切換互動狀態
+    //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+    [self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
+    
+    
         NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
+        
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         if (audioPlayer) {
             audioPlayer.numberOfLoops = 0;
@@ -58,10 +82,13 @@
             [self schedule:@selector(PlayWordSound:) interval:1];
         }
     }
+   
+    /*
     else
     {
-        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]]];
+        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.5f], [CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0], [CCCallFunc actionWithTarget:parent_ selector:@selector(removeWordImage)], nil]];
     }
+     */
 }
 
 -(void) playSound
@@ -77,6 +104,10 @@
     if (audioPlayer && audioPlayer.isPlaying) {
         [audioPlayer stop];
     }
+    if(timePlayer && [timePlayer isPlaying])
+    {
+        [timePlayer stop];
+    }
 }
 
 -(void) PlayWordSound:(ccTime)dt{
@@ -88,7 +119,8 @@
         
         //[[NSNotificationCenter defaultCenter] postNotificationName:WORD_STOP object:self];
         //切換互動狀態
-        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(removeWordImage)]];
+        [self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
     }
 }
 

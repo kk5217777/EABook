@@ -124,7 +124,7 @@
     LectCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
     LectCar.tag = 4;
     LectCar.imgNum = 2;
-    //LectCar.repeatTime = 2;
+    LectCar.repeatTime = 2;
     LectCar.delayTime = 0.3f;
     [LectCar setPosition:ccp( 660 , 468)];
     [self addChild:LectCar];
@@ -153,20 +153,26 @@
     [swipeObjectArray addObject: LectCar];
     [swipeObjectArray addObject: Train];
 }
-
+/*
 -(void) draw
 {
-    if (soundEnable && moveObjectArray.count > 1) {
-        [motionDetect update];
-    }
-}
+    //if (soundEnable && moveObjectArray.count > 1) {
+        //[motionDetect update];
+    //}
+    //glEnable(GL_LINE_SMOOTH);
+    //glColor4f(255, 0, 0, 255);
+    //glLineWidth(2);
+    //CGPoint verices2[] = {ccp(temp.origin.x, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y), ccp(temp.origin.x + temp.size.width, temp.origin.y + temp.size.height ), ccp(temp.origin.x, temp.origin.y + temp.size.height) };
+    
+    //ccDrawPoly(verices2, 4, YES);
+}*/
 
 #pragma 手勢區
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -176,7 +182,7 @@
     NSLog(@"swipe");
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_swipeEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -198,6 +204,10 @@
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene]]];
                     break;
+                case 2://Word image 的叉叉
+                    [soundMgr stopSound];
+                    [self removeWordImage];
+                    break;
                 case 6: //蛋tap消失
                 case 3:
                 case 4:
@@ -218,9 +228,9 @@
     NSLog(@"swipe");
     for (tempObject in swipeObjectArray) {
         
-        CGRect temp = tempObject.boundingBox;
-        temp.origin.x = tempObject.boundingBox.origin.x - 50;
-        temp.size.width = tempObject.boundingBox.size.width + 100;
+        temp = tempObject.boundingBox;
+        //temp.origin.x = tempObject.boundingBox.origin.x - 50;
+        //temp.size.width = tempObject.boundingBox.size.width + 100;
         
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
             [soundMgr playSoundFile:tempObject.soundName];
@@ -238,7 +248,7 @@
                         break;
                 }
                 [tempObject startAnimation];
-            break;
+            //break;
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {

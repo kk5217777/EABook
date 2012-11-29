@@ -175,20 +175,20 @@
     tempObject = nil;
     //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }
-
+/*
 -(void) draw
 {
     if (soundEnable) {
-        //[soundDetect update];
+        [soundDetect update];
     }
-}
+}*/
 
 #pragma mark 手勢
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -197,7 +197,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_swipeEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -206,14 +206,14 @@
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     touchLocation = [self convertToNodeSpace:touchLocation];
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        if (panEnable) {
+        if (_panEnable) {
             for (tempObject in panObjectArray) {
                 if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
                     //NSLog(@"pan");
                     panIsMoving = YES;
                     
                     selectedMoveSprite = tempObject.tag;
-                    [self switchPanInteraction];
+                    [self switchInteractionElse:self data:PAN];
                     //[self panSpriteMovement:touchLocation];
                     
                     [tempObject startLoopAnimation];
@@ -226,7 +226,7 @@
         }
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
-        if (panEnable) {
+        if (_panEnable) {
             NSLog(@"pan");
             CGPoint translation = [recognizer translationInView:recognizer.view];
             translation = ccp(translation.x, -translation.y);
@@ -238,13 +238,13 @@
     }
     else
     {
-        if (panEnable && panIsMoving) {
+        if (_panEnable && panIsMoving) {
             for (tempObject in panObjectArray) {
                 if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
                     NSLog(@"pan END");
                     panIsMoving = NO;
                     selectedMoveSprite = -1;
-                    [self switchPanInteraction];
+                    [self switchInteractionElse:self data:PAN];
                     
                     [tempObject stopAllActions];
                     if (tempObject.soundName && soundMgr) {
@@ -273,6 +273,10 @@
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
                     //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
+                    break;
+                case 2://Word image 的叉叉
+                    [soundMgr stopSound];
+                    [self removeWordImage];
                     break;
                 case 3:
                 case 4:
@@ -352,13 +356,11 @@
 -(void) dealloc {
     //soundDetect = Nil;
     //motionDetect = Nil;
-    
+    [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
     [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];
-    
-    [super dealloc];
     tempObject = nil;
 }
 

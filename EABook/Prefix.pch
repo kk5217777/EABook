@@ -28,3 +28,4 @@
 #define SWIPE 1
 #define PAN 2
 #define MOVE 3
+#define SOUND_GTIME @"time.mp3"

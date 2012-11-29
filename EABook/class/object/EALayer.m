@@ -8,7 +8,6 @@
 
 #import "EALayer.h"
 
-
 @implementation EALayer
 @synthesize gamepoint;
 //@synthesize tapObjectArray, swipeObjectArray;
@@ -26,9 +25,11 @@
         //[gamepoint addTypeB];
         NSLog(@"gamePoint %@", [gamepoint goToPage]);
         
-        touchEnable = NO;
-        soundEnable = NO;
-        panEnable = NO;
+        _touchEnable = NO;
+        _soundEnable = NO;
+        _panEnable = NO;
+        _swipeEnable = NO;
+        _tapEnable = NO;
         
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
         
@@ -42,51 +43,65 @@
 -(void) switchInteraction
 {
     
-    if (touchEnable) {
+    if (_touchEnable) {
         NSLog(@"witchInteraction OFF");
-        touchEnable = NO;
-        soundEnable = NO;
-        panEnable = NO;
+        _touchEnable = NO;
+        _soundEnable = NO;
     }
     else{
         NSLog(@"witchInteraction ON");
-        [self removeWordImage];
-        touchEnable = YES;
-        soundEnable = YES;
-        panEnable = YES;
+        _touchEnable = YES;
+        _soundEnable = YES;
         if (soundDetect.enable == NO) {
-            NSLog(@"soundDetect開啟");
+            //NSLog(@"soundDetect開啟");
             soundDetect.enable = YES;
         }
     }
-    //touchEnable = !touchEnable;
-    //soundEnable = !soundEnable;
+    _tapEnable = !_tapEnable;
+    _panEnable = !_panEnable;
+    _swipeEnable = !_swipeEnable;
 }
 
 -(void) switchTouchInteraction
 {
-    if (touchEnable) {
+    if (_tapEnable) {
         NSLog(@"switchTouchInteraction OFF");
     }
     else{
         NSLog(@"switchTouchInteraction ON");
     }
-    touchEnable = !touchEnable;
-    panEnable = !panEnable;
-    //soundEnable = !soundEnable;
+    _tapEnable = !_tapEnable;
+    _panEnable = !_panEnable;
+    _swipeEnable = !_swipeEnable;
 }
 
--(void) switchPanInteraction
+-(void) switchInteractionElse:(id)sender data:(int) type
 {
-    if (touchEnable) {
-        NSLog(@"switchPanInteraction OFF");
+    NSLog(@"switch ELSE");
+    switch (type) {
+        case TAP:
+            NSLog(@"switchInteractionElse:tap");
+            _panEnable = !_panEnable;
+            _swipeEnable = !_swipeEnable;
+            _soundEnable = !_soundEnable;
+            break;
+        case SWIPE:
+            NSLog(@"switchInteractionElse:swipe");
+            _tapEnable = !_tapEnable;
+            _panEnable = !_panEnable;
+            _soundEnable = !_soundEnable;
+            break;
+        case PAN:
+            NSLog(@"switchInteractionElse:pan");
+            _tapEnable = !_tapEnable;
+            _swipeEnable = !_swipeEnable;
+            _soundEnable = !_soundEnable;
+            break;
+        default:
+            break;
     }
-    else{
-        NSLog(@"switchPanInteraction ON");
-    }
-    touchEnable = !touchEnable;
-    soundEnable = !soundEnable;
 }
+
 -(void) stopSpriteMove
 {
     NSLog(@"EALayer stopSpriteMove");
@@ -94,69 +109,6 @@
     [soundMgr stopSound];
 }
 
--(void) addTapToLayer
-{
-    tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
-    tapgestureRecognizer.numberOfTapsRequired = 1; //new add
-    
-    [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
-}
--(void) removeTapFromLayer
-{
-    [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-}
-
--(void) addPanToLayer
-{
-    pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
-    [delegate.navController.view addGestureRecognizer:pangestureRecognizer];
-}
--(void) removePanFromLayer
-{
-    [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];
-}
-
--(void) addSwipeToLayer
-{
-    swipegestureRecognizerRight = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
-    [swipegestureRecognizerRight setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-    swipegestureRecognizerLeft = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
-    [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-    
-    [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
-    [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
-}
--(void) removeSwipeFromLayer
-{
-    [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
-}
-
--(void) handlePanAndSwipe
-{
-    [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
-    [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
-}
-/*
--(void) handleTap:(UITapGestureRecognizer*) recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
-        [self tapSpriteMovement:touchLocation];
-    }
-}
-
--(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
-        [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
-    }
-}
-*/
 //來回swipe動作
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
 {
@@ -190,6 +142,26 @@
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     CCSprite *tt = [CCSprite spriteWithFile:imageName];
+    tt.position = ccp(size.width/2, size.height/2);
+    
+    CCSprite *spCloseButton = [[CCSprite spriteWithFile:@"closewordbutton.png"] retain];
+    spCloseButton.position = ccpSub(tt.position, ccp(tt.textureRect.size.width/2-5, -tt.textureRect.size.height/2+5));
+    spCloseButton.tag = 2;
+    
+    WordImageNode = [[CCNode alloc] init];
+    [WordImageNode addChild:tt];
+    [WordImageNode addChild:spCloseButton];
+    
+    if (WordImageNode.children.count == 2) {
+        [self addChild:WordImageNode];
+        tapButtons = tapObjectArray;
+        
+        tapObjectArray = [[NSMutableArray alloc] init];
+        [tapObjectArray addObject:spCloseButton];
+    }
+    else
+        NSLog(@"Word Image 創建不成功");
+    /*
     if (tt) {
         tt.tag = 2;
         tt.position = ccp(size.width/2, size.height/2);
@@ -198,13 +170,17 @@
     else
     {
         NSLog(@"Word Image 創建不成功");
-    }
+    }*/
 }
 -(void) removeWordImage
 {
-    CCNode *temp = [self getChildByTag:2];
-    if (temp) {
-        [self removeChildByTag:2 cleanup:YES];
+    if (WordImageNode != NULL)
+    {
+        [self removeChild:WordImageNode cleanup:YES];
+        WordImageNode = NULL;
+        [tapObjectArray dealloc];
+        
+        tapObjectArray = tapButtons;
     }
 }
 -(void) addPre
@@ -284,8 +260,9 @@
 -(void) onExitTransitionDidStart
 {
     delegate.EAGamePoint = gamepoint;
-    touchEnable = NO;
-    soundDetect = NO;
+    _tapEnable = NO;
+    _swipeEnable = NO;
+    _panEnable = NO;
     [self stopAllActions];
     //[self stopSpriteMove];
 }
@@ -293,6 +270,10 @@
 -(void) onExit//
 {
     [self stopSpriteMove];
+    if (soundDetect) {
+        [soundDetect stopDetect];
+        soundDetect = Nil;
+    }
 }
 
 -(void) dealloc
@@ -305,6 +286,10 @@
     tapObjectArray = Nil;
     swipeObjectArray = Nil;
     moveObjectArray = Nil;
+    if (soundDetect) {
+        [soundDetect stopDetect];
+        soundDetect = Nil;
+    }
 }
 
 @end

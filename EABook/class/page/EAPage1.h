@@ -19,7 +19,7 @@
     EAAnimSprite *DustCar;
     EAAnimSprite *LectCar;
     EAAnimSprite *Train;
-    
+    CGRect temp;
     BOOL eggEnable;
 }
 +(CCScene *) scene;

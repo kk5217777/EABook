@@ -150,6 +150,7 @@
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
 		E80C7EC7164A75FC009E419B /* PlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E80C7EC6164A75FC009E419B /* PlayLayer.m */; };
+		E8281A8E1667894500EB1BD4 /* closewordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = E8281A8D1667894500EB1BD4 /* closewordbutton.png */; };
 		E842B0131647A79F00E9A0FD /* P0-1_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */; };
 		E842B01C1647ABF700E9A0FD /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0161647ABF700E9A0FD /* Box.m */; };
 		E842B01D1647ABF700E9A0FD /* MySprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E842B0191647ABF700E9A0FD /* MySprite.m */; };
@@ -833,6 +834,7 @@
 		B8F851871642833300C15A6E /* EAPageMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageMap.m; sourceTree = "<group>"; };
 		E80C7EC5164A75FC009E419B /* PlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayLayer.h; sourceTree = "<group>"; };
 		E80C7EC6164A75FC009E419B /* PlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayLayer.m; sourceTree = "<group>"; };
+		E8281A8D1667894500EB1BD4 /* closewordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closewordbutton.png; sourceTree = "<group>"; };
 		E842B0121647A79F00E9A0FD /* P0-1_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-1_Map.jpg"; sourceTree = "<group>"; };
 		E842B0151647ABF700E9A0FD /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
 		E842B0161647ABF700E9A0FD /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Box.m; sourceTree = "<group>"; };
@@ -2023,6 +2025,7 @@
 		E8628F991643976F004197F3 /* button */ = {
 			isa = PBXGroup;
 			children = (
+				E8281A8D1667894500EB1BD4 /* closewordbutton.png */,
 				E8628F9A1643976F004197F3 /* pushbutton_left.png */,
 				E8628F9B1643976F004197F3 /* pushbutton_right.png */,
 				E8628F9C1643976F004197F3 /* pushbutton_return.png */,
@@ -2862,6 +2865,7 @@
 				E8D3830B1664E2230081A829 /* GAME_word_4.png in Resources */,
 				E8D3830C1664E2230081A829 /* GAME_word_5.png in Resources */,
 				E8D3830D1664E2230081A829 /* GAME_word_6.png in Resources */,
+				E8281A8E1667894500EB1BD4 /* closewordbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

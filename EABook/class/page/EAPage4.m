@@ -135,7 +135,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable && tapObjectArray) {
+    if (_tapEnable && tapObjectArray) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -144,7 +144,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable && swipeObjectArray) {
+    if (_swipeEnable && swipeObjectArray) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -179,6 +179,9 @@
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame2 scene]]];
                     break;
+                case 2://Word image 的叉叉
+                    [soundMgr stopSound];
+                    [self removeWordImage];
                 case 3:
                 case 4:
                 case 5:
@@ -226,11 +229,10 @@
 }
 
 -(void) dealloc {
-    
+    [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
-    [super dealloc];
+    tempObject = nil;
 }
 @end

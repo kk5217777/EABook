@@ -171,20 +171,20 @@
     motionDetect.sprite2 = (EAAnimSprite*)island;
     //motionDetect.sManage = soundMgr;
 }
-
+/*
 -(void) draw
 {
     if (soundEnable&& moveObjectArray.count > 0) {
         [motionDetect update];
     }
-}
+}*/
 
 #pragma mark 手勢
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -193,7 +193,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_swipeEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -215,6 +215,9 @@
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
                     break;
+                case 2://Word image 的叉叉
+                    [soundMgr stopSound];
+                    [self removeWordImage];
                 case 3:
                 case 4:
                 case 5:
@@ -262,11 +265,10 @@
 }
 
 -(void) dealloc {
-    
+    [super dealloc];
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
     tempObject = nil;
-    [super dealloc];
 }
 @end

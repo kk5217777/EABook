@@ -199,7 +199,7 @@
 -(void) draw
 {
     
-    if (soundEnable && moveObjectArray.count > 0) {
+    if (_soundEnable && moveObjectArray.count > 0) {
         [motionDetect update];
     }
     
@@ -216,7 +216,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -226,7 +226,7 @@
     NSLog(@"swipe");
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_swipeEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -238,14 +238,13 @@
     touchLocation = [self convertToNodeSpace:touchLocation];
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         //NSLog(@"pan OutSide");
-        if (panEnable) {
+        if (_panEnable) {
             
             for (tempObject in panObjectArray) {
                 if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
                     NSLog(@"pan");
                     selectedMoveSprite = tempObject.tag;
-                    [self switchPanInteraction];
-                    //[self panSpriteMovement:touchLocation];
+                    [self switchInteractionElse:self data:PAN];
                     
                     [tempObject startLoopAnimation];
                     if (tempObject.soundName) {
@@ -257,7 +256,7 @@
         }
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
-        if (panEnable) {
+        if (_panEnable) {
         NSLog(@"pan");
         CGPoint translation = [recognizer translationInView:recognizer.view];
         translation = ccp(translation.x, -translation.y);
@@ -269,12 +268,12 @@
     }
     else
     {
-        if (panEnable) {
+        if (_panEnable) {
             for (tempObject in panObjectArray) {
                 if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
                     NSLog(@"pan END");
                     selectedMoveSprite = -1;
-                    [self switchPanInteraction];
+                    [self switchInteractionElse:self data:PAN];
                     
                     [tempObject stopAllActions];
                     if (tempObject.soundName && soundMgr) {
@@ -303,6 +302,10 @@
                     //下一頁
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
+                    break;
+                case 2://Word image 的叉叉
+                    [soundMgr stopSound];
+                    [self removeWordImage];
                     break;
                 case 6: //蛋tap消失
                 case 3:
