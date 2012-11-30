@@ -61,6 +61,9 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
+        //[pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
+        //[pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
+        
         //音量
         //soundDetect = [[SoundSensor alloc] init];
         //soundDetect.sManage = soundMgr;
@@ -272,13 +275,14 @@
         }
     }
 }
-
+-(void)handlePan:(UIPanGestureRecognizer *)recognizer{};
 -(void) dealloc {
     [super dealloc];
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
+    [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];
     //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerUp];
     //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerDown];
     tempObject = nil;

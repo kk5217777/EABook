@@ -244,7 +244,25 @@
     if (CGRectContainsPoint(ExitBtn.boundingBox, touchLocation)){
         tt=FALSE;
         [soundMgr playSoundFile:@"push.mp3"];
+        [self removeSprite];
+        
         [self removeAllChildrenWithCleanup:YES];
+        //[box.movableSprites removeAllObjects];
+        [box removeAllArray];
+        //[selsprite release];
+        //[Tile release];
+        //[MenuImage release];
+        //[destimage release];
+        //[PrePage release];
+        //[background release];
+        //[wordimage release];
+        //[gamewin release];
+        //[ExitBtn release];
+        
+        //[box release];
+        [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];//new add
+        [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
+        printf("boxlayer dealloc");
         [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:0.8 scene:[EAPage4 scene]]];
         
     }
@@ -378,26 +396,20 @@
 
 -(void) CheckWin{
     
-    
-    //[self removeChild:PrePage cleanup:YES];
-    
     CGSize size = [[CCDirector sharedDirector] winSize];
     MenuImage = [[CCSprite alloc]initWithFile:@"P0-2_game_end.png"];
     MenuImage.position =ccp(size.width/2, size.height/2);
     [self addChild:MenuImage];
     
-    NextRoundBtn = [[CCSprite alloc]initWithFile:@"P0-2_game_next.png"];
-    NextRoundBtn.position = ccp(500, 350);
-    //[self addChild:NextRoundBtn];
-    
     ExitBtn = [[CCSprite alloc]initWithFile:@"P0-2_game_exit.png"];
     ExitBtn.position =ccp(512, 350);
     [self addChild:ExitBtn];
     
-    AgainBtn = [[CCSprite alloc]initWithFile:@"P0-2_game_again.png"];
-    AgainBtn.position = ccp(200, 350);
-    //[self addChild:AgainBtn];
-    
+}
+-(void)removeSprite{
+    for (MySprite *sprite in box.movableSprites) {
+        [self removeChild:sprite cleanup:YES];
+    }
     
 }
 -(void) dealloc {
@@ -406,8 +418,10 @@
     //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
     //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
     [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];//new add
-    [box.movableSprites removeAllObjects];
-    [self removeAllChildrenWithCleanup:YES];
+    //[self removeSprite];
+    //tt = FALSE;
+    //[box.movableSprites removeAllObjects];
+    //[self removeAllChildrenWithCleanup:YES];
     [super dealloc];
 }
 @end

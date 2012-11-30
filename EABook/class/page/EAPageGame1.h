@@ -26,9 +26,9 @@
     CCSprite *background;
     CCSprite *wordimage;
     CCSprite *gamewin;
-    CCSprite *NextRoundBtn;
+    
     CCSprite *ExitBtn;
-    CCSprite *AgainBtn;
+   
     
     
     BOOL tt ;

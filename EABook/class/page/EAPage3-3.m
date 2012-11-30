@@ -213,6 +213,7 @@
                 case 1:
                     //下一頁
                     [soundMgr playSoundFile:@"nextpage2.mp3"];
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
                     break;
                 case 2://Word image 的叉叉

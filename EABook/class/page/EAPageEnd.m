@@ -135,7 +135,7 @@
 
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
-    [soundMgr stopSound];
+    [soundMgr playSoundFile:@"nextpage2.mp3"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionZoomFlipY transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
     /*
     NSLog(@"Tap! %d", tapObjectArray.count);
