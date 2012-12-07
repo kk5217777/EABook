@@ -135,7 +135,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (_tapEnable && tapObjectArray) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -144,7 +144,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (_swipeEnable && swipeObjectArray) {
+    if (_swipeEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -182,6 +182,8 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
+                    [self switchInteractionElse:NULL data:TAP];
+                    break;
                 case 3:
                 case 4:
                 case 5:

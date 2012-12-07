@@ -105,7 +105,7 @@
     [tempObject setPosition:ccp( 730 , 160 )];
     [self addChild:tempObject];
     
-    //tempName = @"4-3_island";
+    tempName = @"4-3_island";
     CCSprite *island = [CCSprite spriteWithFile:@"P4-3_island.png"];
     [island setPosition:ccp(324, 536)];
     [self addChild:island];
@@ -171,13 +171,13 @@
     motionDetect.sprite2 = (EAAnimSprite*)island;
     //motionDetect.sManage = soundMgr;
 }
-/*
+
 -(void) draw
 {
-    if (soundEnable&& moveObjectArray.count > 0) {
+    if (_soundEnable&& moveObjectArray.count > 0) {
         [motionDetect update];
     }
-}*/
+}
 
 #pragma mark 手勢
 -(void) handleTap:(UITapGestureRecognizer*) recognizer
@@ -219,6 +219,8 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
+                    [self switchInteractionElse:NULL data:TAP];
+                    break;
                 case 3:
                 case 4:
                 case 5:

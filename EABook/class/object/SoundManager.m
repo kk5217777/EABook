@@ -79,7 +79,7 @@
         if (audioPlayer) {
             audioPlayer.numberOfLoops = 0;
             [audioPlayer play];
-            [self schedule:@selector(PlayWordSound:) interval:1];
+            //[self schedule:@selector(PlayWordSound:) interval:1];
         }
     }
    

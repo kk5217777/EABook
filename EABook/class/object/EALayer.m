@@ -77,7 +77,6 @@
 
 -(void) switchInteractionElse:(id)sender data:(int) type
 {
-    NSLog(@"switch ELSE");
     switch (type) {
         case TAP:
             NSLog(@"switchInteractionElse:tap");
@@ -100,6 +99,7 @@
         default:
             break;
     }
+    NSLog(@"tap:%d swipe:%d pan:%d sound:%d", _tapEnable, _swipeEnable, _panEnable, _soundEnable);
 }
 
 -(void) stopSpriteMove

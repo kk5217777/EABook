@@ -210,6 +210,7 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
+                    [self switchInteractionElse:NULL data:TAP];
                     break;
                 case 6: //蛋tap消失
                 case 3:
