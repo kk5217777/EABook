@@ -5,7 +5,7 @@
 //  Created by gdlab on 12/10/31.
 //  Copyright 2012年 __MyCompanyName__. All rights reserved.
 //
-#define gapY 25
+#define gapY 50
 #import "EAPageGame2.h"
 
 
