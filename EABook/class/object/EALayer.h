@@ -74,6 +74,8 @@
 -(void) switchInteraction;
 -(void) switchTouchInteraction;
 -(void) switchInteractionElse:(id)sender data:(int) type;
+-(void) openInteractionElse;
+-(void) closeInteractionElse;
 
 -(void) stopSpriteMove;
 /*

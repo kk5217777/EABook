@@ -23,8 +23,6 @@
 #import "EAPageEnd.h"
 #import "EAPageGame1.h"
 #import "EAPageGame2.h"
-#import "GuessWho.h"
-#import "GuessWhoOnce.h"
 #import "EADraw.h"
 
 #pragma mark - IntroLayer

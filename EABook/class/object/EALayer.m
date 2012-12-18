@@ -102,10 +102,30 @@
     NSLog(@"tap:%d swipe:%d pan:%d sound:%d", _tapEnable, _swipeEnable, _panEnable, _soundEnable);
 }
 
+-(void) openInteractionElse
+{
+    _tapEnable = YES;
+    _panEnable = YES;
+    _swipeEnable = YES;
+    _soundEnable = YES;
+
+    NSLog(@"OPEN tap:%d swipe:%d pan:%d sound:%d", _tapEnable, _swipeEnable, _panEnable, _soundEnable);
+}
+
+-(void) closeInteractionElse
+{
+    _tapEnable = NO;
+    _panEnable = NO;
+    _swipeEnable = NO;
+    _soundEnable = NO;
+
+    NSLog(@"CLOSE tap:%d swipe:%d pan:%d sound:%d", _tapEnable, _swipeEnable, _panEnable, _soundEnable);
+}
+
 -(void) stopSpriteMove
 {
     NSLog(@"EALayer stopSpriteMove");
-    [self switchInteraction];
+    //[self openInteractionElse];
     [soundMgr stopSound];
 }
 

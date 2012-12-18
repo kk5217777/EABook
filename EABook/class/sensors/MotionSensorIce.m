@@ -15,7 +15,7 @@
 {
     if ([motionMgr isAccelerometerActive]) {
         _acData = motionMgr.accelerometerData;
-        if (fabsf(_acData.acceleration.y) > LIMIT || fabs(_acData.acceleration.x) > LIMIT )
+        if (fabsf(_acData.acceleration.y) > LIMIT  )//|| fabs(_acData.acceleration.x) > LIMIT
         {
             if (sprite) {
                 if (animAble) {

@@ -140,6 +140,11 @@
     [self addChild:sprite];
     [tapObjectArray addObject:sprite];
 }
+-(void) resetDrawCanvas:(int) canvasNum
+{
+    [self removeChildByTag:50 cleanup:YES];
+    [self addDrawCanvas:canvasImageNum];
+}
 
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
@@ -204,7 +209,7 @@
                     break;
                 case 7: //清空，重新載圖
                     [soundMgr playSoundFile:@"push.mp3"];
-                    [self addDrawCanvas:canvasImageNum];
+                    [self resetDrawCanvas:canvasImageNum];
                     break;
                 case 50:
                     if (drawAble) {
