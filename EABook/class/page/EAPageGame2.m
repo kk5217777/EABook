@@ -109,7 +109,7 @@
     Colors[5] = ccc4(139, 0, 255, 255);     //violet
     Colors[6] = ccc4(255, 0, 255, 255);    //magneta
     Colors[7] = ccc4(0, 0, 255, 255);    //blue
-    Colors[8] = ccc4(254, 254, 254, 255);    //white
+    Colors[8] = ccc4(255, 255, 255, 255);    //white
     
     //加入著色的圖
     canvasImageNum = 7;
@@ -215,9 +215,9 @@
                     if (drawAble) {
                         if (SelectedCrayon!=-1) {
                             CCLOG(@"著色");
-                            [self switchInteraction];
+                            //[self switchInteraction];
                             [sprite fillFromPoint:touchLocation withColor:Colors[SelectedCrayon]];
-                            [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:0.5] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
+                            //[self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:0.5] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
                         }
                     }
                     break;

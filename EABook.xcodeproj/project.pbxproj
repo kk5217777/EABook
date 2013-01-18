@@ -325,16 +325,6 @@
 		E86290E41643976F004197F3 /* P0-1_space_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB01643976F004197F3 /* P0-1_space_0.png */; };
 		E86290E51643976F004197F3 /* P0-1_train.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB11643976F004197F3 /* P0-1_train.png */; };
 		E86290E61643976F004197F3 /* P0-1_train_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB21643976F004197F3 /* P0-1_train_0.png */; };
-		E86290E71643976F004197F3 /* GAME_cementtrunk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB61643976F004197F3 /* GAME_cementtrunk.jpg */; };
-		E86290E81643976F004197F3 /* GAME_cementtrunk.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB71643976F004197F3 /* GAME_cementtrunk.png */; };
-		E86290E91643976F004197F3 /* GAME_helicopter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB81643976F004197F3 /* GAME_helicopter.jpg */; };
-		E86290EA1643976F004197F3 /* GAME_helicopter.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FB91643976F004197F3 /* GAME_helicopter.png */; };
-		E86290EB1643976F004197F3 /* GAME_jeep.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FBA1643976F004197F3 /* GAME_jeep.jpg */; };
-		E86290EC1643976F004197F3 /* GAME_jeep.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FBB1643976F004197F3 /* GAME_jeep.png */; };
-		E86290ED1643976F004197F3 /* GAME_sailboat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FBC1643976F004197F3 /* GAME_sailboat.jpg */; };
-		E86290EE1643976F004197F3 /* GAME_sailboat.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FBD1643976F004197F3 /* GAME_sailboat.png */; };
-		E86290EF1643976F004197F3 /* GAME_speedboat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FBE1643976F004197F3 /* GAME_speedboat.jpg */; };
-		E86290F01643976F004197F3 /* GAME_speedboat.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FBF1643976F004197F3 /* GAME_speedboat.png */; };
 		E86290F11643976F004197F3 /* P0-2_game-Jigsaw_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8628FC11643976F004197F3 /* P0-2_game-Jigsaw_background.jpg */; };
 		E86290F21643976F004197F3 /* P0-2_game-Jigsaw_return-buttun.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FC21643976F004197F3 /* P0-2_game-Jigsaw_return-buttun.png */; };
 		E86290F31643976F004197F3 /* P0-2_game_again.png in Resources */ = {isa = PBXBuildFile; fileRef = E8628FC31643976F004197F3 /* P0-2_game_again.png */; };
@@ -425,6 +415,16 @@
 		E862915A1643976F004197F3 /* push.wav in Resources */ = {isa = PBXBuildFile; fileRef = E86290341643976F004197F3 /* push.wav */; };
 		E862915D16439B57004197F3 /* EAPage0.m in Sources */ = {isa = PBXBuildFile; fileRef = E862915C16439B56004197F3 /* EAPage0.m */; };
 		E862915F1643BD33004197F3 /* P1_ThreeCar_en&ch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E862915E1643BD33004197F3 /* P1_ThreeCar_en&ch.jpg */; };
+		E86B587616A58298008860D0 /* GAME_119car.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B586C16A58298008860D0 /* GAME_119car.png */; };
+		E86B587716A58298008860D0 /* GAME_cementtrunk.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B586D16A58298008860D0 /* GAME_cementtrunk.png */; };
+		E86B587816A58298008860D0 /* GAME_helicopter.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B586E16A58298008860D0 /* GAME_helicopter.png */; };
+		E86B587916A58298008860D0 /* GAME_jeep.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B586F16A58298008860D0 /* GAME_jeep.png */; };
+		E86B587A16A58298008860D0 /* GAME_lect.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B587016A58298008860D0 /* GAME_lect.png */; };
+		E86B587B16A58298008860D0 /* GAME_sailboat.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B587116A58298008860D0 /* GAME_sailboat.png */; };
+		E86B587C16A58298008860D0 /* GAME_speedboat.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B587216A58298008860D0 /* GAME_speedboat.png */; };
+		E86B587D16A58298008860D0 /* GAME_taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B587316A58298008860D0 /* GAME_taxi.png */; };
+		E86B587E16A58298008860D0 /* GAME_train.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B587416A58298008860D0 /* GAME_train.png */; };
+		E86B587F16A58298008860D0 /* GAME_watercar.png in Resources */ = {isa = PBXBuildFile; fileRef = E86B587516A58298008860D0 /* GAME_watercar.png */; };
 		E8B9F17A1654F0A40063894F /* EALayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B9F1791654F0A40063894F /* EALayer.m */; };
 		E8B9F184165504030063894F /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B9F183165504030063894F /* push.mp3 */; };
 		E8CA34BF16660D5C0049269C /* EAAnimSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CA34BE16660D5C0049269C /* EAAnimSprite.m */; };
@@ -498,16 +498,6 @@
 		E8FD1F35165E2FCD00DDA0C1 /* transport_icon_50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F31165E2FCD00DDA0C1 /* transport_icon_50x50.png */; };
 		E8FD1F36165E2FCD00DDA0C1 /* transport_icon_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F32165E2FCD00DDA0C1 /* transport_icon_72x72.png */; };
 		E8FD1F37165E2FCD00DDA0C1 /* transport_icon_512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F33165E2FCD00DDA0C1 /* transport_icon_512x512.png */; };
-		E8FD1F65165E3B8A00DDA0C1 /* GAME_119car.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F3A165E3B8A00DDA0C1 /* GAME_119car.png */; };
-		E8FD1F66165E3B8A00DDA0C1 /* GAME_cementtrunk.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F3B165E3B8A00DDA0C1 /* GAME_cementtrunk.png */; };
-		E8FD1F67165E3B8A00DDA0C1 /* GAME_helicopter.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F3C165E3B8A00DDA0C1 /* GAME_helicopter.png */; };
-		E8FD1F68165E3B8A00DDA0C1 /* GAME_jeep.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F3D165E3B8A00DDA0C1 /* GAME_jeep.png */; };
-		E8FD1F69165E3B8A00DDA0C1 /* GAME_lect.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F3E165E3B8A00DDA0C1 /* GAME_lect.png */; };
-		E8FD1F6A165E3B8A00DDA0C1 /* GAME_sailboat.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F3F165E3B8A00DDA0C1 /* GAME_sailboat.png */; };
-		E8FD1F6B165E3B8A00DDA0C1 /* GAME_speedboat.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F40165E3B8A00DDA0C1 /* GAME_speedboat.png */; };
-		E8FD1F6C165E3B8A00DDA0C1 /* GAME_taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F41165E3B8A00DDA0C1 /* GAME_taxi.png */; };
-		E8FD1F6D165E3B8A00DDA0C1 /* GAME_train.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F42165E3B8A00DDA0C1 /* GAME_train.png */; };
-		E8FD1F6E165E3B8A00DDA0C1 /* GAME_watercar.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F43165E3B8A00DDA0C1 /* GAME_watercar.png */; };
 		E8FD1F6F165E3B8A00DDA0C1 /* P0-1_game-drawcolor_backbuttun.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F44165E3B8A00DDA0C1 /* P0-1_game-drawcolor_backbuttun.png */; };
 		E8FD1F70165E3B8A00DDA0C1 /* P0-1_game-drawcolor_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F45165E3B8A00DDA0C1 /* P0-1_game-drawcolor_background.jpg */; };
 		E8FD1F71165E3B8A00DDA0C1 /* P0-1_game-drawcolor_clearbuttun.png in Resources */ = {isa = PBXBuildFile; fileRef = E8FD1F46165E3B8A00DDA0C1 /* P0-1_game-drawcolor_clearbuttun.png */; };
@@ -1012,16 +1002,6 @@
 		E8628FB01643976F004197F3 /* P0-1_space_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_space_0.png"; sourceTree = "<group>"; };
 		E8628FB11643976F004197F3 /* P0-1_train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_train.png"; sourceTree = "<group>"; };
 		E8628FB21643976F004197F3 /* P0-1_train_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_train_0.png"; sourceTree = "<group>"; };
-		E8628FB61643976F004197F3 /* GAME_cementtrunk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_cementtrunk.jpg; sourceTree = "<group>"; };
-		E8628FB71643976F004197F3 /* GAME_cementtrunk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_cementtrunk.png; sourceTree = "<group>"; };
-		E8628FB81643976F004197F3 /* GAME_helicopter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_helicopter.jpg; sourceTree = "<group>"; };
-		E8628FB91643976F004197F3 /* GAME_helicopter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_helicopter.png; sourceTree = "<group>"; };
-		E8628FBA1643976F004197F3 /* GAME_jeep.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_jeep.jpg; sourceTree = "<group>"; };
-		E8628FBB1643976F004197F3 /* GAME_jeep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_jeep.png; sourceTree = "<group>"; };
-		E8628FBC1643976F004197F3 /* GAME_sailboat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_sailboat.jpg; sourceTree = "<group>"; };
-		E8628FBD1643976F004197F3 /* GAME_sailboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_sailboat.png; sourceTree = "<group>"; };
-		E8628FBE1643976F004197F3 /* GAME_speedboat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_speedboat.jpg; sourceTree = "<group>"; };
-		E8628FBF1643976F004197F3 /* GAME_speedboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_speedboat.png; sourceTree = "<group>"; };
 		E8628FC11643976F004197F3 /* P0-2_game-Jigsaw_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-2_game-Jigsaw_background.jpg"; sourceTree = "<group>"; };
 		E8628FC21643976F004197F3 /* P0-2_game-Jigsaw_return-buttun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game-Jigsaw_return-buttun.png"; sourceTree = "<group>"; };
 		E8628FC31643976F004197F3 /* P0-2_game_again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game_again.png"; sourceTree = "<group>"; };
@@ -1113,6 +1093,16 @@
 		E862915B16439B56004197F3 /* EAPage0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage0.h; sourceTree = "<group>"; };
 		E862915C16439B56004197F3 /* EAPage0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage0.m; sourceTree = "<group>"; };
 		E862915E1643BD33004197F3 /* P1_ThreeCar_en&ch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P1_ThreeCar_en&ch.jpg"; sourceTree = "<group>"; };
+		E86B586C16A58298008860D0 /* GAME_119car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_119car.png; sourceTree = "<group>"; };
+		E86B586D16A58298008860D0 /* GAME_cementtrunk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_cementtrunk.png; sourceTree = "<group>"; };
+		E86B586E16A58298008860D0 /* GAME_helicopter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_helicopter.png; sourceTree = "<group>"; };
+		E86B586F16A58298008860D0 /* GAME_jeep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_jeep.png; sourceTree = "<group>"; };
+		E86B587016A58298008860D0 /* GAME_lect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_lect.png; sourceTree = "<group>"; };
+		E86B587116A58298008860D0 /* GAME_sailboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_sailboat.png; sourceTree = "<group>"; };
+		E86B587216A58298008860D0 /* GAME_speedboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_speedboat.png; sourceTree = "<group>"; };
+		E86B587316A58298008860D0 /* GAME_taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_taxi.png; sourceTree = "<group>"; };
+		E86B587416A58298008860D0 /* GAME_train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_train.png; sourceTree = "<group>"; };
+		E86B587516A58298008860D0 /* GAME_watercar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_watercar.png; sourceTree = "<group>"; };
 		E8B9F1781654F0A40063894F /* EALayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayer.h; sourceTree = "<group>"; };
 		E8B9F1791654F0A40063894F /* EALayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayer.m; sourceTree = "<group>"; };
 		E8B9F183165504030063894F /* push.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = push.mp3; sourceTree = "<group>"; };
@@ -1196,16 +1186,6 @@
 		E8FD1F31165E2FCD00DDA0C1 /* transport_icon_50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transport_icon_50x50.png; sourceTree = SOURCE_ROOT; };
 		E8FD1F32165E2FCD00DDA0C1 /* transport_icon_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transport_icon_72x72.png; sourceTree = SOURCE_ROOT; };
 		E8FD1F33165E2FCD00DDA0C1 /* transport_icon_512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transport_icon_512x512.png; sourceTree = SOURCE_ROOT; };
-		E8FD1F3A165E3B8A00DDA0C1 /* GAME_119car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_119car.png; sourceTree = "<group>"; };
-		E8FD1F3B165E3B8A00DDA0C1 /* GAME_cementtrunk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_cementtrunk.png; sourceTree = "<group>"; };
-		E8FD1F3C165E3B8A00DDA0C1 /* GAME_helicopter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_helicopter.png; sourceTree = "<group>"; };
-		E8FD1F3D165E3B8A00DDA0C1 /* GAME_jeep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_jeep.png; sourceTree = "<group>"; };
-		E8FD1F3E165E3B8A00DDA0C1 /* GAME_lect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_lect.png; sourceTree = "<group>"; };
-		E8FD1F3F165E3B8A00DDA0C1 /* GAME_sailboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_sailboat.png; sourceTree = "<group>"; };
-		E8FD1F40165E3B8A00DDA0C1 /* GAME_speedboat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_speedboat.png; sourceTree = "<group>"; };
-		E8FD1F41165E3B8A00DDA0C1 /* GAME_taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_taxi.png; sourceTree = "<group>"; };
-		E8FD1F42165E3B8A00DDA0C1 /* GAME_train.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_train.png; sourceTree = "<group>"; };
-		E8FD1F43165E3B8A00DDA0C1 /* GAME_watercar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GAME_watercar.png; sourceTree = "<group>"; };
 		E8FD1F44165E3B8A00DDA0C1 /* P0-1_game-drawcolor_backbuttun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_game-drawcolor_backbuttun.png"; sourceTree = "<group>"; };
 		E8FD1F45165E3B8A00DDA0C1 /* P0-1_game-drawcolor_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-1_game-drawcolor_background.jpg"; sourceTree = "<group>"; };
 		E8FD1F46165E3B8A00DDA0C1 /* P0-1_game-drawcolor_clearbuttun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_game-drawcolor_clearbuttun.png"; sourceTree = "<group>"; };
@@ -2064,7 +2044,6 @@
 		E8628FB31643976F004197F3 /* P0-2 */ = {
 			isa = PBXGroup;
 			children = (
-				E8628FB41643976F004197F3 /* Draw Color */,
 				E8628FC01643976F004197F3 /* Jigsaw */,
 				E8628FDA1643976F004197F3 /* P0-2_game.jpg */,
 				E8628FDB1643976F004197F3 /* P0-2_game_Draw.jpg */,
@@ -2072,31 +2051,6 @@
 				E8628FDD1643976F004197F3 /* P0-2_game_return-buttun.png */,
 			);
 			path = "P0-2";
-			sourceTree = "<group>";
-		};
-		E8628FB41643976F004197F3 /* Draw Color */ = {
-			isa = PBXGroup;
-			children = (
-				E8628FB51643976F004197F3 /* image */,
-			);
-			path = "Draw Color";
-			sourceTree = "<group>";
-		};
-		E8628FB51643976F004197F3 /* image */ = {
-			isa = PBXGroup;
-			children = (
-				E8628FB61643976F004197F3 /* GAME_cementtrunk.jpg */,
-				E8628FB71643976F004197F3 /* GAME_cementtrunk.png */,
-				E8628FB81643976F004197F3 /* GAME_helicopter.jpg */,
-				E8628FB91643976F004197F3 /* GAME_helicopter.png */,
-				E8628FBA1643976F004197F3 /* GAME_jeep.jpg */,
-				E8628FBB1643976F004197F3 /* GAME_jeep.png */,
-				E8628FBC1643976F004197F3 /* GAME_sailboat.jpg */,
-				E8628FBD1643976F004197F3 /* GAME_sailboat.png */,
-				E8628FBE1643976F004197F3 /* GAME_speedboat.jpg */,
-				E8628FBF1643976F004197F3 /* GAME_speedboat.png */,
-			);
-			path = image;
 			sourceTree = "<group>";
 		};
 		E8628FC01643976F004197F3 /* Jigsaw */ = {
@@ -2420,16 +2374,16 @@
 		E8FD1F39165E3B8A00DDA0C1 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				E8FD1F3A165E3B8A00DDA0C1 /* GAME_119car.png */,
-				E8FD1F3B165E3B8A00DDA0C1 /* GAME_cementtrunk.png */,
-				E8FD1F3C165E3B8A00DDA0C1 /* GAME_helicopter.png */,
-				E8FD1F3D165E3B8A00DDA0C1 /* GAME_jeep.png */,
-				E8FD1F3E165E3B8A00DDA0C1 /* GAME_lect.png */,
-				E8FD1F3F165E3B8A00DDA0C1 /* GAME_sailboat.png */,
-				E8FD1F40165E3B8A00DDA0C1 /* GAME_speedboat.png */,
-				E8FD1F41165E3B8A00DDA0C1 /* GAME_taxi.png */,
-				E8FD1F42165E3B8A00DDA0C1 /* GAME_train.png */,
-				E8FD1F43165E3B8A00DDA0C1 /* GAME_watercar.png */,
+				E86B586C16A58298008860D0 /* GAME_119car.png */,
+				E86B586D16A58298008860D0 /* GAME_cementtrunk.png */,
+				E86B586E16A58298008860D0 /* GAME_helicopter.png */,
+				E86B586F16A58298008860D0 /* GAME_jeep.png */,
+				E86B587016A58298008860D0 /* GAME_lect.png */,
+				E86B587116A58298008860D0 /* GAME_sailboat.png */,
+				E86B587216A58298008860D0 /* GAME_speedboat.png */,
+				E86B587316A58298008860D0 /* GAME_taxi.png */,
+				E86B587416A58298008860D0 /* GAME_train.png */,
+				E86B587516A58298008860D0 /* GAME_watercar.png */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -2662,16 +2616,6 @@
 				E86290E41643976F004197F3 /* P0-1_space_0.png in Resources */,
 				E86290E51643976F004197F3 /* P0-1_train.png in Resources */,
 				E86290E61643976F004197F3 /* P0-1_train_0.png in Resources */,
-				E86290E71643976F004197F3 /* GAME_cementtrunk.jpg in Resources */,
-				E86290E81643976F004197F3 /* GAME_cementtrunk.png in Resources */,
-				E86290E91643976F004197F3 /* GAME_helicopter.jpg in Resources */,
-				E86290EA1643976F004197F3 /* GAME_helicopter.png in Resources */,
-				E86290EB1643976F004197F3 /* GAME_jeep.jpg in Resources */,
-				E86290EC1643976F004197F3 /* GAME_jeep.png in Resources */,
-				E86290ED1643976F004197F3 /* GAME_sailboat.jpg in Resources */,
-				E86290EE1643976F004197F3 /* GAME_sailboat.png in Resources */,
-				E86290EF1643976F004197F3 /* GAME_speedboat.jpg in Resources */,
-				E86290F01643976F004197F3 /* GAME_speedboat.png in Resources */,
 				E86290F11643976F004197F3 /* P0-2_game-Jigsaw_background.jpg in Resources */,
 				E86290F21643976F004197F3 /* P0-2_game-Jigsaw_return-buttun.png in Resources */,
 				E86290F31643976F004197F3 /* P0-2_game_again.png in Resources */,
@@ -2803,16 +2747,6 @@
 				E8FD1F35165E2FCD00DDA0C1 /* transport_icon_50x50.png in Resources */,
 				E8FD1F36165E2FCD00DDA0C1 /* transport_icon_72x72.png in Resources */,
 				E8FD1F37165E2FCD00DDA0C1 /* transport_icon_512x512.png in Resources */,
-				E8FD1F65165E3B8A00DDA0C1 /* GAME_119car.png in Resources */,
-				E8FD1F66165E3B8A00DDA0C1 /* GAME_cementtrunk.png in Resources */,
-				E8FD1F67165E3B8A00DDA0C1 /* GAME_helicopter.png in Resources */,
-				E8FD1F68165E3B8A00DDA0C1 /* GAME_jeep.png in Resources */,
-				E8FD1F69165E3B8A00DDA0C1 /* GAME_lect.png in Resources */,
-				E8FD1F6A165E3B8A00DDA0C1 /* GAME_sailboat.png in Resources */,
-				E8FD1F6B165E3B8A00DDA0C1 /* GAME_speedboat.png in Resources */,
-				E8FD1F6C165E3B8A00DDA0C1 /* GAME_taxi.png in Resources */,
-				E8FD1F6D165E3B8A00DDA0C1 /* GAME_train.png in Resources */,
-				E8FD1F6E165E3B8A00DDA0C1 /* GAME_watercar.png in Resources */,
 				E8FD1F6F165E3B8A00DDA0C1 /* P0-1_game-drawcolor_backbuttun.png in Resources */,
 				E8FD1F70165E3B8A00DDA0C1 /* P0-1_game-drawcolor_background.jpg in Resources */,
 				E8FD1F71165E3B8A00DDA0C1 /* P0-1_game-drawcolor_clearbuttun.png in Resources */,
@@ -2856,6 +2790,16 @@
 				E8D3830D1664E2230081A829 /* GAME_word_6.png in Resources */,
 				E8281A8E1667894500EB1BD4 /* closewordbutton.png in Resources */,
 				E85FC10D1671CDDA0067DBD8 /* GAME_word_4.png in Resources */,
+				E86B587616A58298008860D0 /* GAME_119car.png in Resources */,
+				E86B587716A58298008860D0 /* GAME_cementtrunk.png in Resources */,
+				E86B587816A58298008860D0 /* GAME_helicopter.png in Resources */,
+				E86B587916A58298008860D0 /* GAME_jeep.png in Resources */,
+				E86B587A16A58298008860D0 /* GAME_lect.png in Resources */,
+				E86B587B16A58298008860D0 /* GAME_sailboat.png in Resources */,
+				E86B587C16A58298008860D0 /* GAME_speedboat.png in Resources */,
+				E86B587D16A58298008860D0 /* GAME_taxi.png in Resources */,
+				E86B587E16A58298008860D0 /* GAME_train.png in Resources */,
+				E86B587F16A58298008860D0 /* GAME_watercar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3054,8 +2998,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yating lo (T3GD3KLT45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3068,8 +3012,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "44E15CB8-61E7-485D-A586-293226C27E55";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "44E15CB8-61E7-485D-A586-293226C27E55";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3078,8 +3022,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yating lo (T3GD3KLT45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EABook/Prefix.pch;
@@ -3091,8 +3035,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "44E15CB8-61E7-485D-A586-293226C27E55";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "44E15CB8-61E7-485D-A586-293226C27E55";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

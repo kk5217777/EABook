@@ -86,20 +86,20 @@
     //加入結局畫面
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     NSString *tempName;
-    tempName = @"Ending-1";
+    tempName = @"Ending-2";
     CCSprite *End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
     End.position = ccp(winSize.width/2, winSize.height/2+20);
     [soundMgr playSoundFile:@"end.mp3"];
     switch ([gamepoint goToPageNum]) {
         case 1:
-            printf("End1");
-            [soundMgr playSoundFile:@"P6_end1_word.mp3"];
+            printf("End2");
+            [soundMgr playSoundFile:@"P6_end2_word.mp3"];
             [self addChild:End];
             break;
         case 2:
-            printf("End2");
-            [soundMgr playSoundFile:@"P6_end2_word.mp3"];
-            tempName = @"Ending-2";
+            printf("End1");
+            [soundMgr playSoundFile:@"P6_end1_word.mp3"];
+            tempName = @"Ending-1";
             End = [CCSprite spriteWithFile:[NSString stringWithFormat:@"P6_%@.jpg",tempName]];
             End.position = ccp(winSize.width/2, winSize.height/2+20);
             [self addChild:End];

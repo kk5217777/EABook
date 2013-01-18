@@ -36,8 +36,6 @@
         
         selectedMoveSprite = -1;
         //手勢
-        //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
-        //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
@@ -56,6 +54,8 @@
         pangestureRecognizer = [[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)]autorelease];
         [delegate.navController.view addGestureRecognizer:pangestureRecognizer];
         
+        [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
+        [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
         //音量
         soundDetect = [[SoundSensor alloc] init];
         soundDetect.sManage = soundMgr;
@@ -137,80 +137,7 @@
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
     soundDetect.moveObjects = moveObjectArray;
-    /*
-    tempObject = [EAAnimSprite spriteWithName:tempName];//2
-    //tempObject.tag = 5;
-    tempObject.scale = 1.2f;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(250, 600)];
-    [self addChild:tempObject];
-    [moveObjectArray addObject:tempObject];
-    
-    tempObject = [EAAnimSprite spriteWithName:tempName];//1
-    //tempObject.tag = 5;
-    tempObject.scale = 1.2f;
-    tempObject.imgNum = 2;
-    tempObject.delayTime = 0.3f;
-    tempObject.repeatTime = 3;
-    [tempObject setPosition:LOCATION(150, 650)];
-    [self addChild:tempObject];
-    [moveObjectArray addObject:tempObject];
-    
-    tempName = @"P3-2_tree";//樹兩棵
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.25f;
-    //tempObject.repeatTime = 2;
-    [tempObject setPosition:LOCATION(260, 180)];
-    [self addChild:tempObject];
-    [moveObjectArray addObject:tempObject];
-    
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
-    //tempObject.repeatTime = 2;
-    [tempObject setFlipX:YES];
-    [tempObject setPosition:LOCATION(640, 220)];
-    [self addChild:tempObject];
-    [moveObjectArray addObject:tempObject];
-    soundDetect.moveObjects = moveObjectArray;
-    
-    tempName = @"P3-2_water";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.tag = 7;
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 6;
-    [tempObject setPosition:LOCATION(530, 670)];
-    [self addChild:tempObject];
-    
-    //動物們～～
-    tempName = @"P3-2_elephant";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 3;
-    tempObject.imgNum = 3;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 6;
-    [tempObject setPosition:LOCATION(640, 560)];
-    [self addChild:tempObject];
-    
-    tempName = @"P3-2_giraffe";
-    tempObject = [EAAnimSprite spriteWithName:tempName];
-    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
-    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
-    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
-    tempObject.tag = 4;
-    tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
-    tempObject.repeatTime = 4;
-    [tempObject setPosition:LOCATION(445, 260)];
-    [self addChild:tempObject];*/
-    
+        
     //加入上下頁按鈕
     [self addPre];
     [self addNext];
@@ -223,7 +150,7 @@
     [tapObjectArray addObject:[self getChildByTag:5]];
     
     [panObjectArray addObject:[self getChildByTag:4]];
-    [panObjectArray addObject:[self getChildByTag:3]];
+    [swipeObjectArray addObject:[self getChildByTag:3]];
     tempObject = nil;
     //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }

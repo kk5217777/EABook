@@ -168,10 +168,10 @@
     [tapObjectArray addObject:[self getChildByTag:4]];
     [tapObjectArray addObject:[self getChildByTag:3]];
     
-    [panObjectArray addObject:[self getChildByTag:6]];
-    [panObjectArray addObject:[self getChildByTag:5]];
+    [swipeObjectArray addObject:[self getChildByTag:6]];
+    [swipeObjectArray addObject:[self getChildByTag:5]];
     [panObjectArray addObject:[self getChildByTag:4]];
-    [panObjectArray addObject:[self getChildByTag:3]];
+    [swipeObjectArray addObject:[self getChildByTag:3]];
     tempObject = nil;
     //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }

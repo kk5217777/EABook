@@ -125,7 +125,7 @@
 -(void) stopSpriteMove
 {
     NSLog(@"EALayer stopSpriteMove");
-    //[self openInteractionElse];
+    [self openInteractionElse];
     [soundMgr stopSound];
 }
 
