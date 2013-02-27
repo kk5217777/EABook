@@ -14,6 +14,7 @@
 #import "GamePoint.h"
 #import "EAAnimSprite.h"
 #import "SoundManager.h"
+#import "MusicBtnSprite.h"
 
 #define TAP 0
 #define SWIPE 1
@@ -52,10 +53,12 @@
     CCSpriteBatchNode *spriteSheet;
     EAAnimSprite *tempObject;
     EAAnimSprite *touchedSprite;
-
+    
     UISwipeGestureRecognizerDirection swipeDirection;
     
     SoundManager *soundMgr;
+    
+    MusicBtnSprite *MusicButton;
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
 @property BOOL touchEnable;
@@ -89,7 +92,8 @@
 -(void) removeSwipeFromLayer;
 */
 -(void) addBackGround:(NSString*)imageName;
--(void) addWordImage:(NSString*)imageName;
+-(void) addWordImage:(NSString*)imageName :(NSString*)musicName;
+
 -(void) removeWordImage;
 -(void) addPre;
 -(void) addNext;

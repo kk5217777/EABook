@@ -284,7 +284,7 @@
                 case 4:
                 case 5:
                 case 6:
-                    [self addWordImage:tempObject.wordimageName];
+                    [self addWordImage:tempObject.wordimageName:NULL];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
                     break;
                 default:

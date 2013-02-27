@@ -15,9 +15,10 @@
     //BOOL isPlay;
     AVAudioPlayer *audioPlayer;
     AVAudioPlayer *timePlayer;
+    AVAudioPlayer *musicPlayer;
     AppController *delegate;
 }
-
+@property (nonatomic,retain)AVAudioPlayer *musicPlayer;
 -(void) playLoopSound:(NSString*) soundName;
 -(void) playSoundFile:(NSString*) soundName;
 -(void) playTime;
@@ -28,4 +29,5 @@
 -(void) playSound;
 -(void) PlayWordSound:(ccTime)dt;
 
+-(void) playMusicFile:(NSString*) soundName;
 @end

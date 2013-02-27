@@ -18,6 +18,7 @@
     //NSMutableArray *myTrees;
     //NSMutableArray *myGrasses;
    int selectedMoveSprite;
+   NSString *soundFile;
 }
 +(CCScene *) scene;
 @end

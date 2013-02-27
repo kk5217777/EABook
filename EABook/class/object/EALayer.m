@@ -158,8 +158,10 @@
 }
 
 //等待實作！！
--(void) addWordImage:(NSString*)imageName
+-(void) addWordImage:(NSString*)imageName :(NSString*)musicName
 {
+    WordImageNode = [[CCNode alloc] init];
+    
     CGSize size = [[CCDirector sharedDirector] winSize];
     CCSprite *tt = [CCSprite spriteWithFile:imageName];
     tt.position = ccp(size.width/2, size.height/2);
@@ -167,20 +169,33 @@
     CCSprite *spCloseButton = [[CCSprite spriteWithFile:@"closewordbutton.png"] retain];
     spCloseButton.position = ccpSub(tt.position, ccp(tt.textureRect.size.width/2-5, -tt.textureRect.size.height/2+5));
     spCloseButton.tag = 2;
-    
-    WordImageNode = [[CCNode alloc] init];
     [WordImageNode addChild:tt];
+    
+    if (musicName) {
+        MusicButton = [[MusicBtnSprite alloc]init];
+        //MusicButton = [[CCSprite spriteWithFile:@"closewordbutton.png"] retain];
+        MusicButton.position = ccpSub(tt.position, ccp(-tt.textureRect.size.width/2+5, -tt.textureRect.size.height/2+5));
+        MusicButton.tag = 20;
+        //[MusicButton setTextureRect:CGRectMake(0, 0, 70, 70)];
+        [WordImageNode addChild:MusicButton];
+    }
+    
     [WordImageNode addChild:spCloseButton];
     
-    if (WordImageNode.children.count == 2) {
+    if (WordImageNode.children.count > 1) {
         [self addChild:WordImageNode];
         tapButtons = tapObjectArray;
-        
         tapObjectArray = [[NSMutableArray alloc] init];
         [tapObjectArray addObject:spCloseButton];
-    }
-    else
+        if (musicName) {
+            NSLog(@"%@",MusicButton.description);
+            [tapObjectArray addObject:MusicButton];
+            
+            [self schedule:@selector(checkMusicPlay:) interval:0.5];
+        }
+    }    else
         NSLog(@"Word Image 創建不成功");
+    
     /*
     if (tt) {
         tt.tag = 2;
@@ -191,6 +206,16 @@
     {
         NSLog(@"Word Image 創建不成功");
     }*/
+}
+-(void) checkMusicPlay:(ccTime)dt{
+    NSLog(@"music is play %d",soundMgr.musicPlayer.isPlaying);
+    if (soundMgr.musicPlayer && soundMgr.musicPlayer.isPlaying) {
+        [MusicButton startCircle];
+    }
+    else if (soundMgr.musicPlayer && !soundMgr.musicPlayer.isPlaying){
+        [MusicButton stopCircle];
+        [self unschedule:@selector(checkMusicPlay:)];
+    }
 }
 -(void) removeWordImage
 {

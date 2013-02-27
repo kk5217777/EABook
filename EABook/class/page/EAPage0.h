@@ -22,6 +22,8 @@
     CGRect temp;
     int selectedMoveSprite;
     BOOL eggEnable;
+    
+    NSString *soundFile;
 }
 +(CCScene *) scene;
 @end

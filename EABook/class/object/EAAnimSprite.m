@@ -10,7 +10,7 @@
 
 
 @implementation EAAnimSprite
-@synthesize imageName, soundName, wordimageName, wordsoundName;
+@synthesize imageName, soundName, wordimageName, wordsoundName,wordMusicName;
 @synthesize imgNum, repeatTime;
 @synthesize delayTime;
 

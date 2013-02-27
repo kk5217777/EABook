@@ -30,6 +30,8 @@
     ShowImg *imageShow;
     NSMutableArray *tapArray;
     FileOps *fileMgr;
+    
+    CCSprite *redBox;
 }
 +(CCScene *) scene;
 @end

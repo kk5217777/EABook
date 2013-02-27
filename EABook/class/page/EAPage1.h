@@ -21,6 +21,7 @@
     EAAnimSprite *Train;
     CGRect temp;
     BOOL eggEnable;
+    NSString *soundFile;
 }
 +(CCScene *) scene;
 @end

@@ -9,7 +9,7 @@
 #import "SoundManager.h"
 
 @implementation SoundManager
-
+@synthesize musicPlayer;
 -(id) init
 {
     if (self = [super init]) {
@@ -41,6 +41,19 @@
             NSLog(@"sound play");
             audioPlayer.numberOfLoops = 0;
             [audioPlayer play];
+        }
+    }
+}
+//播放兒歌音樂
+-(void) playMusicFile:(NSString*) soundName
+{
+    if ([delegate.BookSoundState getEffectState]) {
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
+        musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        if (musicPlayer && !musicPlayer.isPlaying) {
+            NSLog(@"sound play");
+            musicPlayer.numberOfLoops = 0;
+            [musicPlayer play];
         }
     }
 }
@@ -107,6 +120,9 @@
     if(timePlayer && [timePlayer isPlaying])
     {
         [timePlayer stop];
+    }
+    if (musicPlayer && musicPlayer.isPlaying) {
+        [musicPlayer stop];
     }
 }
 

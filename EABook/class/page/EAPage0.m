@@ -174,6 +174,7 @@
     ThreeCar.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     ThreeCar.wordimageName = [NSString stringWithFormat:@"%@_en&ch.jpg",tempName];
     ThreeCar.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    ThreeCar.wordMusicName = [NSString stringWithFormat:@"%@_music.mp3",tempName];
     ThreeCar.tag = 4;
     ThreeCar.imgNum = 2;
     ThreeCar.delayTime = 0.5f;
@@ -301,15 +302,22 @@
                     break;
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
+                    soundFile = NULL;
                     [self removeWordImage];
                     [self switchInteractionElse:NULL data:TAP];
+                    break;
+                case 20:
+                    [soundMgr stopSound];
+                    NSLog(@"%@",soundFile);
+                    [soundMgr playMusicFile:soundFile];
                     break;
                 case 6: //蛋tap消失
                 case 3:
                 case 4:
                 case 5:
-                    [self addWordImage:tempObject.wordimageName];
+                    [self addWordImage:tempObject.wordimageName :tempObject.wordMusicName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    soundFile = tempObject.wordMusicName;
                     break;
                 default:
                     break;

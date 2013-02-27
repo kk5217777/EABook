@@ -101,6 +101,8 @@
     tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
     tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    tempObject.wordMusicName = [NSString stringWithFormat:@"%@_music.mp3",tempName];
+    
     tempObject.tag = 3;
     tempObject.imgNum = 7;
     tempObject.delayTime = 0.3f;
@@ -252,14 +254,20 @@
                     break;
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
+                    soundFile=NULL;
                     [self removeWordImage];
                     [self switchInteractionElse:NULL data:TAP];
+                    break;
+                case 20:
+                    [soundMgr stopSound];
+                    [soundMgr playMusicFile:soundFile];
                     break;
                 case 3:
                 case 4:
                 case 5:
-                    [self addWordImage:tempObject.wordimageName];
+                    [self addWordImage:tempObject.wordimageName :tempObject.wordMusicName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    soundFile=tempObject.wordMusicName;
                     break;
                 default:
                     break;

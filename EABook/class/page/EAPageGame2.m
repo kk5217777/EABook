@@ -38,6 +38,9 @@
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
+        redBox = [[CCSprite alloc]initWithFile:@"P0-1_game-drawcolor_filesdetail_ex.png"];
+        redBox.position=ccp(225, 490);
+        
         [self addChild:soundMgr];
         [self addObjects];
     }
@@ -198,6 +201,19 @@
                     [soundMgr playSoundFile:@"push.mp3"];
                     fileMgr = [[[FileOps alloc] init] autorelease];
                     [fileMgr saveSpriteToPNG:(CCSprite*)[self getChildByTag:50]];
+                    
+                    gallery = [[[DrawGallery alloc] init] autorelease];
+                    gallery.zOrder = 3;
+                    
+                    //讀取檔案列表加入遊覽
+                    fileMgr = [[[FileOps alloc] init] autorelease];
+                    [gallery addObject:[fileMgr getDirList]];
+                    tapObjectArray = gallery.tapArray;
+                    
+                    [self addChild:gallery];
+                    redBox.zOrder = 4;
+                    [self addChild:redBox];
+
                     break;
                 case 6: //橡皮擦
                     //[soundMgr playSoundFile:@"push.mp3"];
@@ -226,6 +242,7 @@
                     drawAble = YES;
                     [self removeChild:gallery cleanup:YES];
                     tapObjectArray = tapArray;
+                    [self removeChild:redBox cleanup:YES];
                     break;
                 case 17: //showImage 返回
                     [soundMgr playSoundFile:@"push.mp3"];
@@ -234,6 +251,7 @@
                     break;
                 case 18: //showImage 刪除圖片
                     [soundMgr playSoundFile:@"push.mp3"];
+                    [self removeChild:redBox cleanup:YES];
                     fileMgr = [[[FileOps alloc] init] autorelease];
                     [fileMgr deleteImage:gallery.selectedImageName];
                     [self removeChild:imageShow cleanup:YES];

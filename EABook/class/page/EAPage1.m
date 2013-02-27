@@ -138,6 +138,7 @@
     Train.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     Train.wordimageName = [NSString stringWithFormat:@"P2_train_en&ch.jpg"];
     Train.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    Train.wordMusicName = [NSString stringWithFormat:@"%@_music.mp3",tempName];
     Train.tag = 5;
     Train.imgNum = 4;
     //DustCar.repeatTime = 1;
@@ -209,15 +210,21 @@
                     break;
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
+                    soundFile = NULL;
                     [self removeWordImage];
                     [self switchInteractionElse:NULL data:TAP];
+                    break;
+                case 20:
+                    [soundMgr stopSound];
+                    [soundMgr playMusicFile:soundFile];
                     break;
                 case 6: //蛋tap消失
                 case 3:
                 case 4:
                 case 5:
-                    [self addWordImage:tempObject.wordimageName];
+                    [self addWordImage:tempObject.wordimageName:tempObject.wordMusicName];
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    soundFile = tempObject.wordMusicName;
                     break;
                 default:
                     break;

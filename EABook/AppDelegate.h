@@ -26,5 +26,4 @@
 @property (readonly) CCDirectorIOS *director;
 @property (nonatomic, retain) GamePoint *EAGamePoint;
 @property (nonatomic, retain) SoundState *BookSoundState;
-
 @end
