@@ -261,6 +261,7 @@
                 case 20:
                     [soundMgr stopSound];
                     [soundMgr playMusicFile:soundFile];
+                    [self schedule:@selector(checkMusicPlay:) interval:0.5];
                     break;
                 case 3:
                 case 4:
@@ -274,6 +275,18 @@
             }
             break;
         }
+    }
+}
+
+#pragma mark 播放兒歌時的轉圈圖案
+-(void) checkMusicPlay:(ccTime)dt{
+    NSLog(@"music is play %d",soundMgr.musicPlayer.isPlaying);
+    if (soundMgr.musicPlayer && soundMgr.musicPlayer.isPlaying) {
+        [MusicButton startCircle];
+    }
+    else if (soundMgr.musicPlayer && !soundMgr.musicPlayer.isPlaying){
+        [MusicButton stopCircle];
+        [self unschedule:@selector(checkMusicPlay:)];
     }
 }
 

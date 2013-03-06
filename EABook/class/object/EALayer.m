@@ -191,7 +191,7 @@
             NSLog(@"%@",MusicButton.description);
             [tapObjectArray addObject:MusicButton];
             
-            [self schedule:@selector(checkMusicPlay:) interval:0.5];
+            //[self schedule:@selector(checkMusicPlay:) interval:0.5];
         }
     }    else
         NSLog(@"Word Image 創建不成功");
@@ -207,6 +207,7 @@
         NSLog(@"Word Image 創建不成功");
     }*/
 }
+/*
 -(void) checkMusicPlay:(ccTime)dt{
     NSLog(@"music is play %d",soundMgr.musicPlayer.isPlaying);
     if (soundMgr.musicPlayer && soundMgr.musicPlayer.isPlaying) {
@@ -216,7 +217,7 @@
         [MusicButton stopCircle];
         [self unschedule:@selector(checkMusicPlay:)];
     }
-}
+}*/
 -(void) removeWordImage
 {
     if (WordImageNode != NULL)
