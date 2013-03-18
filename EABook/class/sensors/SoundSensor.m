@@ -76,11 +76,11 @@
     if (differ > LIMIT_DIFFER) {
         NSLog(@"soundEventSend");
         if (_enable) {
-            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(closeInteractionElse)]];
-            _enable = !_enable;
+            //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(closeInteractionElse)]];
+            //_enable = !_enable;
             NSLog(@"sound animation start");
             for (sprite in _moveObjects) {
-                [sprite startLoopAnimation];
+                [sprite startLoopAnimation:2];
                 if (sprite.soundName && sManage) {
                     [sManage playSoundFile:sprite.soundName];
                 }

@@ -36,7 +36,7 @@
 - (id)initWithName:(NSString*)name;
 
 -(void) startAnimation;
--(void) startLoopAnimation;
+-(void) startLoopAnimation :(int)times;
 
 -(void) firstFram;
 

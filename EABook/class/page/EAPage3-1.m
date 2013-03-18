@@ -216,7 +216,7 @@
                     [self switchInteractionElse:self data:PAN];
                     //[self panSpriteMovement:touchLocation];
                     
-                    [tempObject startLoopAnimation];
+                    [tempObject startLoopAnimation:4];
                     if (tempObject.soundName) {
                         [soundMgr playLoopSound:tempObject.soundName];
                     }

@@ -296,7 +296,6 @@
         }
     }
 }
--(void)handlePan:(UIPanGestureRecognizer *)recognizer{};
 -(void) dealloc {
     [super dealloc];
     

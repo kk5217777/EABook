@@ -20,7 +20,7 @@
             if (sprite) {
                 if (animAble) {
                     [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-                    [sprite startLoopAnimation];
+                    [sprite startLoopAnimation:2];
                     animAble = !animAble;
                     if (sprite.soundName && sManage) {
                         [sManage playLoopSound:sprite.soundName];

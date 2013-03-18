@@ -247,7 +247,7 @@
                     selectedMoveSprite = tempObject.tag;
                     [self switchInteractionElse:self data:PAN];
                     
-                    [tempObject startLoopAnimation];
+                    [tempObject startLoopAnimation:4];
                     if (tempObject.soundName) {
                         [soundMgr playLoopSound:tempObject.soundName];
                     }

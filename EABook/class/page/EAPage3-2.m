@@ -60,7 +60,7 @@
         soundDetect = [[SoundSensor alloc] init];
         soundDetect.sManage = soundMgr;
         [self addChild:soundDetect];
-        
+        [self schedule:@selector(soundUpdate:) interval:1];
         //重力
         //motionDetect = [[MotionSensor alloc] init];
         //motionDetect.sManage = soundMgr;
@@ -157,7 +157,7 @@
     //soundDetect.sprite = (EAAnimSprite*)[self getChildByTag:3];
 }
 
--(void) draw
+-(void) soundUpdate:(ccTime)dt
 {
     if (_soundEnable) {
         [soundDetect update];
@@ -195,7 +195,7 @@
                     [self switchInteractionElse:self data:PAN];
                     //[self panSpriteMovement:touchLocation];
                     
-                    [tempObject startLoopAnimation];
+                    [tempObject startLoopAnimation:4];
                     if (tempObject.soundName) {
                         [soundMgr playLoopSound:tempObject.soundName];
                     }
